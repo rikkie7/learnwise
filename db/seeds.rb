@@ -1,9 +1,9 @@
-puts "Destroying all sessions"
-Session.destroy_all
-puts "Destroying all courses"
-Course.destroy_all
 puts "Destroying all users"
 User.destroy_all
+puts "Destroying all courses"
+Course.destroy_all
+puts "Destroying all sessions"
+Session.destroy_all
 
 puts "Creating users ..."
 user1 = User.create!(first_name: "John", last_name: "Doe", email: "user1@gmail.com", password: "password", username: "John")
@@ -15,6 +15,7 @@ puts "#{User.last.username} created!"
 
 puts "Creating courses ..."
 
+
 Course.create!(title: "Ruby on Rails", description: "Learn Ruby on Rails", category: "technology", size: "group", price: 100, user: user1, location: "Bennelong Point, Sydney NSW 2000")
 puts "#{Course.last.title} created!"
 Course.create!(title: "React", description: "Learn React", category: "technology", size: "group", price: 200, user: user2, location: "Corner Swanston Street & Flinders Street, Melbourne VIC 3000")
@@ -25,8 +26,11 @@ Course.create!(title: "Cooking", description: "Learn Cooking", category: "cookin
 
 puts "#{Course.last.title} created!"
 
-
-
-puts "Creating Sessions ..."
-Session.create!(title: "Cooking 101", description: "Learn the basics of Cooking", start_time: DateTime.new(2021, 9, 1, 9, 0, 0), end_time: DateTime.new(2021, 9, 1, 10, 0, 0), course: course1)
-puts "#{Session.last.title} created!"
+puts "Creating sessions ..."
+Session.create!(
+  title: "Class 01",
+  description: "First class of Learn Ruby on Rails Course",
+  start_time: DateTime.new(2024, 10, 1, 18, 0, 0),
+  end_time: DateTime.new(2024, 8, 10, 21, 0, 0),
+  course: Course.first
+)
