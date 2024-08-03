@@ -10,4 +10,7 @@ class Course < ApplicationRecord
   validates :category, presence: true, inclusion: { in: %w[Technology Education Cooking Gardening Sports Others] }
   validates :size, presence: true, inclusion: { in: %w[Group Private] }
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
 end

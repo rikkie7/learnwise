@@ -1,0 +1,20 @@
+<div class="container">
+  <p>Course name: <%= @booking.course.title %></p>
+  <p>Price: <%= @booking.course.price %></p>
+  <p>Teacher: <%= @booking.course. %></p>
+  <p>Course description: <%= @booking.description %></p>
+  <p>Category: <%= @booking.category %></p>
+  <p>Size: <%= @booking.size %></p>
+  <p>Session's details:
+    <% @booking.coures.sessions.each do |session| %>
+      <div>
+        <p>Session start_time: <%= session.start_time %></p>
+        <p>Session end_time: <%= session.end_time %></p>
+      </div>
+    <% end %>
+  </p>
+
+  <div>
+
+  </div>
+</div>
