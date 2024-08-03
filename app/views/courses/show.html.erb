@@ -1,0 +1,8 @@
+<div>
+  <%= @course.title %>
+</div>
+
+<% if @course.user == current_user %>
+  <%= link_to "Delete", course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to "Edit", edit_course_path(@course)%>
+<% end %>

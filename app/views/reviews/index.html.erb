@@ -1,0 +1,26 @@
+<h1>Reviews</h1>
+
+<%= link_to 'New Review', new_course_review_path(@course), class: 'btn btn-primary' %>
+
+<table class="table table-striped mt-4">
+  <thead class="thead-dark">
+    <tr>
+      <th>Content</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.content %></td>
+        <td><%= review.rating %></td>
+        <td>
+          <%= link_to 'Show', course_review_path(@course, review), class: 'btn btn-secondary btn-sm' %>
+          <%= link_to 'Edit', edit_course_review_path(@course, review), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Delete', course_review_path(@course, review), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

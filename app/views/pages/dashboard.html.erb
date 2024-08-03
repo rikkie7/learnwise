@@ -1,0 +1,24 @@
+Welcome <%= @user.username %> ! <%=link_to "View all courses", courses_category_path%>
+<br>
+
+<% if @courses.empty? %>
+  No courses created <br>
+  <% else %>
+  My Courses: <br>
+  <% @courses.each do |course| %>
+    Title: <%= course.title %> <br>
+  <% end %>
+<% end %>
+
+<%= link_to "Add a course", new_course_path%>
+<div>
+  <% if @bookings.empty? %>
+    No courses enrolled <br>
+  <% else %>
+    Enrolled courses: <br>
+    <% @bookings.each do |booking| %>
+      Title: <%= booking.course.title %> <br>
+      Description: <%= booking.course.description %> <br>
+    <% end %>
+  <% end %>
+</div>

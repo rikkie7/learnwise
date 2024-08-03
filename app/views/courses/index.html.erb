@@ -1,0 +1,8 @@
+<div class="container">
+  <% @courses.each do |course| %>
+    <div class="d-flex">
+      <%= course.title%>
+      <%= link_to "details", course_path(course)%>
+    </div>
+  <% end %>
+</div>

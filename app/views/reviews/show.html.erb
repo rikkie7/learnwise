@@ -1,0 +1,24 @@
+<h1>Review</h1>
+
+<p>
+  <strong>Content:</strong>
+  <%= @review.content %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @review.rating %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @review.user.username %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @review.course.title %>
+</p>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
