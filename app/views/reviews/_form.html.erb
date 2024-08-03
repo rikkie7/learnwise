@@ -1,4 +1,4 @@
-<%= form_with(model: review, local: true) do |form| %>
+<%= form_with(model: [review.course, review], local: true) do |form| %>
   <% if review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -18,12 +18,8 @@
 
   <div class="field">
     <%= form.label :rating %>
-    <%= form.number_field :rating, in: 1..5 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :course %>
-    <%= form.collection_select :course_id, Course.all, :id, :title %>
+    <%= form.select :rating, options_for_select((1..5).map { |i| [i, i] }), {}, { class: 'form-control' } %>
+    <!-- Use a dropdown to limit selection to 1-5 -->
   </div>
 
   <div class="actions">

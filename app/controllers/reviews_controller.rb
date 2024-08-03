@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_course
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @reviews = @course.reviews
@@ -11,15 +10,13 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = @course.reviews.build
+    @review = @course.reviews.new
   end
 
   def create
-    @review = @course.reviews.build(review_params)
-    @review.user = current_user
-
+    @review = @course.reviews.new(review_params)
     if @review.save
-      redirect_to course_review_path(@course, @review), notice: 'Review was successfully created.'
+      redirect_to course_reviews_path(@course), notice: 'Review was successfully created.'
     else
       render :new
     end

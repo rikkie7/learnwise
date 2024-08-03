@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :courses do
     resources :sessions
-    resources :reviews
+    resources :reviews, only: [:index, :show, :new, :create, :destroy]
     resources :bookings
   end
 
