@@ -12,11 +12,11 @@ user3 = User.create!(first_name: "Yannan", last_name: "Sun", email: "user3@gmail
 puts "#{User.last.username} created!"
 
 puts "Creating courses ..."
-Course.create!(title: "Ruby on Rails", description: "Learn Ruby on Rails", category: "Technology", size: "Group", price: 100, user: user1)
+Course.create!(title: "Ruby on Rails", description: "Learn Ruby on Rails", category: "technology", size: "group", price: 100, user: user1)
 puts "#{Course.last.title} created!"
-Course.create!(title: "React", description: "Learn React", category: "Technology", size: "Group", price: 200, user: user2)
+Course.create!(title: "React", description: "Learn React", category: "technology", size: "group", price: 200, user: user2)
 puts "#{Course.last.title} created!"
-Course.create!(title: "Yoga", description: "Learn Yoga", category: "Sports", size: "Private", price: 50, user: user1)
+Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", size: "private", price: 50, user: user1)
 puts "#{Course.last.title} created!"
-Course.create!(title: "Cooking", description: "Learn Cooking", category: "Cooking", size: "Group", price: 150, user: user3)
+Course.create!(title: "Cooking", description: "Learn Cooking", category: "cooking", size: "group", price: 150, user: user3)
 puts "#{Course.last.title} created!"
