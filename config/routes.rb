@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :courses, except: [:index] do
     resources :sessions
-    resources :reviews
+    resources :reviews, only: [:index, :show, :new, :create, :destroy]
     resources :bookings
   end
   get 'dashboard', to: 'pages#dashboard'
