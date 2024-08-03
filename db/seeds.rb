@@ -1,7 +1,9 @@
-puts "Destroying all users"
-User.destroy_all
+puts "Destroying all sessions"
+Session.destroy_all
 puts "Destroying all courses"
 Course.destroy_all
+puts "Destroying all users"
+User.destroy_all
 
 puts "Creating users ..."
 user1 = User.create!(first_name: "John", last_name: "Doe", email: "user1@gmail.com", password: "password", username: "John")
@@ -20,3 +22,9 @@ Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", siz
 puts "#{Course.last.title} created!"
 Course.create!(title: "Cooking", description: "Learn Cooking", category: "cooking", size: "group", price: 150, user: user3)
 puts "#{Course.last.title} created!"
+
+
+
+puts "Creating Sessions ..."
+Session.create!(title: "Cooking 101", description: "Learn the basics of Cooking", start_time: DateTime.new(2021, 9, 1, 9, 0, 0), end_time: DateTime.new(2021, 9, 1, 10, 0, 0), course: course1)
+puts "#{Session.last.title} created!"
