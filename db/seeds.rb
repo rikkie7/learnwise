@@ -14,13 +14,15 @@ user3 = User.create!(first_name: "Yannan", last_name: "Sun", email: "user3@gmail
 puts "#{User.last.username} created!"
 
 puts "Creating courses ..."
-Course.create!(title: "Ruby on Rails", description: "Learn Ruby on Rails", category: "technology", size: "group", price: 100, user: user1)
+
+Course.create!(title: "Ruby on Rails", description: "Learn Ruby on Rails", category: "technology", size: "group", price: 100, user: user1, location: "Bennelong Point, Sydney NSW 2000")
 puts "#{Course.last.title} created!"
-Course.create!(title: "React", description: "Learn React", category: "technology", size: "group", price: 200, user: user2)
+Course.create!(title: "React", description: "Learn React", category: "technology", size: "group", price: 200, user: user2, location: "Corner Swanston Street & Flinders Street, Melbourne VIC 3000")
 puts "#{Course.last.title} created!"
-Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", size: "private", price: 50, user: user1)
+Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", size: "private", price: 50, user: user1, location: "Clem Jones Promenade, South Brisbane QLD 4101")
 puts "#{Course.last.title} created!"
-Course.create!(title: "Cooking", description: "Learn Cooking", category: "cooking", size: "group", price: 150, user: user3)
+Course.create!(title: "Cooking", description: "Learn Cooking", category: "cooking", size: "group", price: 150, user: user3, location: "Fraser Avenue, Perth WA 6005")
+
 puts "#{Course.last.title} created!"
 
 
