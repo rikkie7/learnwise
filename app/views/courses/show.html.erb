@@ -1,0 +1,6 @@
+<div>
+  <%= @course.title %>
+</div>
+
+
+<%= link_to "Delete", course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
