@@ -1,9 +1,22 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+puts "Destroying all users"
+User.destroy_all
+puts "Destroying all courses"
+Course.destroy_all
+
+puts "Creating users ..."
+user1 = User.create!(first_name: "John", last_name: "Doe", email: "user1@gmail.com", password: "password", username: "John")
+puts "#{User.last.username} created!"
+user2 = User.create!(first_name: "Jane", last_name: "Doe", email: "user2@gmail.com", password: "password", username: "Jane")
+puts "#{User.last.username} created!"
+user3 = User.create!(first_name: "Yannan", last_name: "Sun", email: "user3@gmail.com", password: "password", username: "Yannan")
+puts "#{User.last.username} created!"
+
+puts "Creating courses ..."
+Course.create!(title: "Ruby on Rails", description: "Learn Ruby on Rails", category: "Technology", size: "Group", price: 100, user: user1)
+puts "#{Course.last.title} created!"
+Course.create!(title: "React", description: "Learn React", category: "Technology", size: "Group", price: 200, user: user2)
+puts "#{Course.last.title} created!"
+Course.create!(title: "Yoga", description: "Learn Yoga", category: "Sports", size: "Private", price: 50, user: user1)
+puts "#{Course.last.title} created!"
+Course.create!(title: "Cooking", description: "Learn Cooking", category: "Cooking", size: "Group", price: 150, user: user3)
+puts "#{Course.last.title} created!"

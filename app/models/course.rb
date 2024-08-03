@@ -7,7 +7,7 @@ class Course < ApplicationRecord
   validates :price, presence: true
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true, inclusion: { in: %w(Technology, Education, Cooking, Gardening, Sports, Others) }
-  validates :type, presence: true, inclusion: { in: %w(Group, Private) }
+  validates :category, presence: true, inclusion: { in: %w[Technology Education Cooking Gardening Sports Others] }
+  validates :size, presence: true, inclusion: { in: %w[Group Private] }
 
 end
