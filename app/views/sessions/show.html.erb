@@ -1,0 +1,14 @@
+
+<% @sessions.each do |session| %>
+  Class Title: <%= session.title %> <br>
+  Description: <%= session.description %> <br>
+  Date: <%= format_day(session.date) %> <%= day_of_week(session.date) %> <br>
+  From: <%= format_hour(session.start_time) %> to <%= format_hour(session.end_time) %> <br>
+
+  <%= link_to "Delete this class", course_session_path(session.course, session), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %> <br>
+  <%= link_to "Edit the information for this class", edit_course_session_path(session.course, session) %>
+  <br>
+<% end %>
+<br>
+
+<%= link_to "Add new a new class to this course", new_course_session_path %>
