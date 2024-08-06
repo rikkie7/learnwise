@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   resources :courses, except: [:index] do
     resources :sessions
     resources :reviews, only: [:index, :show, :new, :create, :destroy]
-    resources :bookings
+    resources :bookings, except: [:destroy]
   end
 
   get 'dashboard', to: 'pages#dashboard'
+
+  # delete 'bookings/:id', to: 'bookings#destroy', as: 'cancel_booking'
+  resources :bookings, only: [:destroy]
+
 end

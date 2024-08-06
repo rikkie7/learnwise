@@ -12,6 +12,9 @@ Welcome <%= @user.username %> ! <%=link_to "View all courses", courses_category_
 
 <%= link_to "Add a course", new_course_path%>
 <div>
+
+
+
   <% if @bookings.empty? %>
     No courses enrolled <br>
   <% else %>
@@ -19,6 +22,7 @@ Welcome <%= @user.username %> ! <%=link_to "View all courses", courses_category_
     <% @bookings.each do |booking| %>
       Title: <%= booking.course.title %> <br>
       Description: <%= booking.course.description %> <br>
+      details: <%= link_to "More details", course_booking_path(booking.course, booking)  %> <br>
     <% end %>
   <% end %>
 </div>
