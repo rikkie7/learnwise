@@ -1,10 +1,14 @@
 <div>
-  <%= @course.title %>
+  Title: <%= @course.title %> <br>
+  Description: <%= @course.description %> <br>
+  Price: $<%= @course.price %>
+
 </div>
 
 <% if @course.user == current_user %>
   <%= link_to "Delete", course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <%= link_to "Edit", edit_course_path(@course)%>
+  <%= link_to "See the classes for this course", course_session_path(@course) %>
 <% end %>
 
 <button><%= link_to "booking", new_course_booking_path(@course) %></button>
