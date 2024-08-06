@@ -1,6 +1,14 @@
 .category {
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
-  border: 0px;
-  text-decoration: none;
+
+  a {
+    text-decoration: none;
+    color: black;
+    opacity: 0.6;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
 }
