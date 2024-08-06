@@ -1,14 +1,14 @@
-<div>
-  Title: <%= @course.title %> <br>
-  Description: <%= @course.description %> <br>
-  Price: $<%= @course.price %>
+<div class="container">
+  Name: <%= @course.title %> <br>
+  Description: <%= @course.description%> <br>
+  Price: $<%= @course.price%> <br>
+  Type: <%= @course.size%> class <br>
+  Location: <%= @course.location %> <br>
 
-</div>
-
-<% if @course.user == current_user %>
-  <%= link_to "Delete", course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%= link_to "Edit", edit_course_path(@course)%>
+  <% if @course.user == current_user %>
+    <%= link_to "Delete", course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <%= link_to "Edit", edit_course_path(@course)%>
+  <% end %>
   <%= link_to "See the classes for this course", course_session_path(@course) %>
-<% end %>
-
-<button><%= link_to "booking", new_course_booking_path(@course) %></button>
+  <button><%= link_to "booking", new_course_booking_path(@course) %></button>
+</div>

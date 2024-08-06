@@ -1,8 +1,15 @@
 <div class="container">
   <% @courses.each do |course| %>
-    <div class="d-flex">
-      <%= course.title%>
-      <%= link_to "details", course_path(course)%>
+    <div class="d-flex justify-content-between mb-3 border rounded-end rounded-start p-3 course-card">
+      <div>
+        Course: <%= course.title%> <br>
+        Description: <%= course.description%> <br>
+        Price: $<%= course.price %>
+      </div>
+      <div class="align-self-end">
+        Type: <%= course.size%> class
+      </div>
+      <%= link_to "more details", course_path(course), class: "align-self-end"%>
     </div>
   <% end %>
 </div>
