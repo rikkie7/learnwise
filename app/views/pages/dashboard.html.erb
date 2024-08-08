@@ -1,28 +1,43 @@
-Welcome <%= @user.username %> ! <%=link_to "View all courses", courses_category_path%>
-<br>
-
-<% if @courses.empty? %>
-  No courses created <br>
-  <% else %>
-  My Courses: <br>
-  <% @courses.each do |course| %>
-    Title: <%= course.title %> <br>
-  <% end %>
-<% end %>
-
-<%= link_to "Add a course", new_course_path%>
 <div>
-
-
-
+  <%# Student space %>
   <% if @bookings.empty? %>
-    No courses enrolled <br>
+    You are not enrolled in any courses
   <% else %>
-    Enrolled courses: <br>
-    <% @bookings.each do |booking| %>
-      Title: <%= booking.course.title %> <br>
-      Description: <%= booking.course.description %> <br>
-      details: <%= link_to "More details", course_booking_path(booking.course, booking)  %> <br>
-    <% end %>
+    <h1 class="student-space" > Student Space </h1>
+    <div class="card-container">
+      <% @bookings.each do |booking| %>
+        <div class="card">
+          <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
+            <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.course.title %></h5>
+              <p class="card-text">Price: $ <%= booking.course.price %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <%# Teacher's lounge %>
+  <% if @courses.empty? %>
+    No courses created
+  <% else %>
+    <h1 class="teachers-lounge" > Teacher's Lounge
+      <%= link_to new_course_path do %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
+    </h1>
+    <div class="card-container">
+      <% @courses.each do |course| %>
+        <div class="card">
+          <%= link_to course_path(course), class: "card-link" do %>
+            <%= image_tag course.image_url, class: "card-img-top", alt: course.title %>
+            <div class="card-body">
+              <h5 class="card-title"><%= course.title %></h5>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
