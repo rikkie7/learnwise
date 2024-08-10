@@ -1,0 +1,6 @@
+# Calendar - translation keys
+de:
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+    week: Woche
