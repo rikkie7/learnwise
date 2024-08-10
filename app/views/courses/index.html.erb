@@ -1,15 +1,42 @@
-<div class="container">
-  <% @courses.each do |course| %>
-    <div class="d-flex justify-content-between mb-3 border rounded-end rounded-start p-3 course-card">
-      <div>
-        Course: <%= course.title%> <br>
-        Description: <%= course.description%> <br>
-        Price: $<%= course.price %>
-      </div>
-      <div class="align-self-end">
-        Type: <%= course.size%> class
-      </div>
-      <%= link_to "more details", course_path(course), class: "align-self-end"%>
+<div class="category-pic" style="background-image: url('<%= image_path("#{params[:category]}.jpeg") %>');">
+  <%= params[:category].capitalize %>
+</div>
+
+<div class="container my-3">
+  <div class="row justify-content-center">
+  <div class="col-sm-6 my-3">
+    <%= form_with url: courses_category_index_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: " 🔍 Search for course name or location"
+        %>
+      <%= submit_tag "Search", name: "", class: "d-none" %>
+    <% end %>
+  </div>
+</div>
+  <% if @courses.any? %>
+    <% @courses.each do |course| %>
+      <div class="d-flex mb-3 border rounded-end rounded-start p-3 course-card">
+        <div class="course-image me-3">
+          <%= image_tag course.image_url%>
+        </div>
+        <div class="d-flex justify-content-between flex-grow w-100">
+          <div>
+          Course: <%= course.title%> <br>
+          Description: <%= course.description%> <br>
+          Price: $<%= course.price %>
+          </div>
+          <div class="align-self-end">
+            Type: <%= course.size%> class
+          </div>
+            <%= link_to "more details", course_path(course), class: "align-self-end"%>
+          </div>
+        </div>
+    <% end %>
+  <% else %>
+    <div class="text-center my-5">
+      Sorry, no courses found.
     </div>
   <% end %>
 </div>

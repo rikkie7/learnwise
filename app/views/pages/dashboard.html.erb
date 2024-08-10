@@ -1,28 +1,100 @@
-Welcome <%= @user.username %> ! <%=link_to "View all courses", courses_category_path%>
-<br>
-
-<% if @courses.empty? %>
-  No courses created <br>
-  <% else %>
-  My Courses: <br>
-  <% @courses.each do |course| %>
-    Title: <%= course.title %> <br>
-  <% end %>
-<% end %>
-
-<%= link_to "Add a course", new_course_path%>
 <div>
+  <%# IF both @courses and @bookings are empty %>
+  <% if @courses.empty? && @bookings.empty? %>
+    <div class="choice-section">
+      <h1>What would you like to do?</h1>
+      <div class="choice-buttons">
+        <%= link_to "Find Courses", courses_category_path, class: "btn btn-primary" %>
+        <%= link_to "Become a Teacher", new_course_path, class: "btn btn-secondary become-teacher-button" %>
+      </div>
+    </div>
 
+  <%# If there are bookings but you dont teach any courses %>
+  <% elsif @courses.empty? && @bookings.any? %>
+    <h1 class="student-space">Student Space</h1>
+    <div class="card-container">
+      <% @bookings.each do |booking| %>
+        <div class="card">
+          <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
+            <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.course.title %></h5>
+            </div>
+          <% end %>
+          <% if booking.course.end_date <= Date.today %>
+            <%= link_to 'Add a Review', new_course_review_path(booking.course), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
-
-  <% if @bookings.empty? %>
-    No courses enrolled <br>
+  <%# If there are courses but no bookings %>
+  <% elsif @bookings.empty? && @courses.any? %>
+    <%= link_to "Wanna upskill?", courses_category_path, class: "not-enrolled-message" %>
+  <%# If there are both bookings and courses %>
   <% else %>
-    Enrolled courses: <br>
-    <% @bookings.each do |booking| %>
-      Title: <%= booking.course.title %> <br>
-      Description: <%= booking.course.description %> <br>
-      details: <%= link_to "More details", course_booking_path(booking.course, booking)  %> <br>
+    <h1 class="student-space">Student Space</h1>
+    <% ongoing_bookings = @bookings.select { |booking| booking.course.end_date > Date.today } %>
+    <% completed_bookings = @bookings.select { |booking| booking.course.end_date <= Date.today } %>
+
+    <% if ongoing_bookings.any? && completed_bookings.any? %>
+      <%= form_with url: dashboard_path, method: :get, local: true, class: 'filter-form' do %>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-lg-6 mx-auto">
+              <div class="form-group">
+                <%= select_tag :status, options_for_select([
+                  ['All', ''],
+                  ['Completed', 'finished'],
+                  ['Incomplete', 'not_finished']
+                ], params[:status]), class: 'form-control' %>
+              </div>
+              <%= submit_tag 'Filter', class: 'filter-button btn btn-primary btn-block' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
+
+    <div class="card-container">
+      <% @bookings.each do |booking| %>
+        <div class="card">
+          <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
+            <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.course.title %></h5>
+            </div>
+          <% end %>
+          <% if booking.course.end_date <= Date.today %>
+            <%= link_to 'Add a Review', new_course_review_path(booking.course), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  <% end %>
+
+  <%# Teacher's lounge %>
+  <% unless @courses.empty? %>
+    <h1 class="teachers-lounge">Teacher's Lounge</h1>
+    <div class="card-container">
+      <% @courses.each do |course| %>
+        <div class="card">
+          <%= link_to course_path(course), class: "card-link" do %>
+            <%= image_tag course.image_url, class: "card-img-top", alt: course.title %>
+            <div class="card-body">
+              <h5 class="card-title"><%= course.title %></h5>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="card">
+        <%= link_to new_course_path, class: "card-link" do %>
+          <div class="card-body text-center add-new-course">
+            <i class="fa-solid fa-plus fa-2x"></i>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
