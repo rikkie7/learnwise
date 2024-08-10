@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :photo
   # Reviews Associations
   has_many :reviews
 
