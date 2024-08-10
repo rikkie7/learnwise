@@ -1,3 +1,4 @@
+
 # puts "Destroying all sessions"
 # Session.destroy_all
 # Booking.destroy_all
@@ -22,9 +23,9 @@ puts "#{User.last.username} created!"
 puts "Creating courses ..."
 
 
-Course.create!(title: "Ruby on Rails", description: "Learn Ruby on Rails", category: "technology", size: "group", price: 100, image_url: "https://community.theforeman.org/uploads/default/optimized/2X/8/83d09280c8809460222474ef8f7dbc94ee39abc9_2_690x362.png", user: user1, start_date: "2024-08-01", end_date: "2024-12-01", location: "Bennelong Point, Sydney NSW 2000")
+Course.create!(title: "The Complete Ruby on Rails Developer Course", description: "Learn to make innovative web apps with Ruby on Rails and unleash your creativity", category: "technology", size: "group", price: 100, image_url: "https://community.theforeman.org/uploads/default/optimized/2X/8/83d09280c8809460222474ef8f7dbc94ee39abc9_2_690x362.png", user: user1, start_date: "2024-08-01", end_date: "2024-12-01", location: "Bennelong Point, Sydney NSW 2000")
 puts "#{Course.last.title} created!"
-Course.create!(title: "React", description: "Learn React", category: "technology", size: "group", price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-08-01", end_date: "2024-12-01", location: "Corner Swanston Street & Flinders Street, Melbourne VIC 3000")
+Course.create!(title: "React - The Complete Guide 2024 (incl. Next.js, Redux)", description: "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!", category: "technology", size: "group", price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-08-01", end_date: "2024-12-01", location: "Corner Swanston Street & Flinders Street, Melbourne VIC 3000")
 puts "#{Course.last.title} created!"
 Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user1, start_date: "2024-08-01", end_date: "2024-12-01", location: "Clem Jones Promenade, South Brisbane QLD 4101")
 puts "#{Course.last.title} created!"

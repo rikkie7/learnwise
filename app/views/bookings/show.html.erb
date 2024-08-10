@@ -2,24 +2,8 @@
 <%#= render "shared/course_info" %>
 
 <div class="container">
-  <p>Course name: <%= @course.title %></p>
-  <p>Price: <%= @course.price %></p>
-  <p>Teacher: <%= @course.user.username %></p>
-  <p>Course description: <%= @course.description %></p>
-  <p>Category: <%= @course.category %></p>
-  <p>Size: <%= @course.size %></p>
-  <p>Session's details:
-    <% @course.sessions.each do |session| %>
-      <div>
-        <p>Session start_time: <%= session.start_time %></p>
-        <p>Session end_time: <%= session.end_time %></p>
-      </div>
-    <% end %>
-  </p>
 
-  <div style="width: 100%; height: 350px;"
-    data-controller="map"
-    data-map-marker-value="<%= @marker.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <%= render "shared/course_info" %>
+  <%= render "shared/map" %>
 
-  </div>
+</div>
