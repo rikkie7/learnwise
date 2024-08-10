@@ -19,12 +19,21 @@
     <% @courses.each do |course| %>
       <div class="d-flex mb-3 border rounded-end rounded-start p-3 course-card">
         <div class="course-image me-3">
-          <%= image_tag course.image_url%>
+          <% if course.photo.attached? %>
+            <%= cl_image_tag course.photo.key %>
+          <% else %>
+            <%= image_tag course.image_url, alt: course.title %>
+          <% end %>
         </div>
         <div class="d-flex justify-content-between flex-grow w-100">
-          <div>
-          Course: <%= course.title%> <br>
-          Description: <%= course.description%> <br>
+          <div class="w-50">
+          <%= course.title%> <br>
+          Description:
+          <% if course.description.length > 30 %>
+            <%= course.description[0..30]...%> <br>
+          <% else %>
+            <%= course.description%> <br>
+          <% end %>
           Price: $<%= course.price %>
           </div>
           <div class="align-self-end">
