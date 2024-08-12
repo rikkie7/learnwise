@@ -1,28 +1,53 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #CCEECE;
+  background: #1e293b;
+  height: 65px;
+}
+
+.navbar-nav .nav-item {
+  white-space: nowrap;
+  margin-right: 15px;
+}
+
+.navbar-nav {
+  display: flex; /* Use flexbox to align items vertically */
+  align-items: center; /* Center items vertically */
+}
+
+.navbar-nav .nav-link {
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
+.dropdown-item {
+  display: flex;
+  align-self: center;
+  height: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-font {
+  color: #d4d4d4;
+}
+
 .navbar-lewagon .navbar-brand img {
-  width: 80px;
+  width: 60px;
 }
 
 .courses {
   margin-right: 10px;
   text-decoration: none;
-  color: black;
-  opacity: 0.6;
+  color: #d4d4d4;
+  align-items: center;
 }
 
 .become-teacher {
   margin-right: 15px;
   text-decoration: none;
-  color: black;
-  opacity: 0.6;
+  color: #d4d4d4;
 }
 
 .name-card {
@@ -30,11 +55,16 @@
   border-style: solid;
   border-color: black;
   border-width: 2px;
-  border-radius: 20px;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  padding-left: 18px;
-  padding-right: 22px;
-  margin-left: 10%;
+  border-radius: 50%; /* Ensure this is set to 50% */
+  width: 48px; /* Set an equal width and height */
+  height: 48px; /* Set an equal width and height */
+  display: flex; /* Align items inside */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  margin: 0 15px 0 30px;
   color: black;
+  text-align: center; /* Center text horizontally */
+  line-height: 1.2; /* Adjust if needed */
 }
+
+
