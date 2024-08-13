@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-font">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
@@ -10,37 +10,35 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item">
             <%=link_to "Courses", courses_category_path, class: "courses"%>
           </li>
           <li class="nav-item">
             <%= link_to "Become a teacher", new_course_path, class: "become-teacher"%>
           </li>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "logout" %>
+          </li>
+
           <li class="nav-item dropdown">
-          <a href="#" class="avatar navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
-            <% else %>
-              <div class="name-card navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.first_name[0] + current_user.last_name[0] %>
-              </div>
-            <% end %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            <a href="#" class="avatar navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+              <% else %>
+                <div class="name-card navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.first_name[0] + current_user.last_name[0] %>
+                </div>
+              <% end %>
+            </a>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link login" %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
-
