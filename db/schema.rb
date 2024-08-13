@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_10_022027) do
     t.date "start_date"
     t.date "end_date"
     t.string "image_url"
+    t.integer "format"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 

@@ -1,14 +1,70 @@
-<div class="container">
-  Name: <%= @course.title %> <br>
-  Description: <%= @course.description%> <br>
-  Price: $<%= @course.price%> <br>
-  Type: <%= @course.size%> class <br>
-  Location: <%= @course.location %> <br>
+<div class="banner">
+  <div class="box_container">
+    <h1 class="archivo-black-regular"><%= @course.title %></h1>
+    <p>Course description: <%= @course.description %></p>
+    <p>Created by <%= @course.user.username %></p>
+    <p>Rating:
+      <% sum_rating = @course.reviews.sum(&:rating)%>
+      <% total_reviews = @course.reviews.size %>
+      <% if total_reviews > 0 %>
+        <% average_rating = sum_rating/total_reviews %>
+      <% else %>
+        <% average_rating = 0 %>
+      <% end %>
+      <%= average_rating.round(2)/5 %>
+    </p>
+  </div>
+</div>
+
+<div class="box_container">
+
+  <div class="what_you_will_learn">
+    <h4 class="archivo-black-thin">What you'll learn</h4>
+    <ul>
+      <li>Learn how to rapidly prototype ideas and turn them into presentable apps</li>
+      <li>Become a professional Ruby on Rails developer</li>
+      <li>Apply for jobs at software companies as Ruby on Rails developer</li>
+      <li>Become a professional web application developer</li>
+      <li>Design and build virtually any web application you can imagine</li>
+    </ul>
+
+  </div>
+
+  <%= render "shared/course_info" %>
 
   <% if @course.user == current_user %>
     <%= link_to "Delete", course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <%= link_to "Edit", edit_course_path(@course)%>
   <% end %>
   <%= link_to "See the classes for this course", course_session_path(@course) %>
-  <button><%= link_to "booking", new_course_booking_path(@course) %></button>
+
+  <%= render "shared/map" %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Enroll this course
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @course.title %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <%= render "shared/course_info" %>
+      </div>
+      <div class="modal-footer">
+        <%= simple_form_for([@course, @booking]) do |f| %>
+        <%= f.input :status %>
+        <%= f.submit "Confirm", class:"btn btn-primary"%>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>

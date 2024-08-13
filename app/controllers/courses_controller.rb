@@ -12,6 +12,12 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @marker = {
+      lat: @course.latitude,
+      lng: @course.longitude,
+      info_window: render_to_string(partial: "shared/popup", locals: { course: @course })
+    }
+    @booking = Booking.new
   end
 
   def new
