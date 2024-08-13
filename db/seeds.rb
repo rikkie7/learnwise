@@ -1,6 +1,16 @@
 
 puts "Destroying all sessions"
 Session.destroy_all
+puts "Destroying all courses"
+Course.destroy_all
+puts "Destroying all users"
+User.destroy_all
+
+
+
+
+puts "Destroying all sessions"
+Session.destroy_all
 Booking.destroy_all
 puts "Destroying all bookings"
 puts "Destroying all courses"
@@ -58,9 +68,9 @@ puts "Creating sessions ..."
 Session.create!(
   title: "Class 01",
   description: "First class of Learn Ruby on Rails Course",
-  start_time: "18:00:00",
-  end_time: "21:00:00",
-  date: "2024-09-01",
+  start_time: "2024-09-18 18:00:00",
+  end_time: "2024-09-18 21:00:00",
+  date: "2024-09-18",
   course: Course.first
 )
 

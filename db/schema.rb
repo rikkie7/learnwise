@@ -89,9 +89,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_051908) do
     t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time "start_time"
-    t.time "end_time"
     t.date "date"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.index ["course_id"], name: "index_sessions_on_course_id"
   end
 
