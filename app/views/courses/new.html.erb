@@ -1,10 +1,25 @@
-<div>
+<div data-controller="format">
   <%= simple_form_for(@course) do |f| %>
-    <%= f.input :title%>
-    <%= f.input :description%>
-    <%= f.input :category%>
-    <%= f.input :size%>
-    <%= f.input :price%>
-    <%= f.submit%>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :category, collection: %w[technology education cooking gardening sports others] %>
+    <%= f.input :size, collection: %w[group private] %>
+    <%= f.input :price %>
+    <%#= f.input :what_will_students_learn_in_your_course %>
+
+    <%= f.input :format, collection: %w[online in-person],
+    input_html:
+    { data:
+      { format_target: "format",
+        action: "change->format#togglelocationField" }
+    }%>
+
+    <div class="d-none" data-format-target="location">
+      <%= f.input :location %>
+    </div>
+    <%= f.fields_for :user do |user_fields| %>
+      <%= user_fields.input :self_introduction, placeholder: "About yourself..." %>
+    <% end %>
+    <%= f.submit %>
   <% end %>
 </div>

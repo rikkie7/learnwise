@@ -1,4 +1,15 @@
 class Course < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_location,
+  against: [:title, :location],
+  associated_against: {
+    user: [:first_name, :last_name]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
+  has_one_attached :photo
   belongs_to :user
   has_many :reviews
   has_many :sessions
@@ -9,7 +20,13 @@ class Course < ApplicationRecord
   validates :description, presence: true
   validates :category, presence: true, inclusion: { in: %w[technology education cooking gardening sports others] }
   validates :size, presence: true, inclusion: { in: %w[group private] }
+  # validates :format
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  enum format: {
+    online: 0,
+    in_person: 1
+  }
 end

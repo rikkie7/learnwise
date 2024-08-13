@@ -6,6 +6,10 @@ gem 'ffi', '~> 1.16.3'
 
 gem "geocoder"
 
+gem 'pg_search'
+
+gem 'cloudinary'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
@@ -84,3 +88,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+

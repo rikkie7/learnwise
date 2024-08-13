@@ -7,11 +7,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @marker = {
-      lat: @course.latitude,
-      lng: @course.longitude,
-      info_window: render_to_string(partial: "shared/popup", locals: { course: @course })
-    }
   end
 
   def create

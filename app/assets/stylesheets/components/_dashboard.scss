@@ -4,7 +4,7 @@ h1 {
 }
 
 .student-space {
-  margin: 20px 0 20px 0;
+  margin: 20px 0 5px 0;
 }
 
 .teachers-lounge {
@@ -31,6 +31,11 @@ h1 {
   padding: 10px;
 }
 
+.card-title {
+  display: flex;
+  align-items: center;
+}
+
 .card-link {
   text-decoration: none;
   color: inherit;
@@ -42,10 +47,6 @@ h1 {
   align-items: center;
   justify-content: center;
   color: #000;
-
-  .card-title, .card-text {
-    color: #000;
-  }
 }
 
 // Making images the same size..
@@ -61,4 +62,66 @@ h1 {
   font-size: 25px;
   margin-left: 10px;
   color: #000;
+}
+
+.add-new-course {
+  width: 100%;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fa-2x {
+  font-size: 35px;
+
+}
+// .text-description-card {
+//   margin-top: 10px;
+// }
+
+.filter-form {
+  width: 300px;
+  // margin-left: 200px;
+}
+
+.not-enrolled-message {
+  display: flex;
+  justify-content: end;
+  margin: 20px 30px 0 0;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+
+.filter-button {
+  margin: 5px 0 10px 0;
+}
+.no-courses-created {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.choice-section {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.choice-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust spacing between buttons */
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
 }

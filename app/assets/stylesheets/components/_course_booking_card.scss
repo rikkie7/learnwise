@@ -1,0 +1,76 @@
+.course_booking_card {
+  width: 400px;
+  height: 850px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  top: -180px;
+  box-shadow: 10px 10px 30px rgba(0,0,0,.1);    /* Light shadow */
+  margin-right: 100px;
+  border: 2px solid white;
+}
+.course_image {
+  width: 100%;
+}
+
+.gupter-bold {
+  font-family: "Gupter", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.course_booking_card_content {
+  margin: 16px 50px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 32px;
+}
+
+.course_booking_card_content_price {
+  margin: 0px 50px;
+  padding-bottom: 32px;
+}
+
+.merriweather-black-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-style: normal;
+  color: rgb(68, 68, 68);
+}
+
+.course_booking_card_content_price h4 {
+  padding: 4px 0;
+
+}
+.try_personal_plan_button {
+  width: 100%;
+  background-color: #84b587;
+  height: 55px;
+  border: #CCEECE;
+  border-radius: 3px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: small;
+}
+
+#start_trial {
+  color: lightgray;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.booking_button {
+  width: 100%;
+  border: 1px solid rgb(68, 68, 68);
+  height: 55px;
+  font-weight: 600;
+  background-color: white;
+  font-size: medium;
+  border-radius: 3px;
+  margin-bottom: 16px;
+  color: rgb(68, 68, 68);
+
+}

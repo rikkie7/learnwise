@@ -3,11 +3,21 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.where(category: params[:category])
+    if params[:query].present?
+      @courses = Course.where(category: params[:category]).search_by_title_and_location(params[:query])
+    else
+      @courses = Course.where(category: params[:category])
+    end
   end
 
   def show
     @course = Course.find(params[:id])
+    @marker = {
+      lat: @course.latitude,
+      lng: @course.longitude,
+      info_window: render_to_string(partial: "shared/popup", locals: { course: @course })
+    }
+    @booking = Booking.new
   end
 
   def new
