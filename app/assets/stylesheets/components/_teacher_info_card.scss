@@ -1,0 +1,39 @@
+.teacher-info-card {
+  width: 100%;
+  color: black;
+  margin: 32px auto;
+  text-align: justify;
+}
+
+.kanit-regular {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.avatar-lg {
+  width: 140px;
+  height: 140px;
+  background-color: rgb(52, 52, 51);
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  color: rgb(255, 255, 255);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher-block-list-item-content {
+  flex: 1;
+  margin-left: 24px;
+}
+
+.teacher-block-list-item-content p {
+  margin-bottom: 20px;
+}
+
+.teacher-block-list-item-content i {
+  color: rgb(68, 68, 68);;
+}
