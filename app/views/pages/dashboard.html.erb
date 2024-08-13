@@ -9,72 +9,44 @@
       </div>
     </div>
 
-  <%# If there are bookings but you dont teach any courses %>
-  <% elsif @courses.empty? && @bookings.any? %>
-    <h1 class="student-space">Student Space</h1>
-    <div class="card-container">
-      <% @bookings.each do |booking| %>
-        <div class="card">
-          <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
-            <% if booking.course.photo.attached? %>
-              <%= cl_image_tag booking.course.photo.key, class: "card-img-top" %>
-            <% else %>
-              <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title"><%= booking.course.title %></h5>
-            </div>
-          <% end %>
-          <% if booking.course.end_date <= Date.today %>
-            <%= link_to 'Add a Review', new_course_review_path(booking.course), class: 'btn btn-primary' %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-
   <%# If there are courses but no bookings %>
-  <% elsif @bookings.empty? && @courses.any? %>
+  <% elsif @bookings.empty? %>
     <%= link_to "Wanna upskill?", courses_category_path, class: "not-enrolled-message" %>
-  <%# If there are both bookings and courses %>
+
+  <%# If there are bookings but you dont teach any courses %>
   <% else %>
     <h1 class="student-space">Student Space</h1>
-    <% ongoing_bookings = @bookings.select { |booking| booking.course.end_date > Date.today } %>
-    <% completed_bookings = @bookings.select { |booking| booking.course.end_date <= Date.today } %>
+    <div data-controller="checkbox">
+      <div class="d-flex justify-content-center">
+        <input data-checkbox-target="completed" data-action="click->checkbox#connect" type="checkbox" id="status1" name="status1" value="completed" class="me-2">
+        <label for="status1" class="me-5"> Completed</label>
+        <input data-checkbox-target="incomplete" data-action="click->checkbox#connect" type="checkbox" id="status2" name="status2" value="incomplete" class="me-2">
+        <label for="status2"> In Progress</label>
+      </div>
 
-    <% if ongoing_bookings.any? && completed_bookings.any? %>
-      <%= form_with url: dashboard_path, method: :get, local: true, class: 'filter-form' do %>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-lg-6 mx-auto">
-              <div class="form-group">
-                <%= select_tag :status, options_for_select([
-                  ['All', ''],
-                  ['Completed', 'finished'],
-                  ['Incomplete', 'not_finished']
-                ], params[:status]), class: 'form-control' %>
+      <div class="card-container">
+        <% @bookings.each do |booking| %>
+          <div class="card" data-checkbox-target="course" end-date=<%=booking.course.end_date%>>
+            <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
+              <% if booking.course.photo.attached? %>
+                <%= cl_image_tag booking.course.photo.key, class: "card-img-top" %>
+              <% else %>
+                <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= booking.course.title %></h5>
               </div>
-              <%= submit_tag 'Filter', class: 'filter-button btn btn-primary btn-block' %>
-            </div>
+            <% end %>
+            <% if booking.course.end_date <= Date.today %>
+              <%= link_to 'Add a Review', new_course_review_path(booking.course), class: 'btn btn-primary' %>
+            <% end %>
           </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <div class="card-container">
-      <% @bookings.each do |booking| %>
-        <div class="card">
-          <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
-            <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
-            <div class="card-body">
-              <h5 class="card-title"><%= booking.course.title %></h5>
-            </div>
-          <% end %>
-          <% if booking.course.end_date <= Date.today %>
-            <%= link_to 'Add a Review', new_course_review_path(booking.course), class: 'btn btn-primary' %>
-          <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+
+
+  <%# If there are both bookings and courses %>
 
   <% end %>
 
