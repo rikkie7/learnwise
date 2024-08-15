@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   # Reviews Associations
   has_many :reviews
+  has_many :courses
 
   validates :first_name, presence: true
   validates :last_name, presence: true

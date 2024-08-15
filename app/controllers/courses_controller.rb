@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @user = @course.user
     @marker = {
       lat: @course.latitude,
       lng: @course.longitude,
@@ -26,8 +27,13 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    @course.user = current_user
     @course.save!
-    redircet_to course_path(@course)
+    @learning_topics_content = params[:learning_topic][:content]
+    @learning_topics_content.each do |content|
+      LearningTopic.find_or_create_by(content: content, course: @course)
+    end
+    redirect_to course_path(@course)
   end
 
   def edit

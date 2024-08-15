@@ -9,6 +9,29 @@
       </div>
     </div>
 
+  <%# If there are bookings but you dont teach any courses %>
+  <% elsif @courses.empty? && @bookings.any? %>
+    <h1 class="student-space">Student Space</h1>
+    <div class="card-container">
+      <% @bookings.each do |booking| %>
+        <div class="card">
+          <%= link_to course_path(booking.course), class: "card-link" do %>
+            <% if booking.course.photo.attached? %>
+              <%= cl_image_tag booking.course.photo.key, class: "card-img-top" %>
+            <% else %>
+              <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.course.title %></h5>
+            </div>
+          <% end %>
+          <% if booking.course.end_date <= Date.today %>
+            <%= link_to 'Add a Review', new_course_review_path(booking.course), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
   <%# If there are courses but no bookings %>
   <% elsif @bookings.empty? %>
     <%= link_to "Wanna upskill?", courses_category_path, class: "not-enrolled-message" %>
@@ -27,7 +50,7 @@
       <div class="card-container">
         <% @bookings.each do |booking| %>
           <div class="card" data-checkbox-target="course" end-date=<%=booking.course.end_date%>>
-            <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
+            <%= link_to course_path(booking.course), class: "card-link" do %>
               <% if booking.course.photo.attached? %>
                 <%= cl_image_tag booking.course.photo.key, class: "card-img-top" %>
               <% else %>
