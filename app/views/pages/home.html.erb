@@ -1,0 +1,81 @@
+
+
+<div class="image-container">
+  <%= image_tag "https://images.unsplash.com/photo-1483389127117-b6a2102724ae?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+", class:"main-photo-home-page" %>
+</div>
+
+<h2 class= "courses_of_the_year">What's hot 🔥 </h2>
+
+<% if @courses_of_the_year.any? %>
+  <ul class="course-list">
+    <% @courses_of_the_year.each do |course| %>
+      <li class="course-item">
+        <div class="course-header">
+          <h2 class="course-title"><%= course.title %></h2>
+          <div class="rating-stars">
+            <% rating = course.average_rating || 0 %>
+            <% full_stars = rating.to_i %>
+            <% has_half_star = (rating - full_stars) >= 0.5 %>
+
+            <% full_stars.times do %>
+              <i class="fa-solid fa-star filled"></i>
+            <% end %>
+
+            <% if has_half_star %>
+              <i class="fa-solid fa-star-half-stroke filled"></i>
+            <% end %>
+
+            <% (5 - full_stars - (has_half_star ? 1 : 0)).times do %>
+              <i class="fa-solid fa-star empty"></i>
+            <% end %>
+          </div>
+        </div>
+
+        <p class="rating-text"><% rating == 0 ? 'No ratings yet' : rating %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2 class="star_teachers">Top performing teachers </h2>
+
+<% if @courses_of_the_year.any? %>
+  <ul class="teacher-list">
+    <% @courses_of_the_year.each do |course| %>
+      <li class="teacher-item">
+        <div class="teacher-info">
+          <%= image_tag(course.teacher_image_url, alt: "Teacher Photo", class: "teacher-photo") if course.teacher_image_url.present? %>
+          <div class="teacher-details">
+            <h3 class="teacher-name"><%= "#{course.teacher_first_name} #{course.teacher_last_name}" %></h3>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2 class="what_students_say">What our students say</h2>
+
+<% if @five_star_reviews.any? %>
+  <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @five_star_reviews.each_with_index do |review, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <div class="d-block w-100 review-item text-center">
+            <p class="review-text"><%= review.content %></p>
+            <p class="review-author"><strong><%= review.user.username %></strong></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<% end %>
