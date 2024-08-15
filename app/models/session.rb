@@ -2,8 +2,6 @@ class Session < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :start_time, presence: true
-  validates :end_time, presence: true
-  validate :start_time_before_end_time
   validate :date_not_in_past
 
   belongs_to :course
@@ -22,4 +20,8 @@ class Session < ApplicationRecord
     end
   end
 
+  # Method to check if a session spans multiple days
+  def multi_day?
+    end_time.present? && end_time.to_date > start_time.to_date
+  end
 end
