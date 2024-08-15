@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
+  get 'dashboard', to: 'pages#dashboard'
   get "courses/category", to: "courses#category"
   get "courses/:category/index", to: "courses#index", as: :courses_category_index
 
@@ -13,13 +14,16 @@ Rails.application.routes.draw do
   end
 
   #Calendar
-  resources :sessions do
-    member do
-      get :details
-    end
+  # resources :sessions do
+  #   member do
+  #     get :details
+  #   end
+  # end
+
+  scope :users do
+    get 'sessions/:id/details', to: 'sessions#details', as: :details_session
   end
 
-  get 'dashboard', to: 'pages#dashboard'
 
   # delete 'bookings/:id', to: 'bookings#destroy', as: 'cancel_booking'
   resources :bookings, only: [:destroy]
