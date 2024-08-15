@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @course = @booking.course
     @booking = Booking.find(params[:id])
     @marker = {
       lat: @course.latitude,

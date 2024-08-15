@@ -15,7 +15,7 @@
     <div class="card-container">
       <% @bookings.each do |booking| %>
         <div class="card">
-          <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
+          <%= link_to course_path(booking.course), class: "card-link" do %>
             <% if booking.course.photo.attached? %>
               <%= cl_image_tag booking.course.photo.key, class: "card-img-top" %>
             <% else %>
@@ -63,7 +63,7 @@
     <div class="card-container">
       <% @bookings.each do |booking| %>
         <div class="card">
-          <%= link_to course_booking_path(booking.course, booking), class: "card-link" do %>
+          <%= link_to course_path(booking.course), class: "card-link" do %>
             <%= image_tag booking.course.image_url, class: "card-img-top", alt: booking.course.title %>
             <div class="card-body">
               <h5 class="card-title"><%= booking.course.title %></h5>
