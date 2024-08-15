@@ -1,11 +1,11 @@
-# puts "Destroying all sessions"
-# Session.destroy_all
-# puts "Destroying all bookings"
-# Booking.destroy_all
-# puts "Destroying all courses"
-# Course.destroy_all
-# puts "Destroying all users"
-# User.destroy_all
+puts "Destroying all sessions"
+Session.destroy_all
+Booking.destroy_all
+puts "Destroying all bookings"
+puts "Destroying all courses"
+Course.destroy_all
+puts "Destroying all users"
+User.destroy_all
 
 # puts "Creating users ..."
 # user1 = User.create!(first_name: "John", last_name: "Doe", email: "user1@gmail.com", password: "password", username: "John", self_introduction: "I'm a full-stack developer with a passion for building beautiful and functional web applications. I have experience with a variety of technologies, including Ruby on Rails, React, and Node.js. I'm excited to share my knowledge with others and help them achieve their goals.", image_url: "https://as1.ftcdn.net/v2/jpg/08/62/37/84/1000_F_862378496_lYScZSKxfX5IEFKtl9wdPukyOfef4vAb.jpg")
@@ -79,136 +79,6 @@
 #   course: Course.first
 # )
 
-# puts "Creating reviews ..."
-# Review.create!(
-#   content: "An amazing course to start building React applications, the instructor is extremely great, he explains everything in different ways and shows us all the possible ways to work with React. If you're thinking about taking your career to the next level and learn something trendy, I really advise you in this course. Lastly, I want to thank the instructor for such a lovely course, I wish you all the best. Regards",
-#   rating: "5",
-#   user_id: "3",
-#   course_id: "2"
-# )
-# Review.create!(
-#   content: "This is an amazing React course, packed with so much knowledge. I really enjoyed and learned so much from Max. Thanks and definitely will recommend others to take this course.",
-#   rating: "4",
-#   user_id: "5",
-#   course_id: "2"
-# )
-# Review.create!(
-#   content: "J'ai vraiment beaucoup apprécié les cours de Max, il connais très bien ce domaine et l'explication sont toujours très claire avec le projets en pratique, j'ai pu accueilli des compétences avancé avec lui.
-#   juste un conseil pour tous ceux qui souhaite apprendre le développement web ou mobile suivez ces cours, vous ne serrai pas dessue.",
-#   rating: "4",
-#   user_id: "4",
-#   course_id: "2"
-# )
-
-# Review.create!(
-#   content: "Nothing better than learning with Stephen Grider. I love how he takes you on a journey through code where each lesson builds upon each other. The course is much more than what the syntax is, you'll leave understanding why the syntax is the way it is.",
-#   rating: "5",
-#   user_id: "4",
-#   course_id: "9"
-# )
-
-# Review.create!(
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned.
-#   One of the best parts of the course was the instructor, Stephen. He really knows Rust inside and out and had a knack for explaining tricky concepts in a simple and relatable way, making the whole learning process enjoyable and effective.
-#   The only thing I’d love to see is for Stephen to add one more chapter at the end to tie everything together with a useful project. That would be the perfect finishing touch!",
-#   rating: "4",
-#   user_id: "3",
-#   course_id: "9"
-# )
-
-# Review.create!(
-#   content: "I've been learning Rust for a while now and this course was a great way to solidify my understanding of the language. The instructor, Stephen, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Rust!",
-#   rating: "5",
-#   user_id: "5",
-#   course_id: "9"
-# )
-
-# Review.create!(
-#   course_id: "1",
-#   user_id: "3",
-#   rating: "5",
-#   content: "I've been learning Ruby on Rails for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Ruby on Rails!"
-# )
-
-# Review.create!(
-#   course_id: "1",
-#   user_id: "5",
-#   rating: "5",
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
-# )
-# Review.create!(
-#   course_id: "3",
-#   user_id: "3",
-#   rating: "5",
-#   content: "I've been learning Yoga for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Yoga!"
-# )
-# Review.create!(
-#   course_id: "3",
-#   user_id: "5",
-#   rating: "3",
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
-# )
-# Review.create!(
-#   course_id: "4",
-#   user_id: "3",
-#   rating: "5",
-#   content: "I've been learning Cooking for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Cooking!"
-# )
-# Review.create!(
-#   course_id: "4",
-#   user_id: "2",
-#   rating: "4",
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
-# )
-# Review.create!(
-#   course_id: "5",
-#   user_id: "3",
-#   rating: "5",
-#   content: "I've been learning Gardening for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Gardening!"
-# )
-# Review.create!(
-#   course_id: "5",
-#   user_id: "2",
-#   rating: "4",
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
-# )
-# Review.create!(
-#   course_id: "6",
-#   user_id: "3",
-#   rating: "5",
-#   content: "I've been learning Football for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Football!"
-# )
-# Review.create!(
-#   course_id: "6",
-#   user_id: "2",
-#   rating: "4",
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
-# )
-# Review.create!(
-#   course_id: "7",
-#   user_id: "3",
-#   rating: "5",
-#   content: "I've been learning Business for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Business!"
-# )
-# Review.create!(
-#   course_id: "7",
-#   user_id: "2",
-#   rating: "4",
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
-# )
-# Review.create!(
-#   course_id: "8",
-#   user_id: "3",
-#   rating: "5",
-#   content: "I've been learning First Aid for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn First Aid!"
-# )
-# Review.create!(
-#   course_id: "8",
-#   user_id: "2",
-#   rating: "4",
-#   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
-# )
-
 # puts "Creating bookings ..."
 # Booking.create!(user: user8, course: Course.find_by(title: "Yoga"))
 # Booking.create!(user: user9, course: Course.find_by(title: "Football"))
@@ -226,4 +96,175 @@
 # Booking.create!(user: user5, course: Course.find_by(title: "Business"))
 # Booking.create!(user: user6, course: Course.find_by(title: "Business"))
 
-# puts "Seed data created!"
+puts "Creating learning topics ..."
+LearningTopic.create!(course_id: 1, content: "Learn how to rapidly prototype ideas and turn them into presentable apps")
+LearningTopic.create!(course_id: 1, content: "Become a professional Ruby on Rails developer")
+LearningTopic.create!(course_id: 1, content: "Apply for jobs at software companies as Ruby on Rails developer")
+LearningTopic.create!(course_id: 1, content: "Become a professional web application developer")
+LearningTopic.create!(course_id: 1, content: "Master the Ruby on Rails framework")
+LearningTopic.create!(course_id: 2, content: "Build powerful, fast, user-friendly and reactive web apps")
+LearningTopic.create!(course_id: 2, content: "Provide amazing user experiences by leveraging the power of JavaScript with ease")
+LearningTopic.create!(course_id: 2, content: "Understand the latest features and best practices of React")
+LearningTopic.create!(course_id: 2, content: "Learn how to build full-stack applications with React, Node.js, and MongoDB")
+LearningTopic.create!(course_id: 3, content: "Learn the basics of yoga, including poses, breathing techniques, and meditation")
+LearningTopic.create!(course_id: 3, content: "Improve your flexibility, strength, and balance through regular practice")
+LearningTopic.create!(course_id: 3, content: "Reduce stress, anxiety, and depression with yoga")
+LearningTopic.create!(course_id: 3, content: "Develop a deeper connection with your body, mind, and spirit")
+LearningTopic.create!(course_id: 4, content: "Learn how to cook a variety of dishes, from appetizers to desserts")
+LearningTopic.create!(course_id: 4, content: "Master essential cooking techniques, such as chopping, sautéing, and baking")
+LearningTopic.create!(course_id: 4, content: "Understand the importance of fresh, seasonal ingredients and how to source them")
+LearningTopic.create!(course_id: 4, content: "Create healthy and delicious meals that you and your family will love")
+LearningTopic.create!(course_id: 5, content: "Learn how to plant and care for a variety of plants, flowers, and vegetables")
+LearningTopic.create!(course_id: 5, content: "Design and maintain a beautiful garden that reflects your personal style")
+LearningTopic.create!(course_id: 5, content: "Improve your outdoor space with landscaping and hardscaping projects")
+LearningTopic.create!(course_id: 5, content: "Grow your own food and reduce your carbon footprint")
+LearningTopic.create!(course_id: 6, content: "Improve your football skills, including passing, shooting, and dribbling")
+LearningTopic.create!(course_id: 6, content: "Develop teamwork, communication, and sportsmanship on and off the field")
+LearningTopic.create!(course_id: 6, content: "Stay fit, healthy, and active by playing football regularly")
+LearningTopic.create!(course_id: 6, content: "Have fun and make new friends while playing the beautiful game")
+LearningTopic.create!(course_id: 7, content: "Learn the fundamentals of business, including marketing, finance, and management")
+LearningTopic.create!(course_id: 7, content: "Start your own business or advance your career in a corporate setting")
+LearningTopic.create!(course_id: 7, content: "Understand the latest trends and technologies in the business world")
+LearningTopic.create!(course_id: 7, content: "Network with other business professionals and entrepreneurs")
+LearningTopic.create!(course_id: 8, content: "Learn how to perform CPR, use an AED, and treat common injuries and illnesses")
+LearningTopic.create!(course_id: 8, content: "Stay calm and focused in emergency situations and provide life-saving care")
+LearningTopic.create!(course_id: 8, content: "Prepare for emergencies at home, work, or in public places")
+LearningTopic.create!(course_id: 8, content: "Earn a certification in first aid and be prepared to help others in need")
+LearningTopic.create!(course_id: 9, content: "Become a Rust engineer")
+LearningTopic.create!(course_id: 9, content: "Understand ownership, lifetimes, traits, generics, and much more through practical projects")
+LearningTopic.create!(course_id: 9, content: "Master the Rust programming language and its core concepts")
+LearningTopic.create!(course_id: 9, content: "Build real-world applications with Rust and showcase your skills to potential employers")
+LearningTopic.create!(course_id: 9, content: "Learn how to write safe, efficient, and reliable code with Rust")
+
+puts "Creating reviews ..."
+Review.create!(
+  content: "An amazing course to start building React applications, the instructor is extremely great, he explains everything in different ways and shows us all the possible ways to work with React. If you're thinking about taking your career to the next level and learn something trendy, I really advise you in this course. Lastly, I want to thank the instructor for such a lovely course, I wish you all the best. Regards",
+  rating: "5",
+  user_id: "3",
+  course_id: "2"
+)
+Review.create!(
+  content: "This is an amazing React course, packed with so much knowledge. I really enjoyed and learned so much from Max. Thanks and definitely will recommend others to take this course.",
+  rating: "4",
+  user_id: "5",
+  course_id: "2"
+)
+Review.create!(
+  content: "J'ai vraiment beaucoup apprécié les cours de Max, il connais très bien ce domaine et l'explication sont toujours très claire avec le projets en pratique, j'ai pu accueilli des compétences avancé avec lui.
+  juste un conseil pour tous ceux qui souhaite apprendre le développement web ou mobile suivez ces cours, vous ne serrai pas dessue.",
+  rating: "4",
+  user_id: "4",
+  course_id: "2"
+)
+
+Review.create!(
+  content: "Nothing better than learning with Stephen Grider. I love how he takes you on a journey through code where each lesson builds upon each other. The course is much more than what the syntax is, you'll leave understanding why the syntax is the way it is.",
+  rating: "5",
+  user_id: "4",
+  course_id: "9"
+)
+
+Review.create!(
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned.
+  One of the best parts of the course was the instructor, Stephen. He really knows Rust inside and out and had a knack for explaining tricky concepts in a simple and relatable way, making the whole learning process enjoyable and effective.
+  The only thing I’d love to see is for Stephen to add one more chapter at the end to tie everything together with a useful project. That would be the perfect finishing touch!",
+  rating: "4",
+  user_id: "3",
+  course_id: "9"
+)
+
+Review.create!(
+  content: "I've been learning Rust for a while now and this course was a great way to solidify my understanding of the language. The instructor, Stephen, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Rust!",
+  rating: "5",
+  user_id: "5",
+  course_id: "9"
+)
+
+Review.create!(
+  course_id: "1",
+  user_id: "3",
+  rating: "5",
+  content: "I've been learning Ruby on Rails for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Ruby on Rails!"
+)
+
+Review.create!(
+  course_id: "1",
+  user_id: "5",
+  rating: "5",
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
+)
+Review.create!(
+  course_id: "3",
+  user_id: "3",
+  rating: "5",
+  content: "I've been learning Yoga for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Yoga!"
+)
+Review.create!(
+  course_id: "3",
+  user_id: "5",
+  rating: "3",
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
+)
+Review.create!(
+  course_id: "4",
+  user_id: "3",
+  rating: "5",
+  content: "I've been learning Cooking for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Cooking!"
+)
+Review.create!(
+  course_id: "4",
+  user_id: "2",
+  rating: "4",
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
+)
+Review.create!(
+  course_id: "5",
+  user_id: "3",
+  rating: "5",
+  content: "I've been learning Gardening for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Gardening!"
+)
+Review.create!(
+  course_id: "5",
+  user_id: "2",
+  rating: "4",
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
+)
+Review.create!(
+  course_id: "6",
+  user_id: "3",
+  rating: "5",
+  content: "I've been learning Football for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Football!"
+)
+Review.create!(
+  course_id: "6",
+  user_id: "2",
+  rating: "4",
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
+)
+Review.create!(
+  course_id: "7",
+  user_id: "3",
+  rating: "5",
+  content: "I've been learning Business for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn Business!"
+)
+Review.create!(
+  course_id: "7",
+  user_id: "2",
+  rating: "4",
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
+)
+Review.create!(
+  course_id: "8",
+  user_id: "3",
+  rating: "5",
+  content: "I've been learning First Aid for a while now and this course was a great way to solidify my understanding of the language. The instructor, John, is a fantastic teacher and does a great job of breaking down complex topics into easy-to-understand concepts. I really enjoyed the practical projects and the way the course was structured. I would definitely recommend this course to anyone looking to learn First Aid!"
+)
+Review.create!(
+  course_id: "8",
+  user_id: "2",
+  rating: "4",
+  content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
+)
+
+puts "Seeds created!"
+

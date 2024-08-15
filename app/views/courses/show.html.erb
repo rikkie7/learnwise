@@ -27,11 +27,9 @@
     <div class="what_you_will_learn">
       <h4 class="archivo-black-thin">What you'll learn</h4>
       <ul>
-        <li>Learn how to rapidly prototype ideas and turn them into presentable apps</li>
-        <li>Become a professional Ruby on Rails developer</li>
-        <li>Apply for jobs at software companies as Ruby on Rails developer</li>
-        <li>Become a professional web application developer</li>
-        <li>Design and build virtually any web application you can imagine</li>
+        <% @course.learning_topics.each do |topic| %>
+        <li><%= topic.content %></li>
+        <% end %>
       </ul>
     </div>
 
@@ -73,11 +71,14 @@
           </div>
           <div class="d-flex">
             <i class="fa-solid fa-user-graduate me-3"></i>
-            <p><%= @course.reviews.size %> Students</p>
+              <% course_booking_num = @course.bookings.size %>
+              <% course_num = @user.courses.size %>
+              <% students_num = course_booking_num * course_num %>
+            <p><%= students_num %> Students</p>
           </div>
           <div class="d-flex">
             <i class="fa-solid fa-circle-play me-3"></i>
-            <p><%= @course.reviews.size %> Courses</p>
+            <p><%= course_num %> Courses</p>
           </div>
         </div>
       </div>

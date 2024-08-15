@@ -49,6 +49,11 @@ class SessionsController < ApplicationController
   def session_params
     params.require(:session).permit(:title, :description, :date, :start_time, :end_time)
   end
+  
+  #Calendar
+  def details
+    @session = Session.find(params[:id])
+  end
 
 
 end
