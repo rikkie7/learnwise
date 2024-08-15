@@ -44,15 +44,15 @@ class SessionsController < ApplicationController
     redirect_to course_path(@session.course), notice: "Session deleted" , status: :see_other
   end
 
+  #Calendar
+  def details
+    @session = Session.find(params[:id])
+  end
+  
   private
 
   def session_params
     params.require(:session).permit(:title, :description, :date, :start_time, :end_time)
-  end
-  
-  #Calendar
-  def details
-    @session = Session.find(params[:id])
   end
 
 
