@@ -39,7 +39,6 @@ Course.create!(title: "The Complete Ruby on Rails Developer Course", description
 puts "#{Course.last.title} created!"
 
 Course.create!(title: "React - The Complete Guide 2024 (incl. Next.js, Redux)", description: "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!", category: "technology", format: "online", size: "group", price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user3, start_date: "2024-08-01", end_date: "2024-12-01")
-
 puts "#{Course.last.title} created!"
 
 Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", format: "in_person", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-08-01", end_date: "2024-12-01", location: "Clem Jones Promenade, South Brisbane QLD 4101")
@@ -63,6 +62,46 @@ puts "#{Course.last.title} created!"
 puts "Creating courses ..."
 Course.create!(title: "Rust: The Complete Developer's Guide", description: "Become a Rust engineer. Understand ownership, lifetimes, traits, generics, and much more through practical projects", category: "technology", format: "online", size: "group", price: 100, image_url: "https://community.theforeman.org/uploads/default/optimized/2X/8/83d09280c8809460222474ef8f7dbc94ee39abc9_2_690x362.png", user: user1, start_date: "2024-08-01", end_date: "2024-12-01")
 puts "#{Course.last.title} created!"
+
+puts "Creating learning topics ..."
+LearningTopic.create!(course_id: 1, content: "Learn how to rapidly prototype ideas and turn them into presentable apps")
+LearningTopic.create!(course_id: 1, content: "Become a professional Ruby on Rails developer")
+LearningTopic.create!(course_id: 1, content: "Apply for jobs at software companies as Ruby on Rails developer")
+LearningTopic.create!(course_id: 1, content: "Become a professional web application developer")
+LearningTopic.create!(course_id: 1, content: "Master the Ruby on Rails framework")
+LearningTopic.create!(course_id: 2, content: "Build powerful, fast, user-friendly and reactive web apps")
+LearningTopic.create!(course_id: 2, content: "Provide amazing user experiences by leveraging the power of JavaScript with ease")
+LearningTopic.create!(course_id: 2, content: "Understand the latest features and best practices of React")
+LearningTopic.create!(course_id: 2, content: "Learn how to build full-stack applications with React, Node.js, and MongoDB")
+LearningTopic.create!(course_id: 3, content: "Learn the basics of yoga, including poses, breathing techniques, and meditation")
+LearningTopic.create!(course_id: 3, content: "Improve your flexibility, strength, and balance through regular practice")
+LearningTopic.create!(course_id: 3, content: "Reduce stress, anxiety, and depression with yoga")
+LearningTopic.create!(course_id: 3, content: "Develop a deeper connection with your body, mind, and spirit")
+LearningTopic.create!(course_id: 4, content: "Learn how to cook a variety of dishes, from appetizers to desserts")
+LearningTopic.create!(course_id: 4, content: "Master essential cooking techniques, such as chopping, sautéing, and baking")
+LearningTopic.create!(course_id: 4, content: "Understand the importance of fresh, seasonal ingredients and how to source them")
+LearningTopic.create!(course_id: 4, content: "Create healthy and delicious meals that you and your family will love")
+LearningTopic.create!(course_id: 5, content: "Learn how to plant and care for a variety of plants, flowers, and vegetables")
+LearningTopic.create!(course_id: 5, content: "Design and maintain a beautiful garden that reflects your personal style")
+LearningTopic.create!(course_id: 5, content: "Improve your outdoor space with landscaping and hardscaping projects")
+LearningTopic.create!(course_id: 5, content: "Grow your own food and reduce your carbon footprint")
+LearningTopic.create!(course_id: 6, content: "Improve your football skills, including passing, shooting, and dribbling")
+LearningTopic.create!(course_id: 6, content: "Develop teamwork, communication, and sportsmanship on and off the field")
+LearningTopic.create!(course_id: 6, content: "Stay fit, healthy, and active by playing football regularly")
+LearningTopic.create!(course_id: 6, content: "Have fun and make new friends while playing the beautiful game")
+LearningTopic.create!(course_id: 7, content: "Learn the fundamentals of business, including marketing, finance, and management")
+LearningTopic.create!(course_id: 7, content: "Start your own business or advance your career in a corporate setting")
+LearningTopic.create!(course_id: 7, content: "Understand the latest trends and technologies in the business world")
+LearningTopic.create!(course_id: 7, content: "Network with other business professionals and entrepreneurs")
+LearningTopic.create!(course_id: 8, content: "Learn how to perform CPR, use an AED, and treat common injuries and illnesses")
+LearningTopic.create!(course_id: 8, content: "Stay calm and focused in emergency situations and provide life-saving care")
+LearningTopic.create!(course_id: 8, content: "Prepare for emergencies at home, work, or in public places")
+LearningTopic.create!(course_id: 8, content: "Earn a certification in first aid and be prepared to help others in need")
+LearningTopic.create!(course_id: 9, content: "Become a Rust engineer")
+LearningTopic.create!(course_id: 9, content: "Understand ownership, lifetimes, traits, generics, and much more through practical projects")
+LearningTopic.create!(course_id: 9, content: "Master the Rust programming language and its core concepts")
+LearningTopic.create!(course_id: 9, content: "Build real-world applications with Rust and showcase your skills to potential employers")
+LearningTopic.create!(course_id: 9, content: "Learn how to write safe, efficient, and reliable code with Rust")
 
 puts "Creating sessions ..."
 Session.create!(

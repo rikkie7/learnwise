@@ -14,6 +14,7 @@ class Course < ApplicationRecord
   has_many :reviews
   has_many :sessions
   has_many :bookings
+  has_many :learning_topics
 
   validates :price, presence: true
   validates :title, presence: true
@@ -29,4 +30,5 @@ class Course < ApplicationRecord
     online: 0,
     in_person: 1
   }
+
 end
