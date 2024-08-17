@@ -5,12 +5,10 @@
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" id="navbarToggler"></span>
     </button>
-
     <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Become a teacher", new_course_path, class: "become-teacher"%>
@@ -18,7 +16,6 @@
           <li class="nav-item me-4">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "logout" %>
           </li>
-
           <li class="nav-item dropdown">
             <a href="#" class="avatar navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.attached? %>
@@ -41,12 +38,6 @@
 
   </div>
 </div>
-
-
-
-
-
-
 <div class="category-bar">
   <ul class="category-list">
     <li class="category-item"><%= link_to "Technology", courses_category_index_path("technology"), class: "category-link" %></li>
@@ -57,3 +48,14 @@
     <li class="category-item"><%= link_to "Others", courses_category_index_path("others"), class: "category-link" %></li>
   </ul>
 </div>
+<script>
+  const toggler = document.getElementById("navbarSupportedContent");
+  toggler.addEventListener("hide.bs.collapse", (event) => {
+    event.stopImmediatePropagation();
+    console.log("test")
+  })
+  toggler.addEventListener("show.bs.collapse", (event) => {
+    event.stopImmediatePropagation();
+    console.log("test")
+  })
+</script>
