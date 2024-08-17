@@ -1,14 +1,18 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-
     <nav>
+
       <%= link_to calendar.url_for_previous_view do %>
-        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-left"></i>&#8203;
       <% end %>
-      <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
-     <%= link_to calendar.url_for_next_view do %>
-       <i class="fa-solid fa-arrow-right"></i>
-     <% end %>
+
+      <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title">
+        <%= t('date.month_names')[start_date.month] %> <%= start_date.year %>
+      </time>
+
+      <%= link_to calendar.url_for_next_view do %>
+        <i class="fa-solid fa-arrow-right"></i>
+      <% end %>
     </nav>
   </div>
 

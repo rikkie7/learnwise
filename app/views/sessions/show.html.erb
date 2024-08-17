@@ -1,13 +1,17 @@
 <% @sessions.each do |session| %>
-  Class Title: <%= session.title %> <br>
-  Description: <%= session.description %> <br>
-  Date: <%= format_day(session.date) %> <%= day_of_week(session.date) %> <br>
-  From: <%= format_hour(session.start_time) %> to <%= format_hour(session.end_time) %> <br>
+  <div class="session-detail">
+    <p class="session-title">Class Title: <%= session.title %></p>
+    <p class="session-description">Description: <%= session.description %></p>
+    <p class="session-date">Date: <%= format_day(session.date) %> <%= day_of_week(session.date) %></p>
+    <p class="session-time">From: <%= format_hour(session.start_time) %> to <%= format_hour(session.end_time) %></p>
 
-  <%= link_to "Delete this class", course_session_path(session.course, session), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %> <br>
-  <%= link_to "Edit the information for this class", edit_course_session_path(session.course, session) %>
-  <br>
+    <div class="session-actions">
+      <%= link_to "Delete this class", course_session_path(session.course, session), class: "btn-delete", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <%= link_to "Edit the information for this class", edit_course_session_path(session.course, session), class: "btn-edit" %>
+    </div>
+  </div>
 <% end %>
-<br>
 
-<%= link_to "Add new a new class to this course", new_course_session_path %>
+<div class="add-session">
+  <%= link_to "Add new a new class to this course", new_course_session_path, class: "btn-add-session" %>
+</div>
