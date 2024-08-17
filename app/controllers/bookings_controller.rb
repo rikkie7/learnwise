@@ -12,13 +12,8 @@ class BookingsController < ApplicationController
   def create
     @booking = @course.bookings.build(booking_params)
     @booking.user = current_user
-    if @course.bookings.exists?(user: current_user)
-      redirect_to courses_category_path, alert: "You have already booked this course! Have a look at other courses!"
-    elsif @booking.save
-      redirect_to dashboard_path(@user), notice: 'Booking was successfully created.'
-    else
-      render :new
-    end
+    @booking.save!
+    redirect_to dashboard_path(@user), notice: 'Booking was successfully created.'
   end
 
   def show

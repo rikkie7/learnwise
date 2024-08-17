@@ -1,4 +1,4 @@
-<div data-controller="format" class="container">
+<div data-controller="format dynamic-fields" class="container">
   <%= simple_form_for(@course) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
@@ -7,9 +7,13 @@
     <%= f.input :price %>
     <%= label_tag "Learning topics", "Learning topics*", class:"form-label" %>
 
-    <% 5.times do |n|%>
-      <%= text_field_tag "learning_topic[content][]", nil, class:"form-control" %>
-    <% end %>
+    <div id="leaning-topics-container" data-dynamic-fields-target="container">
+      <% @course.learning_topics.each do |topic| %>
+        <%= text_field_tag "learning_topic[content][]", topic.content, class:"form-control" %>
+      <% end %>
+    </div>
+
+    <button type="button" id="add-learning-topic" class="btn btn-primary mb-2" data-action="click->dynamic-fields#addField">+ Add more to your response</button>
 
     <%= f.input :format, collection: %w[online in-person],
       input_html:

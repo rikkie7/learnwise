@@ -5,8 +5,6 @@ export default class extends Controller {
   static targets = ["format", "location"]
 
   connect() {
-    console.log("Hello from format_controller.js")
-
     this.togglelocationField()
   }
 
