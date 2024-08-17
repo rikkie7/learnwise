@@ -11,6 +11,8 @@ class Course < ApplicationRecord
 
   has_one_attached :photo
   belongs_to :user
+  accepts_nested_attributes_for :user
+
   has_many :reviews, dependent: :destroy
   has_many :sessions, dependent: :destroy
   has_many :bookings, dependent: :destroy
