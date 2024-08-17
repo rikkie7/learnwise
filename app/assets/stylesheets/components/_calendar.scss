@@ -1,0 +1,130 @@
+.title-container h1 {
+  margin-top: 80px; /* Space between the title and the navbar */
+  margin-bottom: 40px; /* Space below the title */
+  text-align: center;
+  font-size: 3rem; /* Larger font size for the calendar title */
+  font-weight: bold;
+  color: #333; /* Same color as the month name */
+  border: none; /* Ensure no border or underline */
+  text-decoration: none;
+}
+
+.simple-calendar {
+  width: 100%;
+  max-width: 1200px; /* Increase the max-width for a larger calendar */
+  margin: 50px auto; /* Centers the calendar horizontally and adds vertical spacing */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px; /* Add padding to give more space around the calendar */
+}
+
+.calendar-heading {
+  text-align: center;
+  padding: 20px; /* Increase padding for the calendar heading */
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.calendar-heading nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-heading time {
+  font-size: 2rem; /* Further increase font size for better readability */
+  font-weight: bold;
+  color: #333;
+  text-decoration: none; /* Ensure no underline */
+  border: none; /* Ensure no border */
+}
+
+.table-striped {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.table-striped th,
+.table-striped td {
+  padding: 20px; /* Increase padding for a more spacious layout */
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.table-striped th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  color: #555;
+}
+
+.table-striped td {
+  background-color: #fff;
+  color: #333;
+}
+
+.table-striped tr:nth-child(odd) td {
+  background-color: #f9f9f9;
+}
+
+.table-striped tr td .event {
+  display: block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 10px; /* Increase padding for event elements */
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 1.2rem; /* Increase font size for event text */
+  text-decoration: none;
+}
+
+.table-striped tr td .event:hover {
+  background-color: #0056b3;
+}
+
+.calendar-heading nav a i {
+  font-size: 2rem; /* Increase the size of the arrows */
+  font-weight: bold; /* Makes the arrows appear bolder */
+  color: #007bff; /* Change this to any color you like */
+}
+
+.calendar-heading nav a i:hover {
+  color: #0056b3; /* Optional: Change color on hover */
+}
+
+
+
+.session-item {
+  background-color: #eef6ff; /* Light blue background for the session block */
+  border-left: 4px solid #007bff; /* Blue border on the left */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding inside the session block */
+  margin-top: 10px; /* Space between session blocks */
+  font-size: 1rem; /* Font size for the content */
+  display: flex;
+  flex-direction: column; /* Stack title and time vertically */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.session-item:hover {
+  background-color: #cfe2ff; /* Slightly darker blue on hover */
+}
+
+.session-item .session-title {
+  font-weight: bold; /* Bold text for the title */
+  color: #007bff; /* Blue color for the title */
+  margin-bottom: 5px; /* Space below the title */
+  text-decoration: none; /* Remove underline */
+  font-size: 0.9rem;
+}
+
+.session-item .session-title:hover {
+  // text-decoration: none; /* Underline the title on hover */
+}
+
+.session-item .session-time {
+  font-size: 0.9rem; /* Smaller font for the time */
+  color: #666; /* Gray color for the time */
+}

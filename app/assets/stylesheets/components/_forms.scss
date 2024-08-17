@@ -8,6 +8,22 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.edit-form-with {
+  max-width: 700px;
+}
+
+.custom-form-width {
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.large-text-field {
+  height: 120px;
+  resize: vertical;
+}
+
 .login-heading {
   margin: 20px 0 20px 0;
   text-align: center;

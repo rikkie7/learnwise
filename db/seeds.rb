@@ -2,10 +2,14 @@ puts "Destroying all sessions"
 Session.destroy_all
 Booking.destroy_all
 puts "Destroying all bookings"
+LearningTopic.destroy_all
+puts "Destroying all learning topics"
 puts "Destroying all courses"
 Course.destroy_all
 puts "Destroying all users"
 User.destroy_all
+Review.destroy_all
+puts "Destroying all reviews"
 
 puts "Creating users ..."
 user1 = User.create!(first_name: "John", last_name: "Doe", email: "user1@gmail.com", password: "password", username: "John", self_introduction: "I'm a full-stack developer with a passion for building beautiful and functional web applications. I have experience with a variety of technologies, including Ruby on Rails, React, and Node.js. I'm excited to share my knowledge with others and help them achieve their goals.", image_url: "https://as1.ftcdn.net/v2/jpg/08/62/37/84/1000_F_862378496_lYScZSKxfX5IEFKtl9wdPukyOfef4vAb.jpg")
@@ -76,7 +80,7 @@ Session.create!(
   start_time: "2024-09-18 18:00:00",
   end_time: "2024-09-18 21:00:00",
   date: "2024-09-18",
-  course: Course.first
+  course: course1
 )
 
 puts "Creating bookings ..."

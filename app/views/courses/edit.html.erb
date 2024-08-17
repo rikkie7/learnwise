@@ -1,36 +1,31 @@
 <div data-controller="format dynamic-fields" class="container">
-  <%= simple_form_for(@course) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :category, collection: %w[technology education cooking gardening sports others] %>
-    <%= f.input :size, collection: %w[group private] %>
-    <%= f.input :price %>
-    <%= label_tag "Learning topics", "Learning topics*", class:"form-label" %>
+  <h2 class="login-heading">Submit Course</h2>
 
-    <div id="leaning-topics-container" data-dynamic-fields-target="container">
-      <% @course.learning_topics.each do |topic| %>
-        <%= text_field_tag "learning_topic[content][]", topic.content, class:"form-control" %>
-      <% end %>
-    </div>
+  <%= simple_form_for(@course, html: { class: "login-form edit-form-with" }) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :title, input_html: { class: "form-control" } %>
+      <%= f.input :description, as: :text, input_html: { class: "form-control large-text-field" } %>
+      <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" } %>
+      <%= f.input :size, collection: %w[group private], input_html: { class: "form-control" } %>
+      <%= f.input :price, input_html: { class: "form-control" } %>
 
-    <button type="button" id="add-learning-topic" class="btn btn-primary mb-2" data-action="click->dynamic-fields#addField">+ Add more to your response</button>
+      <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
+      <div id="leaning-topics-container" data-dynamic-fields-target="container">
+        <% @course.learning_topics.each do |topic| %>
+          <%= text_field_tag "learning_topic[content][]", topic.content, class: "form-control" %>
+        <% end %>
+      </div>
 
+      <button type="button" id="add-learning-topic" class="btn btn-primary mb-2" data-action="click->dynamic-fields#addField">+ Add more to your response</button>
 
-      <%= f.input :format, collection: %w[online in-person],
-        input_html: {
-          class: "form-control",
-          data: {
-            format_target: "format",
-            action: "change->format#togglelocationField"
-          }
-        } %>
+      <%= f.input :format, collection: %w[online in-person], input_html: { class: "form-control", data: { format_target: "format", action: "change->format#togglelocationField" } } %>
 
       <div class="d-none" data-format-target="location">
         <%= f.input :location, input_html: { class: "form-control" } %>
       </div>
 
       <%= f.fields_for :user do |user_fields| %>
-        <%= user_fields.input :self_introduction, input_html: { class: "form-control " } %>
+        <%= user_fields.input :self_introduction, as: :text, placeholder: "About yourself...", input_html: { class: "form-control large-text-field" } %>
       <% end %>
     </div>
 
