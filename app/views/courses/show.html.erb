@@ -1,166 +1,187 @@
-<div class="banner">
-  <div class="box_container">
-    <h1 class="archivo-black-regular"><%= @course.title %></h1>
-    <p>Course description: <%= @course.description %></p>
-    <p>Created by <%= @course.user.username %></p>
-    <p>Rating:
-      <% sum_rating = @course.reviews.sum(:rating)%>
-      <% total_reviews = @course.reviews.size %>
-      <% if total_reviews > 0 %>
-        <% average_rating = sum_rating.to_f / total_reviews %>
-      <% else %>
-        <% average_rating = 0 %>
-      <% end %>
-      <% average_rating = average_rating.round(1) %>
-      <%= average_rating %>
-      <% average_rating.floor.times do %>
-        <i class="fa-solid fa-star"></i>
-      <% end %>
-    </p>
+<div class="row">
+  <div class="col-12">
+    <div class="banner">
+      <div class="box_container pt-4">
+        <h1 class="archivo-black-regular"><%= @course.title %></h1>
+        <p>Course description: <%= @course.description %></p>
+        <p>Created by <%= @course.user.username %></p>
+        <p>Rating:
+          <% sum_rating = @course.reviews.sum(:rating)%>
+          <% total_reviews = @course.reviews.size %>
+          <% if total_reviews > 0 %>
+            <% average_rating = sum_rating.to_f / total_reviews %>
+          <% else %>
+            <% average_rating = 0 %>
+          <% end %>
+          <% average_rating = average_rating.round(1) %>
+          <%= average_rating %>
+          <% full_stars = average_rating.to_i %>
+          <% has_half_star = (average_rating - full_stars) >=0.5 %>
+
+          <% full_stars.times do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+
+          <% if has_half_star %>
+            <i class="fa-solid fa-star-half-stroke filled"></i>
+          <% end %>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="d-flex">
-  <div class="box_container">
+  <div class="row">
 
-    <!-- what you will learn box -->
-    <div class="what_you_will_learn">
-      <h4 class="archivo-black-thin">What you'll learn</h4>
-      <ul>
-        <% @course.learning_topics.each do |topic| %>
-        <li><%= topic.content %></li>
-        <% end %>
-      </ul>
-    </div>
+    <div class="col-12 col-lg-8">
+      <div class="box_container">
 
-    <div class="d-flex justify-content-between see-all-the-classes-for-this-course ">
-      <div>
-        <%= link_to "See all the sessions for this course >>", course_session_path(@course) %>
-      </div>
-      <div>
-        <% if @course.user == current_user %>
-          <%= link_to course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
-            <i class="fa-solid fa-trash-can m-1"></i>
-          <% end %>
-          <%= link_to edit_course_path(@course) do%>
-            <i class="fa-solid fa-pen-to-square m-1"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <!-- teacher information card -->
-    <div class="teacher-info-card">
-      <h3 class="kanit-regular">Instructor</h3>
-      <p><%= @course.user.first_name %> <%= @course.user.last_name %></p>
-      <div class="d-flex my-2">
-        <% if @course.user.image_url? %>
-          <%= image_tag @course.user.image_url, class: "avatar-lg" %>
-        <% else %>
-          <div class="avatar-lg"><h3><%= @course.user.first_name.first.upcase %><%= @course.user.last_name.first.upcase %></h3></div>
-        <% end %>
-
-        <div class="teacher-block-list-item-content">
-          <div class="d-flex">
-            <i class="fa-solid fa-star me-3"></i>
-            <p><%= average_rating %> Instructor Rating</p>
-          </div>
-          <div class="d-flex">
-            <i class="fa-solid fa-certificate me-3"></i>
-            <p><%= @course.reviews.size %> Reviews</p>
-          </div>
-          <div class="d-flex">
-            <i class="fa-solid fa-user-graduate me-3"></i>
-              <% course_booking_num = @course.bookings.size %>
-              <% course_num = @user.courses.size %>
-              <% students_num = course_booking_num * course_num %>
-            <p><%= students_num %> Students</p>
-          </div>
-          <div class="d-flex">
-            <i class="fa-solid fa-circle-play me-3"></i>
-            <p><%= course_num %> Courses</p>
-          </div>
+        <!-- what you will learn box -->
+        <div class="what_you_will_learn">
+          <h4 class="archivo-black-thin">What you'll learn</h4>
+          <ul>
+            <% @course.learning_topics.each do |topic| %>
+            <li><%= topic.content %></li>
+            <% end %>
+          </ul>
         </div>
-      </div>
-      <%= @course.user.self_introduction %>
-    </div>
 
-    <!-- review card -->
-    <div class="review-card">
-      <div id="rating"><i class="fa-solid fa-star"></i> <%= average_rating %> course rating</div>
-        <% @course.reviews.each do |review| %>
-        <div class="each-review-card">
-          <div class="d-flex align-items-baseline">
-            <div class="avatar"><%= review.user.first_name.first.upcase %><%= review.user.last_name.first.upcase %></div>
-            <div id="name">
-              <%= review.user.first_name %> <%= review.user.last_name.first.upcase %>.
-            </div>
-            <p>
-              <% review.rating.times do %>
-                <i class="fa-solid fa-star"></i>
+        <div class="d-flex justify-content-between see-all-the-classes-for-this-course ">
+          <div>
+            <%= link_to "See all the sessions for this course >>", course_session_path(@course) %>
+          </div>
+          <div>
+            <% if @course.user == current_user %>
+              <%= link_to course_path(@course), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
+                <i class="fa-solid fa-trash-can m-1"></i>
               <% end %>
-            </p>
+              <%= link_to edit_course_path(@course) do%>
+                <i class="fa-solid fa-pen-to-square m-1"></i>
+              <% end %>
+            <% end %>
           </div>
-          <p><%= review.content %></p>
+        </div>
+
+        <!-- teacher information card -->
+        <div class="teacher-info-card">
+          <h3 class="kanit-regular">Instructor</h3>
+          <p><%= @course.user.first_name %> <%= @course.user.last_name %></p>
+          <div class="d-flex my-2 align-items-center">
+            <% if @course.user.image_url? %>
+              <%= image_tag @course.user.image_url, class: "avatar-lg" %>
+            <% else %>
+              <div class="avatar-lg"><h3><%= @course.user.first_name.first.upcase %><%= @course.user.last_name.first.upcase %></h3></div>
+            <% end %>
+
+            <div class="teacher-block-list-item-content">
+              <div class="d-flex">
+                <i class="fa-solid fa-star me-3"></i>
+                <p><%= average_rating %> Instructor Rating</p>
+              </div>
+              <div class="d-flex">
+                <i class="fa-solid fa-certificate me-3"></i>
+                <p><%= @course.reviews.size %> Reviews</p>
+              </div>
+              <div class="d-flex">
+                <i class="fa-solid fa-user-graduate me-3"></i>
+                  <% course_booking_num = @course.bookings.size %>
+                  <% course_num = @user.courses.size %>
+                  <% students_num = course_booking_num * course_num %>
+                <p><%= students_num %> Students</p>
+              </div>
+              <div class="d-flex">
+                <i class="fa-solid fa-circle-play me-3"></i>
+                <p><%= course_num %> Courses</p>
+              </div>
+            </div>
+          </div>
+          <%= @course.user.self_introduction %>
+        </div>
+
+        <!-- review card -->
+        <div class="review-card">
+          <div id="rating"><i class="fa-solid fa-star"></i> <%= average_rating %> course rating</div>
+            <% @course.reviews.each do |review| %>
+            <div class="each-review-card">
+              <div class="d-flex align-items-baseline">
+                <div class="avatar"><%= review.user.first_name.first.upcase %><%= review.user.last_name.first.upcase %></div>
+                <div id="name">
+                  <%= review.user.first_name %> <%= review.user.last_name.first.upcase %>.
+                </div>
+                <p>
+                  <% review.rating.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </p>
+              </div>
+              <p><%= review.content %></p>
+            </div>
+            <% end %>
+        </div>
+
+        <!-- map -->
+        <% if @course.location %>
+        <div id="map">
+          <h3 class="kanit-regular">Location</h3>
+          <p><%= @course.location %></p>
+          <%= render "shared/map" %>
         </div>
         <% end %>
+      </div>
     </div>
 
-    <!-- map -->
-    <% if @course.location %>
-    <div id="map">
-      <h3 class="kanit-regular">Location</h3>
-      <p><%= @course.location %></p>
-      <%= render "shared/map" %>
-    </div>
-    <% end %>
-  </div>
-
+    <div class="col-12 col-lg-4 booking-card-container">
     <!-- course booking card -->
-  <div class="course_booking_card">
-      <img src="<%= @course.image_url %>" alt="" class="course_image">
-      <div class="course_booking_card_content">
-        <h3 class="gupter-bold">Subscribe to LearnWise's top courses</h3>
-        <p>Get this course, plus 11,000+ of our top-rated courses, with Personal Plan.</p>
-        <button class="try_personal_plan_button">Try Personal Plan For Free</button>
-        <p id="start_trial">Starting at A$19.00 per month after trial</p>
-        <p id="start_trial">Cancel anytime</p>
-      </div>
+      <div class="course_booking_card">
+          <img src="<%= @course.image_url %>" alt="" class="course_image">
+          <div class="course_booking_card_content">
+            <h3 class="gupter-bold">Subscribe to LearnWise's top courses</h3>
+            <p>Get this course, plus 11,000+ of our top-rated courses, with Personal Plan.</p>
+            <button class="try_personal_plan_button">Try Personal Plan For Free</button>
+            <p id="start_trial">Starting at A$19.00 per month after trial</p>
+            <p id="start_trial">Cancel anytime</p>
+          </div>
 
-      <div class="course_booking_card_content_price">
-        <h4 class="merriweather-black-italic">A$ <%= @course.price %></h4>
+          <div class="course_booking_card_content_price">
+            <h4 class="merriweather-black-italic">A$ <%= @course.price %></h4>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="booking_button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Enroll in this course
-        </button>
-
-          <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><%= @course.title %></h5>
-              </div>
-              <div class="modal-body">
-                    <%= render "shared/course_info" %>
+            <!-- Button trigger modal -->
+            <% if @course.bookings.exists?(user: current_user) %>
+              <button type="button" class="booking_button btn" disabled data-bs-toggle="button" autocomplete="off">
+                You have enrolled
+              </button>
+            <% else %>
+              <button type="button" class="booking_button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Enroll in this course
+              </button>
+            <% end %>
+              <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><%= @course.title %></h5>
+                  </div>
+                  <div class="modal-body">
+                        <%= render "shared/course_info" %>
+                    </div>
+                    <div class="modal-footer">
+                      <%= simple_form_for([@course, @booking]) do |f| %>
+                      <%= f.input :status %>
+                      <%= f.submit "Confirm", class:"btn btn-primary"%>
+                      <% end %>
+                    </div>
+                  </div>
                 </div>
-                <div class="modal-footer">
-                  <%= simple_form_for([@course, @booking]) do |f| %>
-                  <%= f.input :status %>
-                  <%= f.submit "Confirm", class:"btn btn-primary"%>
-                  <% end %>
                 </div>
-              </div>
-            </div>
-            </div>
 
-        <p id="start_trial">30-Day Money-Back Guarantee</p>
-        <p id="start_trial">Full Lifetime Access</p>
+            <p id="start_trial">30-Day Money-Back Guarantee</p>
+            <p id="start_trial">Full Lifetime Access</p>
+          </div>
+
       </div>
+    </div>
 
   </div>
-
-  </div>
-
 </div>
