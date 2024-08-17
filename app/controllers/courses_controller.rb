@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_course, only: %i[show edit update destroy]
 
   def catergory
   end
@@ -13,7 +14,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
     @user = @course.user
     @marker = {
       lat: @course.latitude,
@@ -31,31 +31,45 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.user = current_user
     @course.save!
-    @learning_topics_content = params[:learning_topic][:content]
-    @learning_topics_content.each do |content|
-      LearningTopic.find_or_create_by(content: content, course: @course)
-    end
+    update_learning_topics
     redirect_to course_path(@course)
   end
 
   def edit
-    @course = Course.find(params[:id])
+    @course = Course.includes(:user).find(params[:id])
   end
 
-  def updated
-    @course = Course.find(params[:id])
-    @course.update(course_params)
-    redirect_to course_path(@course)
+  def update
+    if @course.update(course_params)
+      update_learning_topics
+      redirect_to course_path(@course), notice: 'Course was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @course = Course.find(params[:id])
     @course.destroy
     redirect_to courses_path, status: :see_other
   end
 
   private
+
+  def update_learning_topics
+    if params[:learning_topic] && params[:learning_topic][:content]
+      @learning_topics_content = params[:learning_topic][:content]
+      @course.learning_topics.destroy_all
+      @learning_topics_content.each do |content|
+        LearningTopic.find_or_create_by(content: content, course: @course)
+      end
+    end
+  end
+
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
   def course_params
-    params.require(:course).permit(:price, :title, :description, :category, :size, :location, :photo)
+    params.require(:course).permit(:price, :self_introduction, :title, :description, :category, :size, :location, :format, :start_date, :end_date, :image_url, learning_topics_content:[])
   end
 end
