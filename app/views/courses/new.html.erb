@@ -10,9 +10,19 @@
       <%= f.input :price, input_html: { class: "form-control" } %>
 
       <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
-      <% 5.times do |n| %>
-        <%= text_field_tag "learning_topic[content][]", nil, class: "form-control" %>
-      <% end %>
+    
+
+    <% 4.times do |n|%>
+      <%= text_field_tag "learning_topic[content][]", nil, class:"form-control" %>
+    <% end %>
+
+    <%= f.input :format, collection: %w[online in-person],
+      input_html:
+      { data:
+        { format_target: "format",
+          action: "change->format#togglelocationField" }
+      }%>
+
 
       <%= f.input :format, collection: %w[online in-person],
         input_html: {

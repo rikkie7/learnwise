@@ -1,13 +1,46 @@
 .course_booking_card {
-  width: 400px;
-  height: 850px;
+  width: 100%;
+  height: fit-content;
+  max-width: 500px;
+  min-width: 350px;
   background-color: rgb(255, 255, 255);
   position: relative;
   top: -180px;
   box-shadow: 10px 10px 30px rgba(0,0,0,.1);    /* Light shadow */
-  margin-right: 100px;
+  margin: 0 auto;
   border: 2px solid white;
 }
+
+.booking-card-container {
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .booking-card-container {
+    margin-top: 2rem;
+  }
+  .course_booking_card {
+    width: 80%;
+    max-width: 100%;
+    top: 0;
+    box-shadow: 0px 0px 0px rgba(0,0,0,.1);    /* Light shadow */
+    border: 1px solid rgb(223, 221, 221);
+  }
+}
+
+@media (min-width: 992px) {
+  .booking-card-container {
+    display: flex;
+    justify-content: center;
+  }
+  .course_booking_card {
+    position: relative;
+    top:-180px;
+    margin-right: 80px;
+  }
+}
+
+
 .course_image {
   width: 100%;
 }
