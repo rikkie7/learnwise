@@ -11,10 +11,10 @@ class Course < ApplicationRecord
 
   has_one_attached :photo
   belongs_to :user
-  has_many :reviews
-  has_many :sessions
-  has_many :bookings
-  has_many :learning_topics
+  has_many :reviews, dependent: :destroy
+  has_many :sessions, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  has_many :learning_topics, dependent: :destroy
 
   validates :price, presence: true
   validates :title, presence: true
