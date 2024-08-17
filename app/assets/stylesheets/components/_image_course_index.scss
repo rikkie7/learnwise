@@ -1,14 +1,9 @@
-.image-course-index{
+.image-course-index {
   height: 450px;
   width: 100%;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-}
-
-.image-course-index {
-  display: block;
-  width: 100%;
+  position: relative;
 }
 
 .image-overlay {
@@ -23,7 +18,116 @@
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: auto;
+  max-width: 90%;
+  white-space: nowrap;
+  max-height: 80vh;
+  box-sizing: border-box;
+}
+
+.image-foreach-course {
+  border-radius: 8px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .image-overlay {
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .image-overlay {
+    font-size: 18px;
+    padding: 6px 12px;
+  }
+}
+
+// @media (max-width: 768px) {
+//   .image-overlay {
+//     font-size: 16px;
+//     padding: 5px 10px;
+//   }
+// }
+
+/* Responsive styles for the search form and course cards */
+@media (max-width: 768px) {
+  .course-card {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .course-image {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .image-foreach-course {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .course-card {
+    padding: 8px;
+  }
+
+  .image-foreach-course {
+    border-radius: 4px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    font-size: 14px;
+  }
+}
+
+
+
+
+@media (max-width: 576px) {
+  .image-overlay {
+    font-size: 14px;
+    padding: 4px 8px;
+
+  }
+}
+
+@media (max-height: 800px) {
+  .image-overlay {
+    top: 50%;
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-height: 600px) {
+  .image-overlay {
+    top: 50%;
+    font-size: 18px;
+    padding: 4px 8px;
+  }
 }
