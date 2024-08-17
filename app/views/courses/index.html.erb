@@ -1,4 +1,5 @@
-<div class="category-pic" style="background-image: url('<%= image_path("#{params[:category]}.jpeg") %>');">
+<%= image_tag image_path("#{params[:category]}1.jpeg"), class: "image-course-index" %>
+<div class="image-overlay">
   <%= params[:category].capitalize %>
 </div>
 
