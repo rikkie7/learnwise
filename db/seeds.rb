@@ -80,7 +80,7 @@ Session.create!(
   start_time: "2024-09-18 18:00:00",
   end_time: "2024-09-18 21:00:00",
   date: "2024-09-18",
-  course: Course.first
+  course: course1
 )
 
 puts "Creating bookings ..."
