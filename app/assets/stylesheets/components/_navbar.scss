@@ -1,6 +1,6 @@
 .navbar-nav {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 
@@ -150,5 +150,9 @@
 
   .avatar {
     display: none;
+  }
+
+  .navbar-toggler-icon {
+    background-color:white;
   }
 }
