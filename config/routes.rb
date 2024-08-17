@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "courses/:category/index", to: "courses#index", as: :courses_category_index
 
   resources :courses, except: [:index] do
+    get 'calendar', to: 'calendar#index', as: :calendar
     resources :sessions
     resources :reviews, only: [:index, :show, :new, :create, :destroy]
     resources :bookings, except: [:destroy]
@@ -29,5 +30,4 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy]
 
   # Adding the calendar route without changing the root
-  get 'calendar', to: 'calendar#index', as: :calendar
 end

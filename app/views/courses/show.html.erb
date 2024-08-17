@@ -49,7 +49,13 @@
 
         <div class="d-flex justify-content-between see-all-the-classes-for-this-course ">
           <div>
-            <%= link_to "See all the sessions for this course >>", course_session_path(@course) %>
+           <%= link_to "View Calendar", course_calendar_path(@course) %>
+
+
+
+
+
+
           </div>
           <div>
             <% if @course.user == current_user %>
