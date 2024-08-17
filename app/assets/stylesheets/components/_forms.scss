@@ -1,4 +1,3 @@
-/* General form styling */
 .login-form {
   width: 100%;
   max-width: 400px;
@@ -9,7 +8,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading styling */
 .login-heading {
   margin: 20px 0 20px 0;
   text-align: center;
@@ -18,7 +16,6 @@
   font-size: 24px;
 }
 
-/* Input fields styling */
 .form-control {
   width: 100%;
   padding: 10px;
@@ -28,12 +25,10 @@
   font-size: 14px;
 }
 
-/* Remember me checkbox */
 .form-check-input {
   margin-right: 5px;
 }
 
-/* Submit button */
 .btn-primary {
   background-color: #1e293b !important;
   border-color: #1e293b !important;
@@ -47,8 +42,45 @@
   border-color: #004085;
 }
 
-/* Form actions container */
 .form-actions {
   margin-top: 20px;
 }
 
+.container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.container a {
+  display: block;
+  margin: 10px 0;
+  color: #1e293b;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.container a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.container button {
+  background-color: #1e293b;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+  background-color: #0056b3;
+}
+
+.container br {
+  margin-bottom: 10px;
+}

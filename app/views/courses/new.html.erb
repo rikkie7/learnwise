@@ -1,11 +1,16 @@
 <div data-controller="format" class="container">
-  <%= simple_form_for(@course) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :category, collection: %w[technology education cooking gardening sports others] %>
-    <%= f.input :size, collection: %w[group private] %>
-    <%= f.input :price %>
-    <%= label_tag "Learning topics", nil, class:"form-label" %>
+  <h2 class="login-heading">Course Registration</h2>
+
+  <%= simple_form_for(@course, html: { class: "login-form" }) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :title, input_html: { class: "form-control" } %>
+      <%= f.input :description, input_html: { class: "form-control" } %>
+      <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" } %>
+      <%= f.input :size, collection: %w[group private], input_html: { class: "form-control" } %>
+      <%= f.input :price, input_html: { class: "form-control" } %>
+
+      <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
+    
 
     <% 4.times do |n|%>
       <%= text_field_tag "learning_topic[content][]", nil, class:"form-control" %>
@@ -18,12 +23,27 @@
           action: "change->format#togglelocationField" }
       }%>
 
-    <div class="d-none" data-format-target="location">
-      <%= f.input :location %>
+
+      <%= f.input :format, collection: %w[online in-person],
+        input_html: {
+          class: "form-control",
+          data: {
+            format_target: "format",
+            action: "change->format#togglelocationField"
+          }
+        } %>
+
+      <div class="d-none" data-format-target="location">
+        <%= f.input :location, input_html: { class: "form-control" } %>
+      </div>
+
+      <%= f.fields_for :user do |user_fields| %>
+        <%= user_fields.input :self_introduction, placeholder: "About yourself...", input_html: { class: "form-control textarea" } %>
+      <% end %>
     </div>
-    <%= f.fields_for :user do |user_fields| %>
-      <%= user_fields.input :self_introduction, placeholder: "About yourself..." %>
-    <% end %>
-    <%= f.submit %>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
+    </div>
   <% end %>
 </div>

@@ -13,9 +13,6 @@
 
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%=link_to "Courses", courses_category_path, class: "courses"%>
-          </li>
-          <li class="nav-item">
             <%= link_to "Become a teacher", new_course_path, class: "become-teacher"%>
           </li>
           <li class="nav-item me-4">
@@ -43,4 +40,20 @@
 
 
   </div>
+</div>
+
+
+
+
+
+
+<div class="category-bar">
+  <ul class="category-list">
+    <li class="category-item"><%= link_to "Technology", courses_category_index_path("technology"), class: "category-link" %></li>
+    <li class="category-item"><%= link_to "Education", courses_category_index_path("education"), class: "category-link" %></li>
+    <li class="category-item"><%= link_to "Cooking", courses_category_index_path("cooking"), class: "category-link" %></li>
+    <li class="category-item"><%= link_to "Gardening", courses_category_index_path("gardening"), class: "category-link" %></li>
+    <li class="category-item"><%= link_to "Sports", courses_category_index_path("sports"), class: "category-link" %></li>
+    <li class="category-item"><%= link_to "Others", courses_category_index_path("others"), class: "category-link" %></li>
+  </ul>
 </div>
