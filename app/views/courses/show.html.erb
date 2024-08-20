@@ -146,6 +146,7 @@
           <div class="course_booking_card_content_price">
             <h4 class="merriweather-black-italic">A$ <%= @course.price %></h4>
 
+
           <!-- Button trigger modal -->
 <div class="my-3">
   <% if @course.user == current_user %>
@@ -180,9 +181,12 @@
         </div>
       <% end %>
     <% else %>
-      <button type="button" class="booking_button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Enroll in this course
-      </button>
+      <%= form_tag course_orders_path(@course), id: 'enroll_form' do %>
+        <%= hidden_field_tag 'course_id', @course.id %>
+        <%= button_tag type: 'submit', class: 'booking_button' do %>
+          Enroll in this course
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
