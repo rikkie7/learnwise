@@ -46,31 +46,31 @@ user16 = User.create!(first_name: "Ivy", last_name: "Moore", email: "user16@gmai
 puts "#{User.last.username} created!"
 
 puts "Creating courses ..."
-course1 = Course.create!(title: "The Complete Ruby on Rails Developer Course", description: "Learn to make innovative web apps with Ruby on Rails and unleash your creativity", category: "technology", format: "online", size: "group", price: 100, image_url: "https://community.theforeman.org/uploads/default/optimized/2X/8/83d09280c8809460222474ef8f7dbc94ee39abc9_2_690x362.png", user: user3, start_date: "2024-08-01", end_date: "2024-12-01")
+course1 = Course.create!(title: "The Complete Ruby on Rails Developer Course", description: "Learn to make innovative web apps with Ruby on Rails and unleash your creativity", category: "technology", format: "online", size: "group", price: 100, image_url: "https://community.theforeman.org/uploads/default/optimized/2X/8/83d09280c8809460222474ef8f7dbc94ee39abc9_2_690x362.png", user: user3, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00")
 puts "#{Course.last.title} created!"
 
-course2 = Course.create!(title: "React - The Complete Guide 2024 (incl. Next.js, Redux)", description: "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!", category: "technology", format: "online", size: "group", price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user3, start_date: "2024-08-01", end_date: "2024-12-01")
+course2 = Course.create!(title: "React - The Complete Guide 2024 (incl. Next.js, Redux)", description: "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!", category: "technology", format: "online", size: "group", price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user3, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00")
 puts "#{Course.last.title} created!"
 
-course3 = Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", format: "in_person", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-08-01", end_date: "2024-12-01", location: "51-53 Mort Street, Braddon, Australian Capital Territory 2601")
+course3 = Course.create!(title: "Yoga", description: "Learn Yoga", category: "sports", format: "in_person", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00", location: "51-53 Mort Street, Braddon, Australian Capital Territory 2601")
 puts "#{Course.last.title} created!"
 
-course4 = Course.create!(title: "Cooking", description: "Learn Cooking", category: "cooking", size: "group", price: 150, image_url: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user4, start_date: "2024-08-01", end_date: "2024-12-01", location: "395 Pitt Street, Sydney, New South Wales 2000", format: "in_person")
+course4 = Course.create!(title: "Cooking", description: "Learn Cooking", category: "cooking", size: "group", price: 150, image_url: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user4, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 18:00:00", location: "395 Pitt Street, Sydney, New South Wales 2000", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course5 = Course.create!(title: "Gardening", description: "Learn how to plant a tree", category: "gardening", size: "group", price: 50, image_url: "https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user5, start_date: "2024-11-01", end_date: "2025-03-01", location: "814 Pittwater Road, Dee Why, New South Wales 2099", format: "in_person")
+course5 = Course.create!(title: "Gardening", description: "Learn how to plant a tree", category: "gardening", size: "group", price: 50, image_url: "https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user5, start_date: "2024-11-01 18:00:00", end_date: "2025-03-01 21:00:00", location: "814 Pittwater Road, Dee Why, New South Wales 2099", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course6 = Course.create!(title: "Football", description: "Play football with your mates", category: "sports", size: "group", price: 10, image_url: "https://plus.unsplash.com/premium_photo-1661856745445-14fd848f0e53?q=80&w=2858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user7, start_date: "2024-10-01", end_date: "2025-02-01", location: "2-4 Market Place, Hobart, Tasmania 7000", format: "in_person")
+course6 = Course.create!(title: "Football", description: "Play football with your mates", category: "sports", size: "group", price: 10, image_url: "https://plus.unsplash.com/premium_photo-1661856745445-14fd848f0e53?q=80&w=2858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user7, start_date: "2024-10-01 18:00:00", end_date: "2025-02-01 21:00:00", location: "2-4 Market Place, Hobart, Tasmania 7000", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course7 = Course.create!(title: "Business", description: "Business 101", category: "education", size: "group", price: 300, image_url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user14, start_date: "2024-12-01", end_date: "2025-08-01", location: "29 Cameron Street, Launceston, Tasmania 7250", format: "in_person")
+course7 = Course.create!(title: "Business", description: "Business 101", category: "education", size: "group", price: 300, image_url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user14, start_date: "2024-12-01 18:00:00", end_date: "2025-08-01 18:00:00", location: "29 Cameron Street, Launceston, Tasmania 7250", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course8 = Course.create!(title: "First Aid", description: "How to perform CPR", category: "others", size: "group", price: 200, image_url: "https://plus.unsplash.com/premium_photo-1663050906605-faa2aa0e5ff8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user6, start_date: "2024-08-10", end_date: "2024-08-10", location: "8 Franklin Street, Melbourne, Victoria 3000", format: "in_person")
+course8 = Course.create!(title: "First Aid", description: "How to perform CPR", category: "others", size: "group", price: 200, image_url: "https://plus.unsplash.com/premium_photo-1663050906605-faa2aa0e5ff8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user6, start_date: "2024-08-30 09:00:00", end_date: "2024-08-30 12:00:00", location: "8 Franklin Street, Melbourne, Victoria 3000", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course9 = Course.create!(title: "Rust: The Complete Developer's Guide", description: "Become a Rust engineer. Understand ownership, lifetimes, traits, generics, and much more through practical projects", category: "technology", format: "online", size: "group", price: 100, image_url: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*ywP7NFzW-8ZWilwJ.png", user: user1, start_date: "2024-08-01", end_date: "2024-12-01")
+course9 = Course.create!(title: "Rust: The Complete Developer's Guide", description: "Become a Rust engineer. Understand ownership, lifetimes, traits, generics, and much more through practical projects", category: "technology", format: "online", size: "group", price: 100, image_url: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*ywP7NFzW-8ZWilwJ.png", user: user1, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00")
 puts "#{Course.last.title} created!"
 
 puts "Creating sessions ..."
@@ -80,6 +80,15 @@ Session.create!(
   start_time: "2024-09-18 18:00:00",
   end_time: "2024-09-18 21:00:00",
   date: "2024-09-18",
+  course: course1
+)
+
+Session.create!(
+  title: "Class 02",
+  description: "Second class of Learn Ruby on Rails Course",
+  start_time: "2024-09-30 18:00:00",
+  end_time: "2024-09-30 21:00:00",
+  date: "2024-09-30",
   course: course1
 )
 
@@ -270,4 +279,12 @@ Review.create!(
   content: "From start to finish, this course was fantastic! The content was super well-organized, covering everything from the basics to more advanced stuff in a really clear and engaging way. The way the topics flowed made it easy to build on what we had already learned."
 )
 
-puts "Seeds created!"
+puts "Reviews created!"
+
+chatroom1 = Chatroom.create!( name: "The Complete Ruby on Rails Developer Course", course: course1 )
+chatroom2 = Chatroom.create!( name: "React", course: course2 )
+puts "Chatroom created!"
+Message.create!(content: "Welcome", user: user3, chatroom: chatroom1 )
+Message.create!(content: "Welcome to React", user: user3, chatroom: chatroom2)
+puts "Messages created!"
+puts "Seed created!"

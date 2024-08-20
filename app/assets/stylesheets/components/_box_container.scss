@@ -5,6 +5,10 @@
   padding: 0px 0px;
   color: white;
   position: relative;
+
+  #coursetime {
+    color: black
+  }
 }
 .box_container h1 {
   display: flex;
@@ -17,4 +21,13 @@
     margin: 0 auto;
 
   }
+}
+
+.calendarlink {
+  color: black;
+  opacity: 0.4;
+}
+
+.calendarlink:hover {
+  opacity: 1;
 }
