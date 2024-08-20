@@ -34,7 +34,7 @@
 
   <%# If there are courses but no bookings %>
   <% elsif @bookings.empty? %>
-    <%= link_to "Wanna upskill?", courses_category_path, class: "not-enrolled-message" %>
+    <%= link_to "Wanna upskill?", root_path, class: "not-enrolled-message" %>
 
   <%# If there are bookings but you dont teach any courses %>
   <% else %>

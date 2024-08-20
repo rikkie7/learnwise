@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
+    <%= link_to root_path, class: "navbar-brand mt-2" do %>
+      <%= image_tag "logo_green.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,11 +13,15 @@
           <li class="nav-item">
             <%= link_to "Become a teacher", new_course_path, class: "become-teacher"%>
           </li>
+
+            <!-- can delete at anytime-->
+            <li><a href="/dashboard" class="become-teacher">Dashboard</a></li>
+
           <li class="nav-item me-4">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "logout" %>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="avatar navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="/dashboard" class="avatar navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
               <% else %>

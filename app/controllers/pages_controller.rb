@@ -1,13 +1,9 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    if current_user
-      redirect_to dashboard_path
-    else
-      @courses_of_the_year = top_courses_with_more_students
-      @five_star_reviews = random_five_star_reviews
-    end
+    @courses_of_the_year = top_courses_with_more_students
+    @five_star_reviews = random_five_star_reviews
   end
 
   def dashboard

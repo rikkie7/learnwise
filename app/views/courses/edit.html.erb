@@ -1,7 +1,7 @@
 <div data-controller="format dynamic-fields" class="container">
   <h2 class="login-heading">Submit Course</h2>
 
-  <%= simple_form_for(@course, html: { class: "login-form edit-form-with" }) do |f| %>
+  <%= simple_form_for(@course, html: { class: "login-form edit-form-with text-start" }) do |f| %>
     <div class="form-inputs">
       <%= f.input :title, input_html: { class: "form-control" } %>
       <%= f.input :description, as: :text, input_html: { class: "form-control large-text-field" } %>
