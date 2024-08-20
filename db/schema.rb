@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_13_093210) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_20_073844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +53,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_093210) do
   end
 
   create_table "courses", force: :cascade do |t|
-    t.integer "price"
     t.string "title"
     t.string "description"
     t.string "category"
@@ -68,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_093210) do
     t.date "end_date"
     t.integer "format"
     t.string "image_url"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
@@ -77,6 +77,31 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_093210) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_learning_topics_on_course_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "course_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "state"
+    t.index ["course_id"], name: "index_orders_on_course_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "amount"
+    t.string "currency"
+    t.string "stripe_charge_id"
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_payments_on_course_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -125,6 +150,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_093210) do
   add_foreign_key "bookings", "users"
   add_foreign_key "courses", "users"
   add_foreign_key "learning_topics", "courses"
+  add_foreign_key "orders", "courses"
+  add_foreign_key "orders", "users"
+  add_foreign_key "payments", "courses"
+  add_foreign_key "payments", "users"
   add_foreign_key "reviews", "courses"
   add_foreign_key "reviews", "users"
   add_foreign_key "sessions", "courses"

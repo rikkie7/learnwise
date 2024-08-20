@@ -33,4 +33,6 @@ class Course < ApplicationRecord
     in_person: 1
   }
 
+  monetize :price_cents
+
 end
