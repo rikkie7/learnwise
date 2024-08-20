@@ -49,13 +49,11 @@
 
         <div class="d-flex justify-content-between see-all-the-classes-for-this-course ">
           <div>
-           <%= link_to "View Calendar", course_calendar_path(@course) %>
-
-
-
-
-
-
+            <% if @course.end_date.to_date == @course.start_date.to_date %>
+              <p id="coursetime" > Course time: <%=@course.start_date.strftime("%d/%m/%Y %H:%M:%S")%> - <%= @course.end_date.strftime("%d/%m/%Y %H:%M:%S")%> </p>
+            <% else %>
+              <%= link_to "View all sessions in calendar", course_calendar_path(@course), class: "calendarlink" %>
+            <% end %>
           </div>
         </div>
 
@@ -162,11 +160,26 @@
         class: "edit-course-button",
         style: "text-decoration: none;"
     %>
+    <% if @course.chatroom %>
+      <div class="view-chatroom">
+        <%= link_to "Enter Chatroom", chatroom_path(@course.chatroom) %>
+      </div>
+    <% else %>
+      <div class="view-chatroom">
+        <%= link_to "Create Chatroom", new_course_chatroom_path(@course) %>
+      </div>
+    <% end %>
+
   <% else %>
     <% if @course.bookings.exists?(user: current_user) %>
       <button type="button" class="booking_button btn" disabled>
         You have enrolled in this course
       </button>
+      <% if @course.chatroom %>
+        <div class="view-chatroom">
+        <%= link_to "Enter Chatroom", chatroom_path(@course.chatroom) %>
+        </div>
+      <% end %>
     <% else %>
       <%= form_tag course_orders_path(@course), id: 'enroll_form' do %>
         <%= hidden_field_tag 'course_id', @course.id %>

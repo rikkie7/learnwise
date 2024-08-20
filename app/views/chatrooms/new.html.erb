@@ -1,0 +1,14 @@
+<div data-controller="format" class="container">
+  <h2 class="login-heading">New Chatroom</h2>
+
+  <%= simple_form_for([@course,@chatroom], html: { class: "login-form custom-form-width" }) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name, input_html: { class: "form-control" }, placeholder: "Recommend to use your course name" %>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+</div>
