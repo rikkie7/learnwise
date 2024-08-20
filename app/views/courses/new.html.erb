@@ -1,7 +1,7 @@
 <div data-controller="format" class="container">
   <h2 class="login-heading">Course Registration</h2>
 
-  <%= simple_form_for(@course, html: { class: "login-form custom-form-width" }) do |f| %>
+  <%= simple_form_for(@course, html: { class: "login-form custom-form-width text-start" }) do |f| %>
     <div class="form-inputs">
       <%= f.input :title, input_html: { class: "form-control" } %>
       <%= f.input :description, input_html: { class: "form-control large-text-field" } %>

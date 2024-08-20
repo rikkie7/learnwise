@@ -1,31 +1,33 @@
 <div class="row">
   <div class="col-12">
     <div class="banner">
-      <div class="box_container pt-4">
-        <h1 class="archivo-black-regular"><%= @course.title %></h1>
-        <p>Course description: <%= @course.description %></p>
-        <p>Created by <%= @course.user.username %></p>
-        <p>Rating:
-          <% sum_rating = @course.reviews.sum(:rating)%>
-          <% total_reviews = @course.reviews.size %>
-          <% if total_reviews > 0 %>
-            <% average_rating = sum_rating.to_f / total_reviews %>
-          <% else %>
-            <% average_rating = 0 %>
-          <% end %>
-          <% average_rating = average_rating.round(1) %>
-          <%= average_rating %>
-          <% full_stars = average_rating.to_i %>
-          <% has_half_star = (average_rating - full_stars) >=0.5 %>
+      <div class="box_container pt-5">
+        <h2 class="archivo-black-regular"><%= @course.title %></h2>
+        <div class="banner-discription">
+          <p class="merriweather-light">Course description: <%= @course.description %></p>
+          <p class="merriweather-light">Created by <%= @course.user.username %></p>
+          <p class="merriweather-light">Rating:
+            <% sum_rating = @course.reviews.sum(:rating)%>
+            <% total_reviews = @course.reviews.size %>
+            <% if total_reviews > 0 %>
+              <% average_rating = sum_rating.to_f / total_reviews %>
+            <% else %>
+              <% average_rating = 0 %>
+            <% end %>
+            <% average_rating = average_rating.round(1) %>
+            <%= average_rating %>
+            <% full_stars = average_rating.to_i %>
+            <% has_half_star = (average_rating - full_stars) >=0.5 %>
 
-          <% full_stars.times do %>
-            <i class="fa-solid fa-star"></i>
-          <% end %>
+            <% full_stars.times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
 
-          <% if has_half_star %>
-            <i class="fa-solid fa-star-half-stroke filled"></i>
-          <% end %>
-        </p>
+            <% if has_half_star %>
+              <i class="fa-solid fa-star-half-stroke filled"></i>
+            <% end %>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -191,29 +193,29 @@
   <% end %>
 </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><%= @course.title %></h5>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><%= @course.title %></h5>
+                </div>
+                <div class="modal-body">
+                      <%= render "shared/course_info" %>
                   </div>
-                  <div class="modal-body">
-                        <%= render "shared/course_info" %>
-                    </div>
-                    <div class="modal-footer">
-                      <%= simple_form_for([@course, @booking]) do |f| %>
-                      <%= f.input :status %>
-                      <%= f.submit "Confirm", class:"btn btn-primary"%>
-                      <% end %>
-                    </div>
+                  <div class="modal-footer">
+                    <%= simple_form_for([@course, @booking]) do |f| %>
+                    <%= f.input :status %>
+                    <%= f.submit "Confirm", class:"btn btn-primary"%>
+                    <% end %>
                   </div>
                 </div>
-                </div>
+              </div>
+              </div>
 
-            <p id="start_trial">30-Day Money-Back Guarantee</p>
-            <p id="start_trial">Full Lifetime Access</p>
-          </div>
+          <p id="start_trial">30-Day Money-Back Guarantee</p>
+          <p id="start_trial">Full Lifetime Access</p>
+        </div>
 
       </div>
     </div>

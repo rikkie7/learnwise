@@ -1,0 +1,166 @@
+.banner {
+  width: 100%;
+  min-height: 350px;
+  background-color: #2d2f31;
+  margin: 0 auto;
+  padding: 16px auto;
+}
+
+.banner p {
+  margin: 20px auto;
+  font-size: large;
+}
+
+.banner-discription {
+  width: 80%;
+}
+.merriweather-light {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.box_container {
+  width: 80%;
+  height: 100%;
+  margin: 0 80px;
+  padding: 0px 0px;
+  color: white;
+  position: relative;
+
+  #coursetime {
+    color: black
+  }
+}
+.box_container h1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.calendarlink {
+  color: black;
+  opacity: 0.4;
+}
+
+.calendarlink:hover {
+  opacity: 1;
+}
+
+@media (max-width:991px) {
+  .box_container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.what_you_will_learn {
+  width: 100%;
+  min-width: 300px;
+  border: 1px solid rgb(223, 221, 221);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+  margin-top: 16px;
+}
+h4 {
+  padding: 32px 32px;
+}
+.archivo-black-thin {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+ul {
+  margin-left: 1rem;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+.teacher-info-card {
+  width: 100%;
+  color: black;
+  margin: 32px auto;
+  text-align: justify;
+}
+
+.kanit-regular {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.avatar-lg {
+  width: 140px;
+  height: 140px;
+  background-color: rgb(52, 52, 51);
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  color: rgb(255, 255, 255);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher-block-list-item-content {
+  flex: 1;
+  margin-left: 24px;
+}
+
+.teacher-block-list-item-content p {
+  margin-bottom: 8px;
+}
+
+.teacher-block-list-item-content i {
+  color: rgb(68, 68, 68);;
+}
+
+.review-card {
+  margin-top: 16px;
+  width: 100%;
+  color: black;
+  text-align: justify;
+}
+
+.each-review-card {
+  border-top: 1px solid rgb(223, 221, 221);
+  padding-top: 16px;
+  align-items: baseline;
+  justify-content: bottom;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(52, 52, 51);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#name {
+  margin: 0 16px;
+  align-items: baseline;
+  font-weight: bolder;
+}
+
+#rating {
+  font-weight: bolder;
+  margin: 16px 0;
+}
+
+i {
+  color: rgb(226, 164, 50);
+}
