@@ -9,9 +9,14 @@ Rails.application.routes.draw do
 
   resources :courses, except: [:index] do
     get 'calendar', to: 'calendar#index', as: :calendar
+    resources :orders, only: [:show, :create] do
+      resources :payments, only: :new
+    end
     resources :sessions
     resources :reviews, only: [:index, :show, :new, :create, :destroy]
     resources :bookings, except: [:destroy]
+    resources :chatrooms, only: [:new, :create] do
+    end
   end
 
   #Calendar
@@ -30,4 +35,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy]
 
   # Adding the calendar route without changing the root
+
+  resources :chatrooms, only: [:show] do
+    resources :messages, only: [:create]
+  end
+
 end

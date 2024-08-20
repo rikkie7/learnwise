@@ -13,6 +13,7 @@ class Course < ApplicationRecord
   belongs_to :user
   accepts_nested_attributes_for :user
 
+  has_one :chatroom, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :sessions, dependent: :destroy
   has_many :bookings, dependent: :destroy
@@ -32,5 +33,7 @@ class Course < ApplicationRecord
     online: 0,
     in_person: 1
   }
+
+  monetize :price_cents
 
 end

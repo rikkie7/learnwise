@@ -89,3 +89,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'money-rails'
+gem 'stripe', '~> 12.5.0'
+# gem 'stripe-rails'
