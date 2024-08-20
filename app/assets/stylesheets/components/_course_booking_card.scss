@@ -131,3 +131,15 @@ p {
 .text-muted {
   text-align: center;
 }
+
+.view-chatroom {
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: black;
+    opacity: 0.4;
+  }
+  a:hover {
+    opacity: 1;
+  }
+}

@@ -4,12 +4,16 @@
 
 <%= month_calendar do |date| %>
   <%= date.day %>
-  <% @sessions.select { |session| session.start_time.to_date == date }.each do |session| %>
-    <div class="session-item">
-      📚 <%= link_to session.title, course_session_path(session.course_id, session.id), class: 'session-title' %>
-      <span class="session-time">
-        <%= session.start_time.strftime("%I:%M %p") %> - <%= session.end_time.strftime("%I:%M %p") %>
-      </span>
-    </div>
+  <% if @sessions.exists? %>
+    <% @sessions.select { |session| session.start_time.to_date == date }.each do |session| %>
+      <div class="session-item">
+        📚 <%= link_to session.title, course_session_path(session.course_id, session.id), class: 'session-title' %>
+        <span class="session-time">
+          <%= session.start_time.strftime("%I:%M %p") %> - <%= session.end_time.strftime("%I:%M %p") %>
+        </span>
+      </div>
+    <% end %>
+  <% else %>
+
   <% end %>
 <% end %>
