@@ -1,45 +1,41 @@
-<section aria-label="Carousel" class="carousel-module--container--l71Ek">
 
-  <div class="course-unit-module--grid--decz9 carousel-module--scroll-port--ViaiR carousel-module--grid--nU76k carousel-module--scroll-lock--UdXQa" data-purpose="scroll-port" data-testid="course-unit-carousel">
-      <div class="card-container">
-        <% @courses_of_the_year.each do |course| %>
-          <div class="card">
-            <%= link_to course_path(course), class: "card-link" do %>
-              <% if course.photo.attached? %>
-                <%= cl_image_tag course.photo.key, class: "card-img-top" %>
-              <% else %>
-                <%= image_tag course.image_url, class: "card-img-top", alt: course.title %>
-              <% end %>
-              <div class="card-body">
-                <p class="card-title"><%= course.title %></p>
-              </div>
-              <% end %>
-              <% if course.end_date <= Date.today %>
-                <%= link_to 'Add a Review', new_course_review_path(course), class: 'btn btn-primary' %>
-              <% end %>
-
-              <li class="course-item mt-3">
-                <div class="course-header">
-                  <div class="rating-stars">
-                    <% rating = course.average_rating || 0 %>
-                    <% full_stars = rating.to_i %>
-                    <% has_half_star = (rating - full_stars) >= 0.5 %>
-                    <% full_stars.times do %>
-                      <i class="fa-solid fa-star filled"></i>
-                    <% end %>
-                    <% if has_half_star %>
-                      <i class="fa-solid fa-star-half-stroke filled"></i>
-                    <% end %>
-                    <% (5 - full_stars - (has_half_star ? 1 : 0)).times do %>
-                      <i class="fa-solid fa-star empty"></i>
-                    <% end %>
-                  </div>
+<div class="responsive-cards-home-page course-unit-module--grid--decz9 carousel-module--scroll-port--ViaiR carousel-module--grid--nU76k carousel-module--scroll-lock--UdXQa" data-purpose="scroll-port" data-testid="course-unit-carousel">
+    <div class="card-container">
+      <% @courses_of_the_year.each do |course| %>
+        <div class="card">
+          <%= link_to course_path(course), class: "card-link" do %>
+            <% if course.photo.attached? %>
+              <%= cl_image_tag course.photo.key, class: "card-img-top" %>
+            <% else %>
+              <%= image_tag course.image_url, class: "card-img-top", alt: course.title %>
+            <% end %>
+            <div class="card-body">
+              <p class="card-title"><%= course.title %></p>
+            </div>
+            <% end %>
+            <% if course.end_date <= Date.today %>
+              <%= link_to 'Add a Review', new_course_review_path(course), class: 'btn btn-primary' %>
+            <% end %>
+            <li class="course-item mt-3">
+              <div class="course-header">
+                <div class="rating-stars">
+                  <% rating = course.average_rating || 0 %>
+                  <% full_stars = rating.to_i %>
+                  <% has_half_star = (rating - full_stars) >= 0.5 %>
+                  <% full_stars.times do %>
+                    <i class="fa-solid fa-star filled"></i>
+                  <% end %>
+                  <% if has_half_star %>
+                    <i class="fa-solid fa-star-half-stroke filled"></i>
+                  <% end %>
+                  <% (5 - full_stars - (has_half_star ? 1 : 0)).times do %>
+                    <i class="fa-solid fa-star empty"></i>
+                  <% end %>
                 </div>
-                <p class="rating-text"><% rating == 0 ? 'No ratings yet' : rating %></p>
-             </li>
-          </div>
-        <% end %>
-      </div>
-  </div>
-
-</section>
+              </div>
+              <p class="rating-text"><% rating == 0 ? 'No ratings yet' : rating %></p>
+            </li>
+        </div>
+      <% end %>
+    </div>
+</div>

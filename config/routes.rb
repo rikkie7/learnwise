@@ -19,23 +19,14 @@ Rails.application.routes.draw do
     end
   end
 
-  #Calendar
-  # resources :sessions do
-  #   member do
-  #     get :details
-  #   end
-  # end
-
   scope :users do
     get 'sessions/:id/details', to: 'sessions#details', as: :details_session
   end
-
 
   # delete 'bookings/:id', to: 'bookings#destroy', as: 'cancel_booking'
   resources :bookings, only: [:destroy]
 
   # Adding the calendar route without changing the root
-
   resources :chatrooms, only: [:show] do
     resources :messages, only: [:create]
   end
