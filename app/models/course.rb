@@ -32,10 +32,10 @@ class Course < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  enum format: {
-    online: 0,
-    in_person: 1
-  }
+  # enum format: {
+  #   online: 0,
+  #   in_person: 1
+  # }
 
   monetize :price_cents
 
