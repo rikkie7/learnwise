@@ -65,11 +65,10 @@
           <p><%= @course.user.first_name %> <%= @course.user.last_name %></p>
           <div class="d-flex my-2 align-items-center">
             <% if @course.user.image_url? %>
-              <%= image_tag @course.user.image_url, class: "avatar-lg" %>
+              <%= image_tag @course.user.image_url, class: "teacher-photo" %>
             <% else %>
               <div class="avatar-lg"><h3><%= @course.user.first_name.first.upcase %><%= @course.user.last_name.first.upcase %></h3></div>
             <% end %>
-
             <div class="teacher-block-list-item-content">
               <div class="d-flex">
                 <i class="fa-solid fa-star me-3"></i>

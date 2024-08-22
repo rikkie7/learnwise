@@ -3,6 +3,7 @@
   <% if @courses.empty? && @bookings.empty? %>
     <div class="choice-section">
       <h1>What would you like to do?</h1>
+
       <div class="choice-buttons">
         <%= link_to "Find Courses", courses_category_path, class: "btn btn-primary" %>
         <%= link_to "Become a Teacher", new_course_path, class: "btn btn-secondary become-teacher-button" %>
@@ -40,12 +41,19 @@
   <% else %>
     <h1 class="student-space">Student Space</h1>
     <div data-controller="checkbox">
-      <div class="d-flex justify-content-center">
-        <input data-checkbox-target="completed" data-action="click->checkbox#connect" type="checkbox" id="status1" name="status1" value="completed" class="me-2">
-        <label for="status1" class="me-5"> Completed</label>
-        <input data-checkbox-target="incomplete" data-action="click->checkbox#connect" type="checkbox" id="status2" name="status2" value="incomplete" class="me-2">
-        <label for="status2"> In Progress</label>
+
+      <div class="d-flex flex-column flex-md-row justify-content-center mt-3 mb-3">
+        <div class="d-flex align-items-center mb-2 mb-md-0">
+          <input data-checkbox-target="completed" data-action="click->checkbox#connect" type="checkbox" id="status1" name="status1" value="completed" class="me-2">
+          <label for="status1" class="me-md-5"> Completed</label>
+        </div>
+        <div class="d-flex align-items-center">
+          <input data-checkbox-target="incomplete" data-action="click->checkbox#connect" type="checkbox" id="status2" name="status2" value="incomplete" class="me-2">
+          <label for="status2"> In Progress</label>
+        </div>
       </div>
+
+
 
       <div class="card-container">
         <% @bookings.each do |booking| %>

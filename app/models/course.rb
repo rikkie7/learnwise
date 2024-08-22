@@ -24,7 +24,10 @@ class Course < ApplicationRecord
   validates :description, presence: true
   validates :category, presence: true, inclusion: { in: %w[technology education cooking gardening sports others] }
   validates :size, presence: true, inclusion: { in: %w[group private] }
-  # validates :format
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validate :start_date_before_end_date
+
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
@@ -35,5 +38,15 @@ class Course < ApplicationRecord
   # }
 
   monetize :price_cents
+
+  private
+
+  def start_date_before_end_date
+    return if start_date.blank? || end_date.blank?
+
+    if start_date >= end_date
+      errors.add(:start_date, "must be before the end date")
+    end
+  end
 
 end
