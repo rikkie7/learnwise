@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.1].define(version: 2024_08_20_073844) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,6 +87,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_073844) do
     t.index ["course_id"], name: "index_learning_topics_on_course_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "course_sku"
     t.integer "amount_cents", default: 0, null: false
@@ -100,28 +108,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_073844) do
     t.string "state"
     t.index ["course_id"], name: "index_orders_on_course_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.integer "amount"
-    t.string "currency"
-    t.string "stripe_charge_id"
-    t.bigint "user_id", null: false
-    t.bigint "course_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_payments_on_course_id"
-    t.index ["user_id"], name: "index_payments_on_user_id"
-
-  create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.bigint "chatroom_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -171,13 +157,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_073844) do
   add_foreign_key "chatrooms", "courses"
   add_foreign_key "courses", "users"
   add_foreign_key "learning_topics", "courses"
-
-  add_foreign_key "orders", "courses"
-  add_foreign_key "orders", "users"
-  add_foreign_key "payments", "courses"
-  add_foreign_key "payments", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "orders", "courses"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "courses"
   add_foreign_key "reviews", "users"
   add_foreign_key "sessions", "courses"
