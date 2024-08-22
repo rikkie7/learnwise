@@ -8,6 +8,8 @@
       <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" } %>
       <%= f.input :size, collection: %w[group private], input_html: { class: "form-control" } %>
       <%= f.input :price, input_html: { class: "form-control" } %>
+      <%= f.input :start_date, as: :date, input_html: { class: "form-control" } %>
+      <%= f.input :end_date, as: :date, input_html: { class: "form-control" } %>
 
       <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
 
@@ -32,6 +34,8 @@
         <%= user_fields.input :self_introduction_about_yourself, input_html: { class: "form-control large-text-field" } %>
       <% end %>
     </div>
+
+
 
     <div class="form-actions">
       <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
