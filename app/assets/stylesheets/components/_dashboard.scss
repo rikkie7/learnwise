@@ -50,7 +50,6 @@ h1 {
   color: #000;
 }
 
-// Making images the same size..
 .card-img-top {
   border-radius: 7px;
   width: 100%;
@@ -75,15 +74,10 @@ h1 {
 }
 .fa-2x {
   font-size: 35px;
-
 }
-// .text-description-card {
-//   margin-top: 10px;
-// }
 
 .filter-form {
   width: 300px;
-  // margin-left: 200px;
 }
 
 .not-enrolled-message {
@@ -115,7 +109,7 @@ h1 {
 .choice-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Adjust spacing between buttons */
+  gap: 20px;
 }
 
 .btn {

@@ -1,18 +1,6 @@
-
-
 .image-container {
   text-align: center;
   margin-top: 30px;
-}
-
-.main-photo-home-page {
-  height: 600px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  opacity: 0.8;
 }
 
 .courses_of_the_year {
@@ -130,7 +118,6 @@
 }
 
 .review-item {
-  // background: #f8f9fa;
   background: #1e293b;
   padding: 20px;
   border-radius: 10px;
@@ -161,6 +148,20 @@
   .teacher-list {
     gap: 80px;
   }
+
+  .card-courses-home-page-responsive{
+    margin-top: 200px;
+  }
+}
+
+@media (max-width: 1168px) {
+  .courses_of_the_year {
+    margin-bottom: 200px;
+  }
+
+  .top-perfoming-teachers-card {
+    padding-top: 180px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -179,6 +180,17 @@
 
   .teacher-name {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .courses_of_the_year {
+    margin-bottom: 530px;
+  }
+
+  .top-perfoming-teachers-card {
+    padding-top: 470px;
   }
 }
 

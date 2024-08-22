@@ -14,22 +14,27 @@
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
-  font-size: 24px;
+  font-size: 25px;
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   text-align: center;
   width: auto;
   max-width: 90%;
   white-space: nowrap;
-  max-height: 80vh;
   box-sizing: border-box;
 }
 
 .image-foreach-course {
   border-radius: 8px;
+  width: 400px; 
+  height: auto;
+  object-fit: cover;
 }
 
-/* Media Queries */
+.more-details-button:hover {
+  color: rgb(93, 92, 92) !important;
+}
+
 @media (max-width: 1200px) {
   .image-overlay {
     font-size: 20px;
@@ -39,19 +44,18 @@
 
 @media (max-width: 992px) {
   .image-overlay {
-    font-size: 18px;
+    font-size: 20px;
     padding: 6px 12px;
   }
 }
 
-// @media (max-width: 768px) {
-//   .image-overlay {
-//     font-size: 16px;
-//     padding: 5px 10px;
-//   }
-// }
+@media (max-height: 800px) {
+  .image-overlay {
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+}
 
-/* Responsive styles for the search form and course cards */
 @media (max-width: 768px) {
   .course-card {
     flex-direction: column;
@@ -81,6 +85,18 @@
     width: 100%;
     margin-top: 10px;
   }
+
+  .image-overlay {
+    font-size: 20px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-height: 600px) {
+  .image-overlay {
+    font-size: 20px;
+    padding: 4px 8px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -103,31 +119,9 @@
   .btn-primary {
     font-size: 14px;
   }
-}
 
-
-
-
-@media (max-width: 576px) {
   .image-overlay {
-    font-size: 14px;
-    padding: 4px 8px;
-
-  }
-}
-
-@media (max-height: 800px) {
-  .image-overlay {
-    top: 50%;
     font-size: 20px;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-height: 600px) {
-  .image-overlay {
-    top: 50%;
-    font-size: 18px;
     padding: 4px 8px;
   }
 }

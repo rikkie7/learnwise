@@ -22,23 +22,62 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-style: normal;
   font-size: 14px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
 }
 
 .category-link:hover {
-  color: #f4f4f5;
-  text-decoration: underline;
+  color: #2c2c2c;
+  background-color: #f4f4f5;
+  cursor: pointer;
 }
 
-@media (max-width: 575px) {
-  .category-list {
-    flex-direction: column;
-    align-items: center;
+
+@media (max-width: 1200px) {
+  .category-link {
+    font-size: 13px;
+    padding: 7px 10px;
   }
 
   .category-item {
-    margin: 5px 0;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .category-link {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .category-item {
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-link {
+    font-size: 11px;
+    padding: 5px 6px;
+  }
+
+  .category-item {
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .category-link {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .category-item {
+    margin: 0 5px;
   }
 }
