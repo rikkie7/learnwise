@@ -12,7 +12,8 @@
 .simple-calendar {
   width: 100%;
   max-width: 1200px; /* Increase the max-width for a larger calendar */
-  margin: 50px auto; /* Centers the calendar horizontally and adds vertical spacing */
+  margin: 50px auto;
+  margin-top: 10px; /* Centers the calendar horizontally and adds vertical spacing */
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -117,7 +118,7 @@
   color: #007bff; /* Blue color for the title */
   margin-bottom: 5px; /* Space below the title */
   text-decoration: none; /* Remove underline */
-  font-size: 0.9rem;
+  font-size: 0.5rem;
 }
 
 .session-item .session-title:hover {
@@ -125,6 +126,22 @@
 }
 
 .session-item .session-time {
-  font-size: 0.9rem; /* Smaller font for the time */
+  font-size: 0.5rem; /* Smaller font for the time */
   color: #666; /* Gray color for the time */
+}
+
+.add-new-class {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    margin-right: 45px;
+    background-color: green($color: #39b892)
+  }
+}
+
+.modal-body {
+  p {
+    font-size: 20px;
+    text-align: left;
+  }
 }

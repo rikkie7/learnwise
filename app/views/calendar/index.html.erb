@@ -1,5 +1,10 @@
-<div class="title-container">
+<div class="title-container container">
   <h1>Calendar</h1>
+  <div class="add-new-class">
+    <% if @course.user == current_user %>
+      <%= button_to "Add new a new class", new_course_session_path, method: :get, style: "background-color: #39b892"%>
+    <% end %>
+  </div>
 </div>
 
 <%= month_calendar do |date| %>
@@ -7,9 +12,38 @@
   <% if @sessions.exists? %>
     <% @sessions.select { |session| session.start_time.to_date == date }.each do |session| %>
       <div class="session-item">
-        📚 <%= link_to session.title, course_session_path(session.course_id, session.id), class: 'session-title' %>
+          <!-- Link trigger modal -->
+      <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="session-title">
+        <%=session.title%>
+      </a>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title fs-6 text-center w-100" id="exampleModalLabel">Class Title: <%= session.title %></h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Description: <%= session.description %></p>
+              <p>Date: <%= format_day(session.date) %> <%= day_of_week(session.date) %></p>
+              <p>From: <%= format_hour(session.start_time) %> to <%= format_hour(session.end_time) %></p>
+            </div>
+            <div class="modal-footer">
+              <div class="d-flex justify-content-between w-100">
+                <% if session.course.user == current_user %>
+                  <%= button_to "Edit", edit_course_session_path(session.course, session), method: :get, class:"btn", style: "background-color: #39b892" %>
+                  <%= button_to "Delete", course_session_path(session.course, session), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-danger" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
         <span class="session-time">
-          <%= session.start_time.strftime("%I:%M %p") %> - <%= session.end_time.strftime("%I:%M %p") %>
+          <%= session.start_time.strftime("%H:%M") %> - <%= session.end_time.strftime("%H:%M") %>
         </span>
       </div>
     <% end %>
