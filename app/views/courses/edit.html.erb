@@ -18,6 +18,9 @@
 
       <button type="button" id="add-learning-topic" class="btn btn-primary mb-2" data-action="click->dynamic-fields#addField">+ Add more to your response</button>
 
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+
       <%= f.input :format, collection: %w[online in-person], input_html: { class: "form-control", data: { format_target: "format", action: "change->format#togglelocationField" } } %>
 
       <div class="d-none" data-format-target="location">
