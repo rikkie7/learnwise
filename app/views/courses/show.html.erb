@@ -130,24 +130,8 @@
     <!-- course booking card -->
       <div class="course_booking_card">
           <img src="<%= @course.image_url %>" alt="" class="course_image">
-          <div class="course_booking_card_content">
-            <h3 class="gupter-bold">Subscribe to LearnWise's top courses</h3>
-            <p>Get this course, plus 11,000+ of our top-rated courses, with Personal Plan.</p>
-            <% if @course.user == current_user %>
-              <button type="button" class="booking_button btn" disabled data-bs-toggle="button" autocomplete="off">
-                Try Personal Plan For Free
-              </button>
-            <% else %>
-            <button class="try_personal_plan_button">Try Personal Plan For Free</button>
-            <% end %>
-            <p id="start_trial">Starting at A$19.00 per month after trial</p>
-            <p id="start_trial">Cancel anytime</p>
-          </div>
-
           <div class="course_booking_card_content_price">
-            <h4 class="merriweather-black-italic">A$ <%= @course.price %></h4>
-
-
+            <h4 class="merriweather-black-italic mt-3">A$ <%= @course.price %></h4>
           <!-- Button trigger modal -->
 <div class="my-3">
   <% if @course.user == current_user %>
@@ -212,7 +196,6 @@
               </div>
               </div>
 
-          <p id="start_trial">30-Day Money-Back Guarantee</p>
           <p id="start_trial">Full Lifetime Access</p>
         </div>
 
