@@ -91,4 +91,4 @@ end
 
 gem 'money-rails'
 gem 'stripe', '~> 12.5.0'
-# gem 'stripe-rails'
+gem 'stripe_event'

@@ -27,7 +27,10 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
-    Booking.create!(user: @order.user, course: @order.course, status: true)
-    redirect_to dashboard_path, notice: 'Payment was successful! You are now enrolled in the course.'
+    if @order.state == "paid"
+      redirect_to dashboard_path, notice: 'Payment was successful! You are now enrolled in the course.'
+    else
+      redirect_to dashboard_path, notice: 'Payment is pending.'
+    end
   end
 end

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   scope :users do
     get 'sessions/:id/details', to: 'sessions#details', as: :details_session
   end
