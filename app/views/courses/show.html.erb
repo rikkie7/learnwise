@@ -183,6 +183,9 @@
 
 
     <% else %>
+
+
+
       <%= form_tag course_orders_path(@course), id: 'enroll_form' do %>
         <%= hidden_field_tag 'course_id', @course.id %>
         <% if @course.start_date > Date.today %>
@@ -199,6 +202,9 @@
     <% end %>
   <% end %>
 </div>
+
+
+
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
