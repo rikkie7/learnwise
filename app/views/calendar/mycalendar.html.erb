@@ -1,6 +1,13 @@
 <div class="title-container container">
   <h1>My Calendar</h1>
+  <div>
+    <span class="dot-green"></span>
+    <span class="green me-2">Enrolled class</span>
+    <span class="dot-red"></span>
+    <span class="red">My class</span>
+  </div>
 </div>
+
 
 <%= month_calendar do |date| %>
   <%= date.day %>
@@ -8,9 +15,15 @@
     <% @all_sessions.select { |session| session.start_time.to_date == date }.each do |session| %>
       <div class="session-item">
         <!-- Link trigger modal -->
-        <a href="#" data-bs-toggle="modal" data-bs-target="#modal_<%= session.id %>" class="session-title">
-          <%= session.title %>
-        </a>
+        <% if session.course.user == current_user %>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modal_<%= session.id %>" class="session-title" style="color: red;">
+            <%= session.title %>
+          </a>
+        <% else %>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modal_<%= session.id %>" class="session-title" style="color: green;">
+            <%= session.title %>
+          </a>
+        <% end %>
 
         <!-- Modal -->
         <div class="modal fade" id="modal_<%= session.id %>" tabindex="-1" aria-labelledby="exampleModalLabel_<%= session.id %>" aria-hidden="true">
@@ -28,7 +41,7 @@
               <div class="modal-footer">
                 <div class="d-flex justify-content-between w-100">
                   <% if session.course.user == current_user %>
-                    <%= button_to "Edit", edit_course_session_path(session.course, session), method: :get, class: "btn", style: "background-color: #39b892" %>
+                    <%= button_to "Edit", edit_course_session_path(session.course, session), method: :get, class: "btn", style: "background-color: #1E293B; color: white; "%>
                     <%= button_to "Delete", course_session_path(session.course, session), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
                   <% end %>
                 </div>

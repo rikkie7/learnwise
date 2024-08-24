@@ -28,11 +28,11 @@
           </div>
           <div class="d-flex justify-content-between flex-grow w-100 course-description-index-course">
             <div class="w-50">
-              <%= course.title%> <br>
+              <%= truncate(course.title, length: 45, separator: ' ') %> <br>
               Description:
-              <%= truncate(course.description, length: 30, separator: ' ') %> <br>
+              <%= truncate(course.description, length: 32, separator: ' ') %> <br>
               Price: $ <%= course.price %>
-          </div>
+            </div>
           <div class="align-self-end type-of-course">
             Type: <%= course.size.capitalize %> Class
           </div>

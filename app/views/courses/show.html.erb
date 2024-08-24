@@ -160,28 +160,44 @@
       <button type="button" class="booking_button btn" disabled>
         You have enrolled in this course
       </button>
-      <div class="d-flex justify-content-between">
         <% if @course.chatroom %>
           <div class="view-chatroom">
-          <%= link_to "Enter Chatroom", chatroom_path(@course.chatroom) %>
+          <%= button_to "Enter Chatroom", chatroom_path(@course.chatroom), method: :get, class:"edit-course-button", style:"border-radius:10px" %>
           </div>
         <% end %>
         <div class="cancel-booking">
-          <%= link_to "Cancel booking", booking_path(@course.bookings.find_by(user: current_user)), data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure you want to delete this booking?"
-          } %>
+          <% if @course.start_date > 24.hours.from_now %>
+            <%= link_to "Cancel booking", booking_path(@course.bookings.find_by(user: current_user)),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?" },
+                class: "cancel-link" %>
+          <% else %>
+            <%= link_to "Cancel booking", "#",
+                data: {
+                  controller: "booking",
+                  action: "click->booking#cancel",
+                  booking_warning_value: "Bookings cannot be canceled within 24 hours of the course start time."
+                },
+                class: "cancel-link warning-link" %>
+          <% end %>
         </div>
-      </div>
+
+
     <% else %>
 
 
 
       <%= form_tag course_orders_path(@course), id: 'enroll_form' do %>
         <%= hidden_field_tag 'course_id', @course.id %>
-        <%= button_tag type: 'submit', class: 'booking_button' do %>
-          Enroll in this course
+        <% if @course.start_date > Date.today %>
+          <%= button_tag type: 'submit', class: 'booking_button' do %>
+            Enroll in this course
+          <% end %>
+        <% else %>
+          <%= button_tag disabled:true, type: 'submit', class: 'booking_button' do %>
+            Course has started
+          <% end %>
         <% end %>
+
       <% end %>
     <% end %>
   <% end %>

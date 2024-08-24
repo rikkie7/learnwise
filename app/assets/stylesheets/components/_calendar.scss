@@ -145,3 +145,33 @@
     text-align: left;
   }
 }
+
+.edit-btn {
+  color: white;
+}
+
+.dot-green {
+  height: 10px;
+  width: 10px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.green {
+  color: green;
+  font-size: 18px;
+}
+
+.dot-red {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red {
+  color: red;
+  font-size: 18px;
+}
