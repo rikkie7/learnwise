@@ -2,8 +2,6 @@
 <div class="image-overlay">
   <%= params[:category].capitalize %>
 </div>
-
-
 <div class="container my-3">
   <div class="row justify-content-center">
     <div class="col-sm-6 my-3">
@@ -28,22 +26,18 @@
               <%= image_tag course.image_url, alt: course.title, class: "image-foreach-course" %>
             <% end %>
           </div>
-          <div class="d-flex justify-content-between flex-grow w-100">
+          <div class="d-flex justify-content-between flex-grow w-100 course-description-index-course">
             <div class="w-50">
               <%= course.title%> <br>
               Description:
-              <% if course.description.length > 30 %>
-                <%= course.description[0..30]...%> <br>
-              <% else %>
-                <%= course.description%> <br>
-              <% end %>
-              Price: $<%= course.price %>
+              <%= truncate(course.description, length: 30, separator: ' ') %> <br>
+              Price: $ <%= course.price %>
           </div>
-          <div class="align-self-end">
-            Type: <%= course.size%> class
+          <div class="align-self-end type-of-course">
+            Type: <%= course.size.capitalize %> Class
           </div>
           <div class="align-self-end hover-black">
-            <%= link_to "more details", course_path(course), class: "align-self-end text-decoration-none more-details-button "%>
+            <%= link_to "More details", course_path(course), class: "align-self-end text-decoration-none more-details-button "%>
           </div>
           </div>
         </div>
