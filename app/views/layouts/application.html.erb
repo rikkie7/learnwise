@@ -26,5 +26,7 @@
     <%= render "shared/navbar" %>
 
     <%= yield %>
+
+    <%= javascript_include_tag 'chatbot', 'data-turbo-track': 'reload' %>
   </body>
 </html>
