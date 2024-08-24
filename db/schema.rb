@@ -110,18 +110,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_073844) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.integer "amount"
-    t.string "currency"
-    t.string "stripe_charge_id"
-    t.bigint "user_id", null: false
-    t.bigint "course_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_payments_on_course_id"
-    t.index ["user_id"], name: "index_payments_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "rating"
@@ -173,8 +161,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_073844) do
   add_foreign_key "messages", "users"
   add_foreign_key "orders", "courses"
   add_foreign_key "orders", "users"
-  add_foreign_key "payments", "courses"
-  add_foreign_key "payments", "users"
   add_foreign_key "reviews", "courses"
   add_foreign_key "reviews", "users"
   add_foreign_key "sessions", "courses"
