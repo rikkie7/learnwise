@@ -18,7 +18,8 @@ class CoursesController < ApplicationController
     @marker = {
       lat: @course.latitude,
       lng: @course.longitude,
-      info_window: render_to_string(partial: "shared/popup", locals: { course: @course })
+      info_window: render_to_string(partial: "shared/popup", locals: { course: @course }),
+      marker_html: render_to_string(partial: "shared/marker")
     }
     @booking = Booking.new
   end
