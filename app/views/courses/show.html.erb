@@ -162,7 +162,7 @@
       </button>
         <% if @course.chatroom %>
           <div class="view-chatroom">
-          <%= button_to "Enter Chatroom", chatroom_path(@course.chatroom), class:"edit-course-button", style:"border-radius:10px" %>
+          <%= button_to "Enter Chatroom", chatroom_path(@course.chatroom), method: :get, class:"edit-course-button", style:"border-radius:10px" %>
           </div>
         <% end %>
         <div class="cancel-booking">
