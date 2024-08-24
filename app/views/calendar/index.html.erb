@@ -2,7 +2,7 @@
   <h1>Calendar</h1>
   <div class="add-new-class">
     <% if @course.user == current_user %>
-      <%= button_to "Add new a new class", new_course_session_path, method: :get, style: "background-color: #39b892" %>
+      <%= button_to "Add new a new class", new_course_session_path, method: :get, style: "background-color: #1E293B" %>
     <% end %>
   </div>
 </div>
@@ -33,7 +33,7 @@
               <div class="modal-footer">
                 <div class="d-flex justify-content-between w-100">
                   <% if session.course.user == current_user %>
-                    <%= button_to "Edit", edit_course_session_path(session.course, session), method: :get, class: "btn", style: "background-color: #39b892" %>
+                    <%= button_to "Edit", edit_course_session_path(session.course, session), method: :get, class: "btn", style: "background-color: #1E293B; color: white; " %>
                     <%= button_to "Delete", course_session_path(session.course, session), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
                   <% end %>
                 </div>
@@ -49,4 +49,3 @@
     <% end %>
   <% end %>
 <% end %>
-

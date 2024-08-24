@@ -4,6 +4,8 @@ Booking.destroy_all
 puts "Destroying all bookings"
 LearningTopic.destroy_all
 puts "Destroying all learning topics"
+puts "Destroying all orders"
+Order.destroy_all
 puts "Destroying all courses"
 Course.destroy_all
 puts "Destroying all users"
@@ -55,7 +57,7 @@ puts "#{Course.last.title} created!"
 course3 = Course.create!(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE", description: "Learn Safe and Effective Seated Yoga - 30 HR Yoga Alliance CE Approved", category: "sports", format: "in_person", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00 ", location: "51-53 Mort Street, Braddon, Australian Capital Territory 2601")
 puts "#{Course.last.title} created!"
 
-course4 = Course.create!(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish", description: "Learn to cook with me - I love to teach cooking to my students - so many techniques and recipes! See you in the kitchen!", category: "cooking", size: "group", price: 150, image_url: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user4, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00", location: "395 Pitt Street, Sydney, New South Wales 2000", format: "in_person")
+course4 = Course.create!(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish", description: "Learn to cook with me - I love to teach cooking to my students - so many techniques and recipes! See you in the kitchen!", category: "cooking", size: "group", price: 150, image_url: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user4, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00", location: "395 Pitt Street, Sydney, New South Wales 2000", latitude: -33.87707, longitude: 151.20715, format: "in_person")
 puts "#{Course.last.title} created!"
 
 course5 = Course.create!(title: "Beginners Guide to Vegetable Gardening", description: "Gardening guidelines for establishing a nutrient rich and delectable culinary garden in your own backyard.", category: "gardening", size: "group", price: 50, image_url: "https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user5, start_date: "2024-11-01 18:00:00", end_date: "2025-03-01 18:00:00", location: "814 Pittwater Road, Dee Why, New South Wales 2099", format: "in_person")

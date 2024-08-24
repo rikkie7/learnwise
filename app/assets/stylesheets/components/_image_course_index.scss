@@ -31,6 +31,13 @@
   object-fit: cover;
 }
 
+.course-description-index-course {
+  .w-50 {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+
 .more-details-button:hover {
   color: rgb(93, 92, 92) !important;
 }

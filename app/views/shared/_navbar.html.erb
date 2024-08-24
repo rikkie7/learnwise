@@ -13,7 +13,9 @@
           <li class="nav-item">
             <%= link_to "Become a teacher", new_course_path, class: "become-teacher"%>
           </li>
-          <li><%= link_to 'My Calendar', my_calendar_path, class: 'dashboard' %></li>
+          <li class="nav-itme">
+            <%= link_to 'My Calendar', my_calendar_path, class: 'become-teacher' %>
+          </li>
           <li class="nav-item me-4">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "logout" %>
           </li>
