@@ -15,7 +15,7 @@ class ChatroomsController < ApplicationController
     @chatroom.course = @course
 
     if @chatroom.save
-      redirect_to course_chatroom_path(@course, @chatroom), notice: 'Chatroom was successfully created.'
+      redirect_to chatroom_path(@chatroom), notice: 'Chatroom was successfully created.'
     else
       render :new
     end
