@@ -1,14 +1,21 @@
 <div>
   <%# IF both @courses and @bookings are empty %>
   <% if @courses.empty? && @bookings.empty? %>
-    <div class="choice-section">
-      <h1>What would you like to do?</h1>
 
-      <div class="choice-buttons">
-        <%= link_to "Find Courses", courses_category_path, class: "btn btn-primary" %>
-        <%= link_to "Become a Teacher", new_course_path, class: "btn btn-secondary become-teacher-button" %>
-      </div>
+
+
+
+
+  <div class="choice-section">
+    <h1> Hi <%= current_user.username %>,  Welcome to LearnWise !</h1>
+    <h4>Explore courses, start teaching, or get in touch for support.
+    </h4>
+    <div class="choice-buttons">
+      <%= link_to "Become a Teacher", new_course_path, class: "btn btn-secondary become-teacher-button" %>
     </div>
+  </div>
+
+
 
   <%# If there are bookings but you dont teach any courses %>
   <% elsif @courses.empty? && @bookings.any? %>
