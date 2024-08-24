@@ -1,16 +1,11 @@
 <div class="title-container container">
-  <h1>Calendar</h1>
-  <div class="add-new-class">
-    <% if @course.user == current_user %>
-      <%= button_to "Add new a new class", new_course_session_path, method: :get, style: "background-color: #39b892" %>
-    <% end %>
-  </div>
+  <h1>My Calendar</h1>
 </div>
 
 <%= month_calendar do |date| %>
   <%= date.day %>
-  <% if @sessions.any? %>
-    <% @sessions.select { |session| session.start_time.to_date == date }.each do |session| %>
+  <% unless @all_sessions.empty? %>
+    <% @all_sessions.select { |session| session.start_time.to_date == date }.each do |session| %>
       <div class="session-item">
         <!-- Link trigger modal -->
         <a href="#" data-bs-toggle="modal" data-bs-target="#modal_<%= session.id %>" class="session-title">
@@ -49,4 +44,3 @@
     <% end %>
   <% end %>
 <% end %>
-

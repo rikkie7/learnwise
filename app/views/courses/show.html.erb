@@ -160,11 +160,19 @@
       <button type="button" class="booking_button btn" disabled>
         You have enrolled in this course
       </button>
-      <% if @course.chatroom %>
-        <div class="view-chatroom">
-        <%= link_to "Enter Chatroom", chatroom_path(@course.chatroom) %>
+      <div class="d-flex justify-content-between">
+        <% if @course.chatroom %>
+          <div class="view-chatroom">
+          <%= link_to "Enter Chatroom", chatroom_path(@course.chatroom) %>
+          </div>
+        <% end %>
+        <div class="cancel-booking">
+          <%= link_to "Cancel booking", booking_path(@course.bookings.find_by(user: current_user)), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure you want to delete this booking?"
+          } %>
         </div>
-      <% end %>
+      </div>
     <% else %>
       <%= form_tag course_orders_path(@course), id: 'enroll_form' do %>
         <%= hidden_field_tag 'course_id', @course.id %>

@@ -143,3 +143,15 @@ p {
     opacity: 1;
   }
 }
+
+.cancel-booking {
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: black;
+    opacity: 0.4;
+  }
+  a:hover {
+    opacity: 1;
+  }
+}

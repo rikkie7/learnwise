@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get "courses/category", to: "courses#category"
   get "courses/:category/index", to: "courses#index", as: :courses_category_index
+  get "/mycalendar", to: "calendar#mycalendar", as: :my_calendar
 
   resources :courses, except: [:index] do
     get 'calendar', to: 'calendar#index', as: :calendar
