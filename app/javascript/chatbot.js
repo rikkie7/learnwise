@@ -8,3 +8,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.addEventListener('click', chatbotInitiation, { once: true });
 });
+
+//chatbot
