@@ -329,8 +329,11 @@ Review.create!(
 puts "Reviews created!"
 
 chatroom1 = Chatroom.create!( name: "The Complete Ruby on Rails Developer Course", course: course1 )
-chatroom2 = Chatroom.create!( name: "React", course: course2 )
+chatroom2 = Chatroom.create!( name: "React", course: course2)
+chatroom3 = Chatroom.create!(name: "Gardening", course: course5)
 puts "Chatroom created!"
+Message.create!(content: "How often do I need to water my plants?", user: user, chatroom: chatroom3)
+Message.create!(content: "You need to water your plants every second day", user: user10, chatroom: chatroom3)
 Message.create!(content: "Welcome", user: user3, chatroom: chatroom1 )
 Message.create!(content: "Welcome to React", user: user3, chatroom: chatroom2)
 puts "Messages created!"
