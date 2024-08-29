@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_065547) do
     t.integer "format"
     t.string "image_url"
     t.integer "price_cents", default: 0, null: false
+    t.integer "capacity"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
