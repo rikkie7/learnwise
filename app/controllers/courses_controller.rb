@@ -51,7 +51,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to courses_path, status: :see_other
+    redirect_to dashboard_path, status: :see_other
   end
 
   private
@@ -71,6 +71,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:price, :self_introduction, :title, :description, :category, :size, :location, :format, :start_date, :end_date, :image_url, learning_topics_content:[])
+    params.require(:course).permit(:price, :self_introduction, :title, :description, :category, :size, :capacity, :location, :format, :start_date, :end_date, :image_url, :photo, learning_topics_content:[])
   end
 end
