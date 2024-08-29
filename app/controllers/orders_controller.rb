@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     if @order.state == "paid"
       redirect_to dashboard_path, notice: 'Payment was successful! You are now enrolled in the course.'
     else
-      redirect_to dashboard_path, notice: "Payment is pending #{@order}"
+      redirect_to dashboard_path, notice: "Payment is pending #{@order.state}"
     end
   end
 end
