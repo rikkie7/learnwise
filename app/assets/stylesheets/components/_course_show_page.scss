@@ -60,13 +60,14 @@
 }
 
 .what_you_will_learn {
-  width: 100%;
+  width: 880px;
   min-width: 300px;
   border: 1px solid rgb(223, 221, 221);
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   color: black;
   margin-top: 16px;
+  margin-right: 80px;
 }
 h4 {
   padding: 32px 32px;
@@ -163,4 +164,10 @@ li {
 
 i {
   color: rgb(226, 164, 50);
+}
+
+@media(max-width: 974px) {
+  .what_you_will_learn {
+    width: 100% 
+  }
 }

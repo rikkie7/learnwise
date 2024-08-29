@@ -23,6 +23,8 @@
             <a href="/dashboard" class="avatar text-decoration-none">
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "Go to dashboard" %>
+              <% elsif current_user.image_url.present? %>
+                <%= image_tag current_user.image_url, class: "avatar", alt: "Go to dashboard" %>
               <% else %>
                 <div class="name-card">
                   <%= current_user.first_name[0] + current_user.last_name[0] %>

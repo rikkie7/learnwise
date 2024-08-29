@@ -5,6 +5,7 @@
         <h2 class="archivo-black-regular"><%= @course.title %></h2>
         <div class="banner-discription">
           <p class="merriweather-light">Course description: <%= @course.description %></p>
+          <p class="merriweather-light">Class size: <%= @course.size == "group" ? " #{@course.capacity} people" : "#{ @course.size }"%></p>
           <p class="merriweather-light">Created by <%= @course.user.username %></p>
           <p class="merriweather-light">Rating:
             <% sum_rating = @course.reviews.sum(:rating)%>
@@ -51,11 +52,7 @@
 
         <div class="d-flex justify-content-between see-all-the-classes-for-this-course ">
           <div>
-            <% if @course.end_date.to_date == @course.start_date.to_date %>
-              <p id="coursetime" > Course time: <%=@course.start_date.strftime("%d/%m/%Y %H:%M:%S")%> - <%= @course.end_date.strftime("%d/%m/%Y %H:%M:%S")%> </p>
-            <% else %>
               <%= link_to "View all sessions in calendar", course_calendar_path(@course), class: "calendarlink" %>
-            <% end %>
           </div>
         </div>
 
@@ -66,6 +63,8 @@
           <div class="d-flex my-2 align-items-center">
             <% if @course.user.image_url? %>
               <%= image_tag @course.user.image_url, class: "teacher-photo" %>
+            <% elsif @course.user.photo.present? %>
+              <%= cl_image_tag @course.user.photo.key, class: "teacher-photo" %>
             <% else %>
               <div class="avatar-lg"><h3><%= @course.user.first_name.first.upcase %><%= @course.user.last_name.first.upcase %></h3></div>
             <% end %>
@@ -129,7 +128,11 @@
     <div class="col-12 col-lg-4 booking-card-container">
     <!-- course booking card -->
       <div class="course_booking_card">
-          <img src="<%= @course.image_url %>" alt="" class="course_image">
+          <% if @course.image_url? %>
+            <img src="<%= @course.image_url%>" alt="" class="course_image">
+          <% else %>
+             <%= cl_image_tag @course.photo.key, class: "course_image" %>
+          <% end %>
           <div class="course_booking_card_content_price">
             <h4 class="merriweather-black-italic mt-3">A$ <%= @course.price %></h4>
           <!-- Button trigger modal -->
@@ -188,16 +191,20 @@
 
       <%= form_tag course_orders_path(@course), id: 'enroll_form' do %>
         <%= hidden_field_tag 'course_id', @course.id %>
-        <% if @course.start_date > Date.today %>
+        <% if @course.start_date <= Date.today %>
+          <%= button_tag disabled: true, type: 'submit', class: 'booking_button' do %>
+            Course has started
+          <% end %>
+        <% elsif (@course.size == "private" && @course.bookings.exists?) ||
+                (@course.size == "group" && @course.bookings.size >= @course.capacity) %>
+          <%= button_tag disabled: true, type: 'submit', class: 'booking_button' do %>
+            This course is full
+          <% end %>
+        <% else %>
           <%= button_tag type: 'submit', class: 'booking_button' do %>
             Enroll in this course
           <% end %>
-        <% else %>
-          <%= button_tag disabled:true, type: 'submit', class: 'booking_button' do %>
-            Course has started
-          <% end %>
         <% end %>
-
       <% end %>
     <% end %>
   <% end %>
