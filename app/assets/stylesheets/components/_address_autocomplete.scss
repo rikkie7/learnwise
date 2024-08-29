@@ -1,0 +1,21 @@
+.mapboxgl-ctrl-geocoder {
+  position: relative;
+}
+
+.clear-button {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  padding-right: 50px !important;
+}

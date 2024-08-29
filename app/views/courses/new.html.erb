@@ -1,4 +1,4 @@
-<div data-controller="format" class="container">
+<div data-controller="course-format" class="container">
   <h2 class="login-heading">Course Registration</h2>
 
   <%= simple_form_for(@course, html: { class: "login-form custom-form-width text-start" }) do |f| %>
@@ -8,8 +8,22 @@
       <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" } %>
       <%= f.input :size, collection: %w[group private], input_html: { class: "form-control" } %>
       <%= f.input :price, input_html: { class: "form-control" } %>
-      <%= f.input :start_date, as: :date, input_html: { class: "form-control" } %>
-      <%= f.input :end_date, as: :date, input_html: { class: "form-control" } %>
+
+      <div data-controller="datepicker">
+        <%= f.input :start_date,
+                    as: :string,
+                    input_html: { data: { datepicker_target: "startDate"},
+                    class: "form-control",
+                    placeholder: "Select a start date"
+                     }%>
+        <%= f.input :end_date,
+                    as: :string,
+                    input_html: { data: { datepicker_target: "endDate"},
+                    class: "form-control",
+                    placeholder: "Select an end date"
+                     } %>
+
+      </div>
 
       <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
 
@@ -17,28 +31,26 @@
         <%= text_field_tag "learning_topic[content][]", nil, class:"form-control" %>
       <% end %>
 
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-
       <%= f.input :format, collection: %w[online in-person],
         input_html: {
           class: "form-control",
           data: {
-            format_target: "format",
-            action: "change->format#togglelocationField"
+            course_format_target: "format",
+            action: "change->course-format#togglelocationField"
           }
         } %>
 
-      <div class="d-none" data-format-target="location">
-        <%= f.input :location, input_html: { class: "form-control" } %>
+      <div class="d-none" data-course-format-target="location">
+        <%= f.input :location,
+                    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+        %>
       </div>
 
       <%= f.fields_for :user do |user_fields| %>
         <%= user_fields.input :self_introduction_about_yourself, input_html: { class: "form-control large-text-field" } %>
       <% end %>
     </div>
-
-
 
     <div class="form-actions">
       <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
