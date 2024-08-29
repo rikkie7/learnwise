@@ -26,11 +26,6 @@
         <%= text_field_tag "learning_topic[content][]", nil, class:"form-control" %>
       <% end %>
 
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-
-
-
       <%= f.input :format, collection: %w[online in-person],
         input_html: {
           class: "form-control",
