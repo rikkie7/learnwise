@@ -3,9 +3,9 @@
   <div>
     <% if current_user.courses.exists? && current_user.bookings.exists? %>
       <span class="dot-green"></span>
-      <span class="green me-2"> 🟢 Enrolled class</span>
+      <span class="green me-2"> Enrolled class</span>
       <span class="dot-red"></span>
-      <span class="red"> 🔴 My class</span>
+      <span class="red"> My class</span>
     <% elsif current_user.courses.exists? %>
       <span class="dot-red"></span>
       <span class="red">My class</span>
