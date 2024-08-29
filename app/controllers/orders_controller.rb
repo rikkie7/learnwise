@@ -29,10 +29,10 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
-    if @order.state == "succeeded"
+    if @order.state == "paid"
       redirect_to dashboard_path, notice: 'Payment was successful! You are now enrolled in the course.'
     else
-      redirect_to dashboard_path, notice: 'Payment is pending.'
+      redirect_to dashboard_path, notice: "Payment is pending #{@order}"
     end
   end
 end
