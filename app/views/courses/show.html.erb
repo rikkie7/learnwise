@@ -7,25 +7,27 @@
           <p class="merriweather-light">Course description: <%= @course.description %></p>
           <p class="merriweather-light">Class size: <%= @course.size == "group" ? " #{@course.capacity} people" : "#{ @course.size }"%></p>
           <p class="merriweather-light">Created by <%= @course.user.username %></p>
-          <p class="merriweather-light">Rating:
-            <% sum_rating = @course.reviews.sum(:rating)%>
-            <% total_reviews = @course.reviews.size %>
-            <% if total_reviews > 0 %>
-              <% average_rating = sum_rating.to_f / total_reviews %>
-            <% else %>
-              <% average_rating = 0 %>
-            <% end %>
-            <% average_rating = average_rating.round(1) %>
-            <%= average_rating %>
-            <% full_stars = average_rating.to_i %>
-            <% has_half_star = (average_rating - full_stars) >=0.5 %>
+          <% if @course.reviews.present? %>
+            <p class="merriweather-light">Rating:
+              <% sum_rating = @course.reviews.sum(:rating)%>
+              <% total_reviews = @course.reviews.size %>
+              <% if total_reviews > 0 %>
+                <% average_rating = sum_rating.to_f / total_reviews %>
+              <% else %>
+                <% average_rating = 0 %>
+              <% end %>
+              <% average_rating = average_rating.round(1) %>
+              <%= average_rating %>
+              <% full_stars = average_rating.to_i %>
+              <% has_half_star = (average_rating - full_stars) >=0.5 %>
 
-            <% full_stars.times do %>
-              <i class="fa-solid fa-star"></i>
-            <% end %>
+              <% full_stars.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
 
-            <% if has_half_star %>
-              <i class="fa-solid fa-star-half-stroke filled"></i>
+              <% if has_half_star %>
+                <i class="fa-solid fa-star-half-stroke filled"></i>
+              <% end %>
             <% end %>
           </p>
         </div>
@@ -95,7 +97,9 @@
 
         <!-- review card -->
         <div class="review-card">
-          <div id="rating"><i class="fa-solid fa-star"></i> <%= average_rating %> course rating</div>
+          <% if @course.reviews.present? %>
+            <div id="rating"><i class="fa-solid fa-star"></i> <%= average_rating %> course rating</div>
+          <% end %>
             <% @course.reviews.each do |review| %>
             <div class="each-review-card">
               <div class="d-flex align-items-baseline">
@@ -115,7 +119,7 @@
         </div>
 
         <!-- map -->
-        <% if @course.location %>
+        <% if @course.location.present? %>
         <div id="map">
           <h3 class="kanit-regular">Location</h3>
           <p><%= @course.location %></p>
