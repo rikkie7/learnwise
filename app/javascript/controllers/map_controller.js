@@ -9,7 +9,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hello");
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -24,9 +23,14 @@ export default class extends Controller {
   }
 
     #addMarkerToMap(){
-        const popup = new mapboxgl.Popup().setHTML(this.markerValue.info_window)
+        const popup = new mapboxgl.Popup({keepInView: true}).setHTML(this.markerValue.info_window)
 
-        new mapboxgl.Marker()
+        const customMarker = document.createElement('div')
+        customMarker.innerHTML = this.markerValue.marker_html
+
+        console.log(customMarker.innerHTML);
+
+        new mapboxgl.Marker(customMarker)
         .setLngLat([this.markerValue.lng, this.markerValue.lat])
         .setPopup(popup)
         .addTo(this.map)

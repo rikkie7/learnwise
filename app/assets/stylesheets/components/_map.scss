@@ -3,4 +3,35 @@
   width: 100%;
   color: black;
   margin: 32px 0;
+  padding: auto;
+}
+.mapboxgl-popup {
+  max-width: 200px;
+  font-size: 1rem;
+}
+
+.mapboxgl-popup-content {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  padding: 16px 24px 0px 24px;
+  border-radius: 8px;
+}
+
+.merriweather-light {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.course-title-in-popup {
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+  padding-bottom: 8px;
+}
+.pin {
+  color: #0097b2;
+  margin-right: 8px;
+}
+.course-location-in-popup {
+  font-size: 12px;
 }

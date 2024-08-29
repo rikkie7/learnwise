@@ -57,6 +57,7 @@ puts "#{Course.last.title} created!"
 course2 = Course.create!(title: "React - The Complete Guide 2024 (incl. Next.js, Redux)", description: "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!", category: "technology", format: "online", size: "group", capacity: 50, price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user3, start_date: "2024-12-01", end_date: "2025-12-01")
 puts "#{Course.last.title} created!"
 
+
 course3 = Course.create!(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE", description: "Learn Safe and Effective Seated Yoga - 30 HR Yoga Alliance CE Approved", category: "sports", format: "in_person", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-11-01", end_date: "2024-12-01", location: "51-53 Mort Street, Braddon, Australian Capital Territory 2601", latitude: -35.271214, longitude: 149.131370)
 puts "#{Course.last.title} created!"
 
