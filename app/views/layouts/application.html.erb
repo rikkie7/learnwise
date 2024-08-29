@@ -9,6 +9,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +29,7 @@
     <%= yield %>
 
     <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="31848"></script>
-    
+
     <%= javascript_include_tag 'chatbot', 'data-turbo-track': 'reload' %>
   </body>
 </html>
