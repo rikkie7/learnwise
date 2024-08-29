@@ -1,4 +1,4 @@
-<div data-controller="format dynamic-fields" class="container">
+<div data-controller="format capacity dynamic-fields" class="container">
   <h2 class="login-heading">Submit Course</h2>
 
   <%= simple_form_for(@course, html: { class: "login-form edit-form-with text-start" }) do |f| %>
@@ -6,7 +6,19 @@
       <%= f.input :title, input_html: { class: "form-control" } %>
       <%= f.input :description, as: :text, input_html: { class: "form-control large-text-field" } %>
       <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" } %>
-      <%= f.input :size, collection: %w[group private], input_html: { class: "form-control" } %>
+
+      <%= f.input :size, collection: %w[group private], input_html: {
+        class: "form-control",
+        data: {
+          capacity_target: "size",
+          action: "change->capacity#toggleCapacityField"
+        }
+      } %>
+
+      <div class="d-none" data-capacity-target="capacity">
+        <%= f.input :capacity, input_html: { class: "form-control" } %>
+      </div>
+
       <%= f.input :price, input_html: { class: "form-control" } %>
 
       <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>

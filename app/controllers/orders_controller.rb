@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
   def create
     course = Course.find(params[:course_id])
     order  = Order.create!(course: course, amount: course.price, state: 'pending', user: current_user)
+    
+    image_url = course.image_url.present? ? course.image_url : nil
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -10,7 +12,7 @@ class OrdersController < ApplicationController
           currency: 'aud',
           unit_amount: course.price_cents,
           product_data: {
-            images: [course.image_url],
+            images: image_url.present? ? [image_url] : [],
             name: course.title
           },
         },

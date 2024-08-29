@@ -1,16 +1,25 @@
-<div data-controller="format" class="container">
+<div data-controller="format capacity" class="container">
   <h2 class="login-heading">Course Registration</h2>
 
-  <%= simple_form_for(@course, html: { class: "login-form custom-form-width text-start" }) do |f| %>
+  <%= simple_form_for(@course, html: { class: "login-form custom-form-width text-start", multipart: true }) do |f| %>
     <div class="form-inputs">
       <%= f.input :title, input_html: { class: "form-control" } %>
       <%= f.input :description, input_html: { class: "form-control large-text-field" } %>
       <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" } %>
-      <%= f.input :size, collection: %w[group private], input_html: { class: "form-control" } %>
-      <%= f.input :price, input_html: { class: "form-control" } %>
-      <%= f.input :start_date, as: :date, input_html: { class: "form-control" } %>
-      <%= f.input :end_date, as: :date, input_html: { class: "form-control" } %>
 
+      <%= f.input :size, collection: %w[group private], input_html: {
+        class: "form-control",
+        data: {
+          capacity_target: "size",
+          action: "change->capacity#toggleCapacityField"
+        }
+      } %>
+
+      <div class="d-none" data-capacity-target="capacity">
+        <%= f.input :capacity, input_html: { class: "form-control" } %>
+      </div>
+
+      <%= f.input :price, input_html: { class: "form-control" } %>
       <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
 
       <% 4.times do |n|%>
@@ -19,6 +28,8 @@
 
       <%= f.input :start_date %>
       <%= f.input :end_date %>
+
+
 
       <%= f.input :format, collection: %w[online in-person],
         input_html: {
@@ -32,6 +43,8 @@
       <div class="d-none" data-format-target="location">
         <%= f.input :location, input_html: { class: "form-control" } %>
       </div>
+
+      <%= f.input :photo, as: :file, input_html: { class: "form-control" } %>
 
       <%= f.fields_for :user do |user_fields| %>
         <%= user_fields.input :self_introduction_about_yourself, input_html: { class: "form-control large-text-field" } %>

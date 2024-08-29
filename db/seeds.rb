@@ -48,32 +48,32 @@ user16 = User.create!(first_name: "Ivy", last_name: "Moore", email: "user16@gmai
 puts "#{User.last.username} created!"
 
 puts "Creating courses ..."
-course1 = Course.create!(title: "The Complete Ruby on Rails Developer Course", description: "Learn to make innovative web apps with Ruby on Rails and unleash your creativity", category: "technology", format: "online", size: "group", price: 100, image_url: "https://community.theforeman.org/uploads/default/optimized/2X/8/83d09280c8809460222474ef8f7dbc94ee39abc9_2_690x362.png", user: user3, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00")
+course1 = Course.create!(title: "The Complete Ruby on Rails Developer Course", description: "Learn to make innovative web apps with Ruby on Rails and unleash your creativity", category: "technology", format: "online", size: "group", capacity: 2, price: 100, image_url: "https://community.theforeman.org/uploads/default/optimized/2X/8/83d09280c8809460222474ef8f7dbc94ee39abc9_2_690x362.png", user: user3, start_date: "2024-09-01 18:00:00", end_date: "2024-12-01 21:00:00")
 puts "#{Course.last.title} created!"
 
-course2 = Course.create!(title: "React - The Complete Guide 2024 (incl. Next.js, Redux)", description: "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!", category: "technology", format: "online", size: "group", price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user3, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00")
+course2 = Course.create!(title: "React - The Complete Guide 2024 (incl. Next.js, Redux)", description: "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!", category: "technology", capacity: 2, format: "online", size: "group", price: 200, image_url: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user3, start_date: "2024-09-01 18:00:00", end_date: "2024-12-01 21:00:00")
 puts "#{Course.last.title} created!"
 
-course3 = Course.create!(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE", description: "Learn Safe and Effective Seated Yoga - 30 HR Yoga Alliance CE Approved", category: "sports", format: "in_person", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00 ", location: "51-53 Mort Street, Braddon, Australian Capital Territory 2601")
+course3 = Course.create!(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE", description: "Learn Safe and Effective Seated Yoga - 30 HR Yoga Alliance CE Approved", category: "sports", format: "in_person", size: "private", price: 50, image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user2, start_date: "2024-09-01 18:00:00", end_date: "2024-12-01 21:00:00 ", location: "51-53 Mort Street, Braddon, Australian Capital Territory 2601")
 puts "#{Course.last.title} created!"
 
-course4 = Course.create!(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish", description: "Learn to cook with me - I love to teach cooking to my students - so many techniques and recipes! ", category: "cooking", size: "group", price: 150, image_url: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user4, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00", location: "395 Pitt Street, Sydney, New South Wales 2000", format: "in_person")
+course4 = Course.create!(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish", description: "Learn to cook with me - I love to teach cooking to my students - so many techniques and recipes! ", category: "cooking", size: "group", capacity: 2, price: 150, image_url: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user4, start_date: "2024-09-01 18:00:00", end_date: "2024-12-01 21:00:00", location: "395 Pitt Street, Sydney, New South Wales 2000", format: "in_person")
 
 puts "#{Course.last.title} created!"
 
-course5 = Course.create!(title: "Beginners Guide to Vegetable Gardening", description: "Gardening guidelines for establishing a nutrient rich and delectable culinary garden in your own backyard.", category: "gardening", size: "group", price: 50, image_url: "https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user5, start_date: "2024-11-01 18:00:00", end_date: "2025-03-01 18:00:00", location: "814 Pittwater Road, Dee Why, New South Wales 2099", format: "in_person")
+course5 = Course.create!(title: "Beginners Guide to Vegetable Gardening", description: "Gardening guidelines for establishing a nutrient rich and delectable culinary garden in your own backyard.", category: "gardening", size: "group", capacity: 2, price: 50, image_url: "https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user5, start_date: "2024-11-01 18:00:00", end_date: "2025-03-01 18:00:00", location: "814 Pittwater Road, Dee Why, New South Wales 2099", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course6 = Course.create!(title: "The Ultimate Soccer Guide | Play Like A Pro Soccer Player", description: "Learn how to drastically improve your soccer skills, fitness, confidence, and game intelligence FASTER than ever before.", category: "sports", size: "group", price: 10, image_url: "https://plus.unsplash.com/premium_photo-1661856745445-14fd848f0e53?q=80&w=2858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user7, start_date: "2024-10-01 18:00:00", end_date: "2025-02-01 18:00:00", location: "2-4 Market Place, Hobart, Tasmania 7000", format: "in_person")
+course6 = Course.create!(title: "The Ultimate Soccer Guide | Play Like A Pro Soccer Player", description: "Learn how to drastically improve your soccer skills, fitness, confidence, and game intelligence FASTER than ever before.", category: "sports", size: "group", capacity: 2, price: 10, image_url: "https://plus.unsplash.com/premium_photo-1661856745445-14fd848f0e53?q=80&w=2858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user7, start_date: "2024-10-01 18:00:00", end_date: "2025-02-01 18:00:00", location: "2-4 Market Place, Hobart, Tasmania 7000", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course7 = Course.create!(title: "An Entire MBA in 1 Course:Award Winning Business School Prof", description: "#1 Best Selling Business Course! Everything You Need to Know About Business from Start-up to IPO", category: "education", size: "group", price: 300, image_url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user14, start_date: "2024-12-01 18:00:00", end_date: "2025-08-01 18:00:00", location: "29 Cameron Street, Launceston, Tasmania 7250", format: "in_person")
+course7 = Course.create!(title: "An Entire MBA in 1 Course:Award Winning Business School Prof", description: "#1 Best Selling Business Course! Everything You Need to Know About Business from Start-up to IPO", category: "education", size: "group", capacity: 2, price: 300, image_url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user14, start_date: "2024-12-01 18:00:00", end_date: "2025-08-01 18:00:00", location: "29 Cameron Street, Launceston, Tasmania 7250", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course8 = Course.create!(title: "First Aid Masterclass: A Complete Guide to First Aid", description: "The Complete Guide to First Aid and Emergency Medicine: Learn CPR, Heimlich, How to Stop Bleedings, Baby Care & More!", category: "others", size: "group", price: 200, image_url: "https://plus.unsplash.com/premium_photo-1663050906605-faa2aa0e5ff8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user6, start_date: "2024-08-10 18:00:00", end_date: "2024-09-10 18:00:00", location: "8 Franklin Street, Melbourne, Victoria 3000", format: "in_person")
+course8 = Course.create!(title: "First Aid Masterclass: A Complete Guide to First Aid", description: "The Complete Guide to First Aid and Emergency Medicine: Learn CPR, Heimlich, How to Stop Bleedings, Baby Care & More!", category: "others", size: "group", capacity: 2, price: 200, image_url: "https://plus.unsplash.com/premium_photo-1663050906605-faa2aa0e5ff8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", user: user6, start_date: "2024-9-10 18:00:00", end_date: "2024-09-20 18:00:00", location: "8 Franklin Street, Melbourne, Victoria 3000", format: "in_person")
 puts "#{Course.last.title} created!"
 
-course9 = Course.create!(title: "Rust: The Complete Developer's Guide", description: "Become a Rust engineer. Understand ownership, lifetimes, traits, generics, and much more through practical projects", category: "technology", format: "online", size: "group", price: 100, image_url: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*ywP7NFzW-8ZWilwJ.png", user: user1, start_date: "2024-08-01 18:00:00", end_date: "2024-12-01 21:00:00")
+course9 = Course.create!(title: "Rust: The Complete Developer's Guide", description: "Become a Rust engineer. Understand ownership, lifetimes, traits, generics, and much more through practical projects", category: "technology", format: "online", size: "group", capacity: 2, price: 100, image_url: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*ywP7NFzW-8ZWilwJ.png", user: user1, start_date: "2024-09-01 18:00:00", end_date: "2024-12-01 21:00:00")
 puts "#{Course.last.title} created!"
 
 puts "Creating sessions ..."
@@ -98,19 +98,19 @@ Session.create!(
 puts "Creating bookings ..."
 Booking.create!(user: user8, course: Course.find_by(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE"))
 Booking.create!(user: user9, course: Course.find_by(title: "The Ultimate Soccer Guide | Play Like A Pro Soccer Player"))
-Booking.create!(user: user10, course: Course.find_by(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE"))
+Booking.create!(user: user10, course: Course.find_by(title: "The Ultimate Soccer Guide | Play Like A Pro Soccer Player"))
 Booking.create!(user: user11, course: Course.find_by(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish"))
-Booking.create!(user: user12, course: Course.find_by(title: "The Ultimate Soccer Guide | Play Like A Pro Soccer Player"))
-Booking.create!(user: user13, course: Course.find_by(title: "The Ultimate Soccer Guide | Play Like A Pro Soccer Player"))
-Booking.create!(user: user14, course: Course.find_by(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE"))
-Booking.create!(user: user15, course: Course.find_by(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE"))
-Booking.create!(user: user16, course: Course.find_by(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish"))
-Booking.create!(user: user7, course: Course.find_by(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish"))
+Booking.create!(user: user12, course: Course.find_by(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish"))
+# Booking.create!(user: user13, course: Course.find_by(title: "The Ultimate Soccer Guide | Play Like A Pro Soccer Player"))
+# Booking.create!(user: user14, course: Course.find_by(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE"))
+# Booking.create!(user: user15, course: Course.find_by(title: "Chair Yoga Teacher Training Certificate - Yoga Alliance CE"))
+# Booking.create!(user: user16, course: Course.find_by(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish"))
+# Booking.create!(user: user7, course: Course.find_by(title: "Cooking 101: From Basics to Advanced Techniques for Mastering Every Dish"))
 Booking.create!(user: user2, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
 Booking.create!(user: user3, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
-Booking.create!(user: user4, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
-Booking.create!(user: user5, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
-Booking.create!(user: user6, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
+# Booking.create!(user: user4, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
+# Booking.create!(user: user5, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
+# Booking.create!(user: user6, course: Course.find_by(title: "An Entire MBA in 1 Course:Award Winning Business School Prof"))
 
 puts "Creating learning topics ..."
 LearningTopic.create!(course: course1, content: "Learn how to rapidly prototype ideas and turn them into presentable apps")

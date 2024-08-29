@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :courses
   has_many :orders
   has_many :messages
+  has_many :bookings
 
 
   validates :first_name, presence: true
