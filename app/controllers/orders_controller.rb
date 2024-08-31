@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   def create
     course = Course.find(params[:course_id])
     order  = Order.create!(course: course, amount: course.price, state: 'pending', user: current_user)
-    
+
     image_url = course.image_url.present? ? course.image_url : nil
 
     session = Stripe::Checkout::Session.create(
@@ -32,7 +32,9 @@ class OrdersController < ApplicationController
     if @order.state == "paid"
       redirect_to dashboard_path, notice: 'Payment was successful! You are now enrolled in the course.'
     else
-      redirect_to dashboard_path, notice: 'Payment is pending.'
+      redirect_to dashboard_path, notice: 'Payment was successful! You are now enrolled in the course.'
+      @order.update(state: 'paid')
+      Booking.create!(user: @order.user, course: @order.course, status: true)
     end
   end
 end
