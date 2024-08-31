@@ -29,6 +29,7 @@ class CoursesController < ApplicationController
   end
 
   def create
+    raise
     @course = Course.new(course_params)
     @course.user = current_user
     @course.save!
