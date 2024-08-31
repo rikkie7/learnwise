@@ -26,10 +26,11 @@
     <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>
 
+    <meta charset="UTF-8">
+    <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="31848"></script>
+    <%= javascript_include_tag 'chatbot', 'data-turbo-track': 'reload' %>
+
     <%= yield %>
 
-    <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="31848"></script>
-
-    <%= javascript_include_tag 'chatbot', 'data-turbo-track': 'reload' %>
   </body>
 </html>
