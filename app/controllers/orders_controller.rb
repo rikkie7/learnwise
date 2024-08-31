@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
     else
       redirect_to dashboard_path, notice: 'Payment was successful! You are now enrolled in the course.'
       @order.update(state: 'paid')
-      Booking.create!(user: order.user, course: order.course, status: true)
+      Booking.create!(user: @order.user, course: @order.course, status: true)
     end
   end
 end
