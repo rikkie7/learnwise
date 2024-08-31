@@ -28,7 +28,6 @@ class Course < ApplicationRecord
   validates :end_date, presence: true
   validate :start_date_before_end_date
 
-
   geocoded_by :location
   # after_validation :geocode, if: :will_save_change_to_location?
 
