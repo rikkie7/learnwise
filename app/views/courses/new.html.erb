@@ -1,22 +1,10 @@
-<div data-controller="course-format capacity" class="container">
+<div data-controller="course-format capacity dynamic-fields" class="container">
   <h2 class="login-heading">Course Registration</h2>
 
   <%= simple_form_for(@course, html: { class: "login-form custom-form-width text-start", multipart: true }) do |f| %>
     <div class="form-inputs">
-      <%= f.input :title, input_html: { class: "form-control" } %>
-      <%= f.input :description, input_html: { class: "form-control large-text-field" } %>
-      <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" } %>
-      <%= f.input :size, collection: %w[group private], input_html: {
-        class: "form-control",
-        data: {
-          capacity_target: "size",
-          action: "change->capacity#toggleCapacityField"
-        }
-      } %>
-
-      <div class="d-none" data-capacity-target="capacity">
-        <%= f.input :capacity, input_html: { class: "form-control" } %>
-      </div>
+      <%= f.input :title, input_html: { class: "form-control" }, placeholder: "e.g. Learn Photoshop CS6 from Scratch" %>
+      <%= f.input :description, input_html: { class: "form-control large-text-field" }, placeholder: "e.g.Learn to make innovative web apps with Ruby on Rails and unleash your creativity" %>
 
       <div data-controller="datepicker">
         <%= f.input :start_date,
@@ -24,22 +12,40 @@
                     input_html: { data: { datepicker_target: "startDate"},
                     class: "form-control",
                     placeholder: "Select a start date"
-                     }%>
+                    }%>
         <%= f.input :end_date,
                     as: :string,
                     input_html: { data: { datepicker_target: "endDate"},
                     class: "form-control",
                     placeholder: "Select an end date"
-                     } %>
-
+                    } %>
       </div>
 
-      <%= f.input :price, input_html: { class: "form-control" } %>
-      <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
+      <%= f.input :size, collection: %w[group private], input_html: {
+        class: "form-control",
+        data: {
+          capacity_target: "size",
+          action: "change->capacity#toggleCapacityField"
+        }},
+        prompt: "Is it a group class or private class?"
+       %>
 
-      <% 4.times do |n|%>
-        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control" %>
-      <% end %>
+      <div class="d-none" data-capacity-target="capacity">
+        <%= f.input :capacity, input_html: { class: "form-control" } %>
+      </div>
+
+      <div data-dynamic-fields-target="container">
+        <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Define the roles and responsibilities of a project manager" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Estimate project timelines and budgets" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Identify and manage project risks" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Complete a case stydy to manage a project from conception to completion" %>
+      </div>
+      <button type="button" id="add-learning-topic" class="btn btn-primary mb-2" data-action="click->dynamic-fields#addField">+ Add more topics</button>
+
+      <%= f.input :category, collection: %w[technology education cooking gardening sports others], input_html: { class: "form-control" }, prompt: "Choose a category" %>
+
+      <%= f.input :price, input_html: { class: "form-control" } %>
 
       <%= f.input :format, collection: %w[online in-person],
         input_html: {
@@ -57,10 +63,12 @@
         %>
       </div>
 
-      <%= f.input :photo, as: :file, input_html: { class: "form-control" } %>
+      <%= f.input :photo, as: :file, input_html: { class: "form-control" }, label: "Course Photo" %>
 
-      <%= f.fields_for :user do |user_fields| %>
-        <%= user_fields.input :self_introduction_about_yourself, input_html: { class: "form-control large-text-field" } %>
+      <%= f.fields_for :user do |user_field| %>
+        <% if current_user.self_introduction.present? %>
+          <%= user_field.input :self_introduction, input_html: { class: "form-control large-text-field" } %>
+        <% end %>
       <% end %>
     </div>
 

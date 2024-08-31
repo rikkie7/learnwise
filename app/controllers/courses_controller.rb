@@ -26,15 +26,39 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @course.user = current_user
+    @course.build_user unless @course.user
   end
 
   def create
-    raise
     @course = Course.new(course_params)
     @course.user = current_user
-    @course.save!
-    update_learning_topics
-    redirect_to course_path(@course)
+
+    if @course.location.present?
+      @course.geocode # Force geocoding
+      if @course.latitude.nil? || @course.longitude.nil?
+        flash.now[:alert] = "Unable to geocode the provided address. Please check and try again."
+        render :new and return
+      end
+
+    else
+      flash.now[:alert] = "Address is required for course location."
+      render :new and return
+    end
+
+    if @course.save
+      @marker = {
+        lat: @course.latitude,
+        lng: @course.longitude,
+        info_window: render_to_string(partial: "shared/popup", locals: { course: @course }),
+        marker_html: render_to_string(partial: "shared/marker")
+      }
+      update_learning_topics
+      # update_self_introduction
+      redirect_to course_path(@course), notice: 'Course was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -67,11 +91,17 @@ class CoursesController < ApplicationController
     end
   end
 
+  # def update_self_introduction
+  #   if params[:course][:user_attributes][:self_introduction]
+  #     @course.user.update(self_introduction: params[:course][:user_attributes][:self_introduction])
+  #   end
+  # end
+
   def set_course
     @course = Course.find(params[:id])
   end
 
   def course_params
-    params.require(:course).permit(:price, :self_introduction, :title, :description, :category, :size, :capacity, :location, :format, :start_date, :end_date, :image_url, :photo, learning_topics_content:[])
+    params.require(:course).permit(:price, :title, :description, :category, :size, :capacity, :location, :format, :start_date, :end_date, :image_url, :photo, learning_topics_content:[])
   end
 end

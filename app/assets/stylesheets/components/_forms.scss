@@ -99,3 +99,13 @@
 .container br {
   margin-bottom: 10px;
 }
+
+.mapbox-overwrite {
+  width: 100% !important;
+  max-width: 800px!important;
+}
+
+.mapbox-overwrite-button {
+  top: -12px !important;
+  background-color: transparent !important;
+}
