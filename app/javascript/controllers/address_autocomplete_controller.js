@@ -15,15 +15,10 @@ export default class extends Controller {
     this.geocoder.addTo(this.element)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
-    // this.element.querySelector(".mapboxgl-ctrl-geocoder--input").placeholder = "Where are you going to have your class?"
-    // this.element.querySelector(".mapboxgl-ctrl-geocoder--input").classList.add("form-control")
-    // // Add custom class to the geocoder container
-    // this.element.querySelector(".mapboxgl-ctrl-geocoder").classList.add("custom-geocoder")
-    // Modify the input element
+    this.element.querySelector(".mapboxgl-ctrl-geocoder--button").classList.add("mapbox-overwrite-button")
+    this.element.querySelector(".mapboxgl-ctrl-geocoder").classList.add("mapbox-overwrite")
     const inputEl = this.element.querySelector(".mapboxgl-ctrl-geocoder--input")
     inputEl.placeholder = "Where are you going to have your class?"
-    inputEl.classList.add("form-control")
-    this.#addClearButton(inputEl)
   }
 
   disconnect() {
@@ -37,23 +32,4 @@ export default class extends Controller {
     this.addressTarget.value = ""
   }
 
-  #addClearButton(inputEl) {
-    const clearButton = document.createElement('button')
-    clearButton.innerHTML = '×'
-    clearButton.className = 'clear-button'
-    clearButton.setAttribute('type', 'button')
-    clearButton.style.display = 'none'
-
-    inputEl.parentNode.appendChild(clearButton)
-
-    inputEl.addEventListener('input', () => {
-      clearButton.style.display = inputEl.value ? 'block' : 'none'
-    })
-
-    clearButton.addEventListener('click', () => {
-      inputEl.value = ''
-      clearButton.style.display = 'none'
-      this.geocoder.clear()
-    })
-  }
 }

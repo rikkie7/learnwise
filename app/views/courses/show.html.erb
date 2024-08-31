@@ -115,7 +115,7 @@
         </div>
 
         <!-- map -->
-        <% if @course.location %>
+        <% if @course.location.present? %>
         <div id="map">
           <h3 class="kanit-regular">Location</h3>
           <p><%= @course.location %></p>
