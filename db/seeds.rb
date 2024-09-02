@@ -111,18 +111,18 @@ Session.create!(
 Session.create!(
   title: "Fantastic plants",
   description: "You will learn how to plant these plants and where to find them ",
-  start_time: "2024-09-01 13:00:00",
-  end_time: "2024-09-01 18:00:00",
-  date: "2024-09-01",
+  start_time: "2024-10-01 13:00:00",
+  end_time: "2024-10-01 18:00:00",
+  date: "2024-10-01",
   course: course5
 )
 
 Session.create!(
   title: "First aid 101",
   description: "How to do CPR ",
-  start_time: "2024-08-31 19:00:00",
-  end_time: "2024-08-31 22:00:00",
-  date: "2024-08-31",
+  start_time: "2025-01-31 19:00:00",
+  end_time: "2025-01-31 22:00:00",
+  date: "2025-01-31",
   course: course8
 )
 
