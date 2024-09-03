@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_course, only: %i[show edit update destroy]
 
-  def catergory
+  def category
   end
 
   def index
@@ -25,14 +25,47 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
-    @course.user = current_user
-    @course.build_user unless @course.user
+    # @course = Course.new
+    # @course.user = current_user
+    # @course.build_user unless @course.user
+    @course = Course.new(user: current_user)
   end
 
   def create
     @course = Course.new(course_params)
     @course.user = current_user
+
+    # if @course.location.present?
+    #   @course.geocode # Force geocoding
+    #   if @course.latitude.nil? || @course.longitude.nil?
+    #     flash.now[:alert] = "Unable to geocode the provided address. Please check and try again."
+    #     render :new and return
+    #   end
+
+    # else
+    #   flash.now[:alert] = "Address is required for course location."
+    #   render :new and return
+    # end
+
+    # if @course.save
+    #   @marker = {
+    #     lat: @course.latitude,
+    #     lng: @course.longitude,
+    #     info_window: render_to_string(partial: "shared/popup", locals: { course: @course }),
+    #     marker_html: render_to_string(partial: "shared/marker")
+    #   }
+    #   update_learning_topics
+    #   # update_self_introduction
+    #   redirect_to course_path(@course), notice: 'Course was successfully created.'
+    # else
+    #   render :new
+    # end
+
+
+    if @course.format == "in-person" && @course.location.blank?
+      flash.now[:alert] = "Address is required for in-person courses."
+      render :new and return
+    end
 
     if @course.location.present?
       @course.geocode # Force geocoding
@@ -40,25 +73,15 @@ class CoursesController < ApplicationController
         flash.now[:alert] = "Unable to geocode the provided address. Please check and try again."
         render :new and return
       end
-
-    else
-      flash.now[:alert] = "Address is required for course location."
-      render :new and return
     end
 
     if @course.save
-      @marker = {
-        lat: @course.latitude,
-        lng: @course.longitude,
-        info_window: render_to_string(partial: "shared/popup", locals: { course: @course }),
-        marker_html: render_to_string(partial: "shared/marker")
-      }
       update_learning_topics
-      # update_self_introduction
       redirect_to course_path(@course), notice: 'Course was successfully created.'
     else
       render :new
     end
+
   end
 
   def edit
@@ -102,6 +125,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:price, :title, :description, :category, :size, :capacity, :location, :format, :start_date, :end_date, :image_url, :photo, learning_topics_content:[])
+    params.require(:course).permit(:price, :title, :description, :category, :size, :capacity, :location, :format, :start_date, :end_date, :image_url, :photo, learning_topics_content:[], user_attributes: [:self_introduction])
   end
 end
