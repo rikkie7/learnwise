@@ -1,0 +1,43 @@
+h2 {
+  font-size: 24px;
+}
+
+.profile {
+  width: 200px;
+  height: 200px; /* Container is a square */
+  border-radius: 50%; /* Makes the container round */
+  overflow: hidden; /* Hides any overflow from the image */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers the image */
+  background-color: #f0f0f0; /* Optional background color */
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container without distortion */
+  max-width: none; /* Prevents the image from being limited by the container's width */
+  max-height: none; /* Prevents the image from being limited by the container's height */
+}
+
+.profile-center {
+  width: 700px;
+}
+
+.profile-box {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.edit-button {
+  background-color: #1E293B;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 10px
+}

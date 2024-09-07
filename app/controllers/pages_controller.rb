@@ -20,6 +20,8 @@ class PagesController < ApplicationController
     end
   end
 
+  def profile
+  end
   private
 
   def top_courses_with_more_students
