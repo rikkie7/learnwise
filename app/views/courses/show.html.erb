@@ -94,8 +94,10 @@
           </div>
           <%= @course.user.self_introduction %>
           <div class="text-end">
-            <%= link_to edit_user_registration_path(current_user) do %>
-              <%= content_tag(:i, "", class: "fa-solid fa-pen-to-square") %>
+            <% if @course.user == current_user %>
+              <%= link_to edit_user_registration_path(current_user) do %>
+                <%= content_tag(:i, "", class: "fa-solid fa-pen-to-square") %>
+              <% end %>
             <% end %>
           </div>
         </div>
