@@ -22,7 +22,7 @@
           <div class="course-image me-3">
             <% if course.photo.attached? %>
               <%= cl_image_tag course.photo.key, class: "image-foreach-course" %>
-            <% else %>
+            <% elsif course.image_url.present? %>
               <%= image_tag course.image_url, alt: course.title, class: "image-foreach-course" %>
             <% end %>
           </div>

@@ -93,6 +93,11 @@
             </div>
           </div>
           <%= @course.user.self_introduction %>
+          <div class="text-end">
+            <%= link_to edit_user_registration_path(current_user) do %>
+              <%= content_tag(:i, "", class: "fa-solid fa-pen-to-square") %>
+            <% end %>
+          </div>
         </div>
 
         <!-- review card -->
@@ -134,7 +139,7 @@
       <div class="course_booking_card">
           <% if @course.image_url? %>
             <img src="<%= @course.image_url%>" alt="" class="course_image">
-          <% else %>
+          <% elsif @course.photo.attached? %>
              <%= cl_image_tag @course.photo.key, class: "course_image" %>
           <% end %>
           <div class="course_booking_card_content_price">
