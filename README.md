@@ -46,34 +46,64 @@ Node.js (for JavaScript dependencies)
 Installation
 
 1 - Clone the repository: git clone git@github.com:rikkie7/learnwise.git
+
 2 - cd learnwise
+
 3 - Install dependencies: bundle install
+
 4 - Set up the database: rails db:create rails db:migrate rails db:seed
+
 5 - Start the server: rails s
+
 6 - For Stripe payment confirmation:
+
   6.1 - run: brew install ngrok/ngrok
+
   6.2 - run: ngrok http http://localhost:300
+
   6.3 - Copy the Forwarding and visit. ie: https://9e88-159-196-12-115.ngrok-free.app
+
 7 - Use this URL to browse around
 
+
 Alternatively you can go to the website:
+
 https://www.learn-wise.live/
 
 Log in
+
 Email: user1@gmail.com
+
 Password: password
 
+
+
 Payment page:
+
 email: user1@gmail.com
+
 Card information: 4242 4242 4242 4242
+
 MM / YY : 03/34
+
 CVC: 222
+
 Cardholder name: John
 
+
+
 Usage
+
 • Register: Create an account or log in to start browsing and booking learning sessions.
+
 • Browse: Navigate through available resources and view their details.
+
 • Book: Select a session and choose your desired time slot.
+
 • Manage: Access your dashboard to view and manage your bookings.
+
 • Chat: Engage in real-time discussions through the chatrooms feature.
-• Chatbot: Get instant assistance and guidance from the integrated chatbot for booking sessions, finding resources, or navigating the platform efficiently.  
+
+• Chatbot: Get instant assistance and guidance from the integrated chatbot for booking sessions, finding resources, or navigating the platform efficiently.
+
+
