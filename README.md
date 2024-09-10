@@ -76,4 +76,4 @@ Usage
 • Book: Select a session and choose your desired time slot.
 • Manage: Access your dashboard to view and manage your bookings.
 • Chat: Engage in real-time discussions through the chatrooms feature.
-• Chatbot: Get instant assistance and guidance from the integrated chatbot for booking sessions, finding resources, or navigating the platform efficiently.
+• Chatbot: Get instant assistance and guidance from the integrated chatbot for booking sessions, finding resources, or navigating the platform efficiently.  
