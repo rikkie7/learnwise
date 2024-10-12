@@ -3,21 +3,21 @@
 
   <%= simple_form_for(@course, html: { class: "login-form custom-form-width text-start", multipart: true }) do |f| %>
     <div class="form-inputs">
-      <%= f.input :title, input_html: { class: "form-control" }, placeholder: "e.g. Learn Photoshop CS6 from Scratch" %>
-      <%= f.input :description, input_html: { class: "form-control large-text-field" }, placeholder: "e.g.Learn to make innovative web apps with Ruby on Rails and unleash your creativity" %>
+      <%= f.input :title, input_html: { class: "form-control" } %>
+      <%= f.input :description, input_html: { class: "form-control large-text-field" } %>
 
       <div data-controller="datepicker">
         <%= f.input :start_date,
                     as: :string,
                     input_html: { data: { datepicker_target: "startDate"},
                     class: "form-control",
-                    placeholder: "Select a start date"
+                    placeholder: "Start date"
                     }%>
         <%= f.input :end_date,
                     as: :string,
                     input_html: { data: { datepicker_target: "endDate"},
                     class: "form-control",
-                    placeholder: "Select an end date"
+                    placeholder: "End date"
                     } %>
       </div>
 
@@ -36,10 +36,10 @@
 
       <div data-dynamic-fields-target="container">
         <%= label_tag "Learning topics", "Learning topics*", class: "form-label" %>
-        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Define the roles and responsibilities of a project manager" %>
-        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Estimate project timelines and budgets" %>
-        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Identify and manage project risks" %>
-        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "Example: Complete a case stydy to manage a project from conception to completion" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "E.g.: Define the roles and responsibilities of a project manager" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "E.g.: Estimate project timelines and budgets" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "E.g.: Identify and manage project risks" %>
+        <%= text_field_tag "learning_topic[content][]", nil, class:"form-control", placeholder: "E.g.: Complete a case study to manage a project from conception to completion" %>
       </div>
       <button type="button" id="add-learning-topic" class="btn btn-primary mb-2" data-action="click->dynamic-fields#addField">+ Add more topics</button>
 
@@ -54,9 +54,9 @@
             course_format_target: "format",
             action: "change->course-format#togglelocationField"
           }
-        }, prompt: "Where will the course take place?" %>
+        }, prompt: "Online or in-person?" %>
 
-      <div class="d-none" data-course-format-target="location">
+      <div data-course-format-target="location">
         <%= f.input :location,
                     input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                     wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
@@ -64,12 +64,6 @@
       </div>
 
       <%= f.input :photo, as: :file, input_html: { class: "form-control" }, label: "Course Photo" %>
-
-      <%= f.fields_for :user do |user_field| %>
-        <% if current_user.self_introduction.present? %>
-          <%= user_field.input :self_introduction, input_html: { class: "form-control large-text-field" } %>
-        <% end %>
-      <% end %>
     </div>
 
     <div class="form-actions">

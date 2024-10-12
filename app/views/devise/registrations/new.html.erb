@@ -1,7 +1,7 @@
 <h2 class="login-heading">Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "login-form" }) do |f| %>
-  
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "login-form custom-form-width" }) do |f| %>
+
 
   <div class="form-inputs">
     <%= f.input :first_name,
@@ -26,6 +26,9 @@
                 input_html: { autocomplete: "new-password", class: "form-control" } %>
     <%= f.input :photo, as: :file,
                 input_html: { class: "form-control-file" } %>
+    <%= f.input :self_introduction,
+                input_html: { placeholder: "Tell us about yourself", class: "form-control" } %>
+
   </div>
 
   <div class="form-actions">

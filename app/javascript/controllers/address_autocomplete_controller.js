@@ -18,7 +18,9 @@ export default class extends Controller {
     this.element.querySelector(".mapboxgl-ctrl-geocoder--button").classList.add("mapbox-overwrite-button")
     this.element.querySelector(".mapboxgl-ctrl-geocoder").classList.add("mapbox-overwrite")
     const inputEl = this.element.querySelector(".mapboxgl-ctrl-geocoder--input")
-    inputEl.placeholder = "Where are you going to have your class?"
+    inputEl.placeholder = "Address"
+
+    inputEl.style.width = "100%";
   }
 
   disconnect() {

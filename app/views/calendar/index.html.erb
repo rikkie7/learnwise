@@ -2,7 +2,7 @@
   <h1>Calendar</h1>
   <div class="add-new-class">
     <% if @course.user == current_user %>
-      <%= button_to "Add new a new class", new_course_session_path, method: :get, style: "background-color: #1E293B" %>
+      <%= button_to "Add a new class", new_course_session_path, method: :get, style: "background-color: #1E293B" %>
     <% end %>
   </div>
 </div>
