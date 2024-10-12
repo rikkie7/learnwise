@@ -53,10 +53,13 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 974px) {
   .image-overlay {
     font-size: 20px;
     padding: 6px 12px;
+  }
+  .d-flex {
+    flex-direction: column !important;
   }
 }
 
