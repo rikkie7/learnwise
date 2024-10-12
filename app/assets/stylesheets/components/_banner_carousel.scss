@@ -32,10 +32,18 @@
 .carousel-background {
   width: 100%;
   height: 382.086px;
-  background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2dec-4dc5-b0f2-c5b656909d5b.jpg');
-  background-repeat:round;
+  // background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2dec-4dc5-b0f2-c5b656909d5b.jpg');
+  // background-repeat:round;
   background-position: center;
-  background-repeat: space;
+  background-repeat: no-repeat;
+}
+
+.carousel-background-first {
+  background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2dec-4dc5-b0f2-c5b656909d5b.jpg');
+}
+
+.carousel-background-second {
+  background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/10ca89f6-811b-400e-983b-32c5cd76725a.jpg');
 }
 
 @media (max-width: 1280px) {
@@ -47,8 +55,13 @@
 
 @media (max-width: 576px) {
   .card-on-carousel {
-    left: 8rem;
-    top:2rem;
+    left: 2rem;
+    // top:23.88037rem;
     width: 20rem;
+  }
+  .carousel-background-first {
+    // background-image: url('https://img-c.udemycdn.com/notices/web_carousel_sl…sponsive/940c09d8-5549-4207-8670-693e45b81afd.jpg') !important;
+    // background-image: url('/app/assets/images/carousel_background1_small.jpg') ;
+
   }
 }

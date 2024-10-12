@@ -84,45 +84,45 @@ puts "Creating sessions ..."
 Session.create!(
   title: "Class 01",
   description: "First class of Learn Ruby on Rails Course",
-  start_time: "2024-09-07 18:00:00",
-  end_time: "2024-09-07 21:00:00",
-  date: "2024-09-07",
+  start_time: "2025-09-07 18:00:00",
+  end_time: "2025-09-07 21:00:00",
+  date: "2025-09-07",
   course: course1
 )
 
 Session.create!(
   title: "Class 02",
   description: "Second class of Learn Ruby on Rails Course",
-  start_time: "2024-09-30 18:00:00",
-  end_time: "2024-09-30 21:00:00",
-  date: "2024-09-30",
+  start_time: "2025-09-30 18:00:00",
+  end_time: "2025-09-30 21:00:00",
+  date: "2025-09-30",
   course: course1
 )
 
 Session.create!(
   title: "Cooking class",
   description: "Learn how to make a salad ",
-  start_time: "2024-09-07 18:00:00",
-  end_time: "2024-09-07 21:00:00",
-  date: "2024-09-07",
+  start_time: "2025-09-07 18:00:00",
+  end_time: "2025-09-07 21:00:00",
+  date: "2025-09-07",
   course: course4
 )
 
 Session.create!(
   title: "Fantastic plants",
   description: "You will learn how to plant these plants and where to find them ",
-  start_time: "2024-09-01 13:00:00",
-  end_time: "2024-09-01 18:00:00",
-  date: "2024-09-01",
+  start_time: "2025-09-01 13:00:00",
+  end_time: "2025-09-01 18:00:00",
+  date: "2025-09-01",
   course: course5
 )
 
 Session.create!(
   title: "First aid 101",
   description: "How to do CPR ",
-  start_time: "2024-08-31 19:00:00",
-  end_time: "2024-08-31 22:00:00",
-  date: "2024-08-31",
+  start_time: "2025-08-31 19:00:00",
+  end_time: "2025-08-31 22:00:00",
+  date: "2025-08-31",
   course: course8
 )
 

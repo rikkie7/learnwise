@@ -1,6 +1,6 @@
 .banner {
   width: 100%;
-  min-height: 350px;
+  // min-height: 350px;
   background-color: #2d2f31;
   margin: 0 auto;
   padding: 16px auto;
@@ -11,8 +11,15 @@
   font-size: large;
 }
 
+.banner h2 {
+  margin: 1rem auto;
+}
+
+#banner_content{
+  margin: auto 2rem;
+}
 .banner-discription {
-  width: 80%;
+  width: 85%;
 }
 .merriweather-light {
   font-family: "Merriweather", serif;
@@ -169,5 +176,20 @@ i {
 @media(max-width: 974px) {
   .what_you_will_learn {
     width: 100%
+  }
+
+@media(max-width: 576px) {
+  .banner p {
+    margin: 0 auto;
+    font-size: medium;
+  }
+
+  .banner h2 {
+    font-size: larger;
+    }
+  }
+
+  .d-flex {
+    flex-direction: row;
   }
 }
