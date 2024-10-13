@@ -6,6 +6,13 @@
   position: relative;
 }
 
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+
 .image-overlay {
   position: absolute;
   top: 50%;
@@ -32,10 +39,15 @@
 }
 
 .course-description-index-course {
-  .w-50 {
-    text-align: left;
-    margin-bottom: 10px;
-  }
+  align-items: self-end;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.course-description {
+  display: flex;
+  justify-content: left;
+
 }
 
 .more-details-button:hover {
@@ -43,7 +55,18 @@
 }
 
 .type-of-course {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   margin-bottom: 10px;
+}
+
+.hover-black {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  // margin-bottom: 10px;
+  margin: 0px 0 !important
 }
 
 @media (max-width: 1200px) {
@@ -53,24 +76,45 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 974px) {
+  .image-overlay {
+    padding: 6px 12px;
+  }
+
+  .image-course-index {
+    height: 400px;
+  }
+
+  .course-description {
+    font-size: 15px;
+  }
+  .type-of-course {
+    font-size: small;
+  }
+  .hover-black {
+    font-size: small;
+  }
+}
+
+@media (max-width: 800px) {
   .image-overlay {
     font-size: 20px;
     padding: 6px 12px;
   }
-}
 
-@media (max-height: 800px) {
-  .image-overlay {
-    font-size: 20px;
-    padding: 6px 12px;
+  .image-course-index {
+    height: 350px;
   }
 }
 
 @media (max-width: 768px) {
+  .course-image {
+    margin-top: 10px;
+  }
   .course-card {
     flex-direction: column;
     padding: 10px;
+    margin-bottom: 0 !important;
   }
 
   .course-image {
@@ -82,10 +126,6 @@
     width: 100%;
     height: auto;
     border-radius: 8px;
-  }
-
-  .d-flex {
-    flex-direction: column;
   }
 
   .form-control {
@@ -100,6 +140,7 @@
   .image-overlay {
     font-size: 20px;
     padding: 4px 8px;
+    margin: 0px 0px !important;
   }
 
   .course-description-index-course {
@@ -111,6 +152,24 @@
 
   .course-description-index-course .w-50 {
     width: 100%;
+  }
+
+  .image-course-index {
+    height: 350px;
+  }
+
+  .type-of-course {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  .hover-black {
+    margin: 0px 0 !important;
+    font-size: 15px;
+  }
+
+  .type-of-course {
+    font-size: 15px;
   }
 }
 
@@ -124,6 +183,8 @@
 @media (max-width: 576px) {
   .course-card {
     padding: 8px;
+    display: flex;
+    flex-direction: column !important;
   }
 
   .course-description-index-course {
@@ -140,10 +201,6 @@
     border-radius: 4px;
   }
 
-  .d-flex {
-    flex-direction: column;
-  }
-
   .form-control {
     font-size: 14px;
   }
@@ -155,5 +212,14 @@
   .image-overlay {
     font-size: 20px;
     padding: 4px 8px;
+    // top: 35%;
+  }
+
+  .image-course-index {
+    height: 250px;
+  }
+
+  .type-of-course {
+    text-align: center !important;
   }
 }

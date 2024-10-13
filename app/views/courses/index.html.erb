@@ -1,7 +1,10 @@
-<%= image_tag image_path("#{params[:category]}.jpeg"), class: "image-course-index" %>
-<div class="image-overlay">
-  <%= params[:category].capitalize %>
+<div class="image-container">
+  <%= image_tag image_path("#{params[:category]}.jpeg"), class: "image-course-index" %>
+  <div class="image-overlay">
+    <%= params[:category].capitalize %>
+  </div>
 </div>
+
 <div class="container my-3">
   <div class="row justify-content-center">
     <div class="col-sm-6 my-3">
@@ -27,18 +30,18 @@
             <% end %>
           </div>
           <div class="d-flex justify-content-between flex-grow w-100 course-description-index-course">
-            <div class="w-50">
+            <div class="course-description">
               <%= truncate(course.title, length: 45, separator: ' ') %> <br>
               Description:
               <%= truncate(course.description, length: 32, separator: ' ') %> <br>
               Price: $ <%= course.price %>
             </div>
-          <div class="align-self-end type-of-course">
-            Type: <%= course.size.capitalize %> Class
-          </div>
-          <div class="align-self-end hover-black">
-            <%= link_to "More details", course_path(course), class: "align-self-end text-decoration-none fw-normal"%>
-          </div>
+            <div class="type-of-course">
+              Type: <%= course.size.capitalize %> Class
+            </div>
+            <div class="hover-black">
+              <%= link_to "More details", course_path(course), class: "more-details-button text-decoration-none fw-normal"%>
+            </div>
           </div>
         </div>
       <% end %>

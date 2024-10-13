@@ -1,20 +1,10 @@
 .carousel-container {
   width: 100%;
-  height: 400px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-
-// .carousel-card {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 80%;
-//   height: 400px;
-//   background-color: rgb(9, 107, 107);
-// }
 
 .card-on-carousel {
   max-width: 30rem;
@@ -31,24 +21,69 @@
 
 .carousel-background {
   width: 100%;
-  height: 382.086px;
-  background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2dec-4dc5-b0f2-c5b656909d5b.jpg');
-  background-repeat:round;
+  height: 450px;
+  // background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2dec-4dc5-b0f2-c5b656909d5b.jpg');
+  // background-repeat:round;
   background-position: center;
-  background-repeat: space;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@media (max-width: 1280px) {
+.carousel-background-first {
+  background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2dec-4dc5-b0f2-c5b656909d5b.jpg');
+}
+
+.carousel-background-second {
+  background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/10ca89f6-811b-400e-983b-32c5cd76725a.jpg');
+}
+
+@media (max-width: 1920px) {
   .card-on-carousel {
     left: 12rem;
+    top:6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .card-on-carousel {
+    left: 10rem;
     top:4rem;
+    width: 25rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .card-on-carousel {
+    left: 10rem;
+    top:4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-on-carousel {
+    left: 8rem;
+    top:4rem;
+    width: 25rem;
   }
 }
 
 @media (max-width: 576px) {
   .card-on-carousel {
-    left: 8rem;
-    top:2rem;
-    width: 20rem;
+    left: 13%;
+    // top:23.88037rem;
+    width: 16rem;
+    padding: 2rem;
+  }
+
+  .card-on-carousel h2 {
+    font-size: 1.2rem;
+  }
+
+  .card-on-carousel p {
+    font-size: xx-small;
+  }
+
+  .carousel-background {
+    height: 350px;
   }
 }
