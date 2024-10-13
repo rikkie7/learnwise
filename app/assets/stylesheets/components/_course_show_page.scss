@@ -177,6 +177,7 @@ i {
   .what_you_will_learn {
     width: 100%
   }
+}
 
 @media(max-width: 576px) {
   .banner p {
@@ -188,12 +189,3 @@ i {
     font-size: larger;
     }
   }
-
-  .d-flex {
-    flex-direction: row;
-  }
-}
-
-.fa-pen-to-square {
-  color: #1E293B;
-}

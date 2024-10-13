@@ -40,6 +40,12 @@
   }
 }
 
+@media (max-width: 575px) {
+  .course_booking_card {
+    margin: 1.5rem auto;
+  }
+}
+
 
 .course_image {
   width: 100%;
@@ -95,17 +101,18 @@ p {
   padding: 0 auto;
 }
 
-.booking_button {
-  width: 100%;
-  border: 1px solid rgb(68, 68, 68);
-  height: 55px;
-  font-weight: 600;
-  background-color: white;
-  font-size: medium;
-  border-radius: 3px;
-  margin-bottom: 16px;
-  color: rgb(68, 68, 68);
-}
+// .booking_button {
+//   width: 100%;
+//   border: 1px solid rgb(68, 68, 68);
+//   height: 55px;
+//   font-weight: 600;
+//   background-color: #1e293b;
+//   font-size: medium;
+//   border-radius: 3px;
+//   margin-bottom: 16px;
+//   color: rgb(255, 255, 255);
+//   border-radius: ;
+// }
 
 .edit-course-button {
   width: 100%;
