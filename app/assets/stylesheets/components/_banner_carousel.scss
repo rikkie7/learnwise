@@ -68,8 +68,17 @@
 }
 
 @media (max-width: 576px) {
+  .carousel-background-first {
+    background-position: -440px 0;
+  }
+
+  .carousel-button{
+    font-size: x-small !important; ;
+  }
+
   .card-on-carousel {
     left: 13%;
+    top: 25%;
     // top:23.88037rem;
     width: 16rem;
     padding: 2rem;
